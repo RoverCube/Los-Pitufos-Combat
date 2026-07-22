@@ -49,12 +49,14 @@ grow_vertical = 2
 script = ExtResource("1_lqmia")
 
 [node name="PitufosHud" type="Sprite2D" parent="." unique_id=1330512356]
+visible = false
 modulate = Color(1, 1, 1, 0.19607843)
 texture_filter = 1
 texture = ExtResource("1_n26cp")
 centered = false
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=979119189]
+modulate = Color(1, 1, 1, 0.49803922)
 texture = ExtResource("5_jaax7")
 centered = false
 
@@ -112,7 +114,7 @@ theme_override_constants/outline_size = 24
 theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/font = ExtResource("10_xpfw1")
 theme_override_font_sizes/font_size = 120
-text = "99"
+text = "="
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
