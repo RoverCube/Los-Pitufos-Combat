@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bfjkde6g2bros"]
+
+[ext_resource type="Texture2D" uid="uid://1v8l4ondcpk3" path="res://a1.png" id="1_4qc02"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eflb2"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4qc02"]
+sky_material = SubResource("ProceduralSkyMaterial_eflb2")
+
+[sub_resource type="Environment" id="Environment_4wuf8"]
+background_mode = 2
+sky = SubResource("Sky_4qc02")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Test Map" type="Node3D" unique_id=656725598]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=546651190]
+environment = SubResource("Environment_4wuf8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593711822]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1863626576]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -5)
+keep_aspect = 0
+fov = 70.0
+far = 128.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=902853471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+flip_faces = true
+size = Vector3(12, 3, 12)
+
+[node name="A1" type="Sprite2D" parent="." unique_id=215855854]
+texture = ExtResource("1_4qc02")
+centered = false
