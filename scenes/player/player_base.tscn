@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cwtu8c1k0078k"]
+
+[ext_resource type="Script" uid="uid://bskx223fq3suj" path="res://classes/player/player.gd" id="1_5np8l"]
+[ext_resource type="Script" uid="uid://cjb6p0dk8jcn1" path="res://classes/statemachine/state_machine.gd" id="1_xb0ah"]
+[ext_resource type="Script" uid="uid://drigvsmw78w1u" path="res://classes/player/states/0-idle.gd" id="3_ra71l"]
+[ext_resource type="Script" uid="uid://chslucqvouqj5" path="res://classes/player/states/1-walk.gd" id="4_ibn3i"]
+[ext_resource type="Script" uid="uid://d1sgeqgfblbtv" path="res://classes/player/states/2-jump.gd" id="5_j3kt6"]
+[ext_resource type="Script" uid="uid://bic4yb8klxe2m" path="res://classes/player/states/3-crouch.gd" id="6_300uk"]
+[ext_resource type="Script" uid="uid://dq5ct6e6qir30" path="res://classes/player/states/4-attack.gd" id="7_7w76b"]
+[ext_resource type="Script" uid="uid://bgxe4ac2qqfpl" path="res://classes/player/states/5-hurt.gd" id="8_f4in7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d23h3"]
+size = Vector2(20, 40)
+
+[node name="PlayerBase" type="CharacterBody2D" unique_id=2084125617]
+script = ExtResource("1_5np8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52113262]
+position = Vector2(0, -20.5)
+shape = SubResource("RectangleShape2D_d23h3")
+
+[node name="StateMachine" type="Node" parent="." unique_id=899047569]
+script = ExtResource("1_xb0ah")
+metadata/_custom_type_script = "uid://cjb6p0dk8jcn1"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=777843219]
+script = ExtResource("3_ra71l")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1194781956]
+script = ExtResource("4_ibn3i")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1834724891]
+script = ExtResource("5_j3kt6")
+
+[node name="Crouch" type="Node" parent="StateMachine" unique_id=446201836]
+script = ExtResource("6_300uk")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=551642325]
+script = ExtResource("7_7w76b")
+
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=47396485]
+script = ExtResource("8_f4in7")
