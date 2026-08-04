@@ -12,6 +12,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d23h3"]
 size = Vector2(20, 40)
 
+[sub_resource type="Animation" id="Animation_ra71l"]
+resource_name = "new_animation"
+step = 0.08333334
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibn3i"]
+_data = {
+&"new_animation": SubResource("Animation_ra71l")
+}
+
 [node name="PlayerBase" type="CharacterBody2D" unique_id=2084125617]
 script = ExtResource("1_5np8l")
 
@@ -19,24 +28,38 @@ script = ExtResource("1_5np8l")
 position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_d23h3")
 
-[node name="StateMachine" type="Node" parent="." unique_id=899047569]
+[node name="StateMachine" type="Node" parent="." unique_id=899047569 node_paths=PackedStringArray("buffer_timer", "all_states")]
 script = ExtResource("1_xb0ah")
+buffer_timer = NodePath("Buffer")
+all_states = [NodePath("Idle"), NodePath("Walk"), NodePath("Jump"), NodePath("Crouch"), NodePath("Attack"), NodePath("Hurt")]
 metadata/_custom_type_script = "uid://cjb6p0dk8jcn1"
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=777843219]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=777843219 node_paths=PackedStringArray("player")]
 script = ExtResource("3_ra71l")
+player = NodePath("../..")
 
-[node name="Walk" type="Node" parent="StateMachine" unique_id=1194781956]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1194781956 node_paths=PackedStringArray("player")]
 script = ExtResource("4_ibn3i")
+player = NodePath("../..")
 
-[node name="Jump" type="Node" parent="StateMachine" unique_id=1834724891]
+[node name="Jump" type="Node" parent="StateMachine" unique_id=1834724891 node_paths=PackedStringArray("player")]
 script = ExtResource("5_j3kt6")
+player = NodePath("../..")
 
-[node name="Crouch" type="Node" parent="StateMachine" unique_id=446201836]
+[node name="Crouch" type="Node" parent="StateMachine" unique_id=446201836 node_paths=PackedStringArray("player")]
 script = ExtResource("6_300uk")
+player = NodePath("../..")
 
-[node name="Attack" type="Node" parent="StateMachine" unique_id=551642325]
+[node name="Attack" type="Node" parent="StateMachine" unique_id=551642325 node_paths=PackedStringArray("player")]
 script = ExtResource("7_7w76b")
+player = NodePath("../..")
 
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=47396485]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=47396485 node_paths=PackedStringArray("player")]
 script = ExtResource("8_f4in7")
+player = NodePath("../..")
+
+[node name="Buffer" type="Timer" parent="StateMachine" unique_id=75076894]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=66766873]
+libraries/ = SubResource("AnimationLibrary_ibn3i")
