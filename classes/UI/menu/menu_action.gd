@@ -1,6 +1,5 @@
 @abstract
 class_name MenuAction
-extends Resource
+extends Node
 
-@abstract
-func action() -> void
+func action() -> void: pass

@@ -5,7 +5,7 @@ var menu : Menu
 
 @export var anim: AnimationPlayer
 @export var confirmed_action : MenuAction
-@export var selected: bool = false:
+var selected: bool = false:
 	set(new):
 		if selected == false and new == true:
 			anim.play("selected")
@@ -20,10 +20,11 @@ func _input(_event: InputEvent) -> void:
 	if not selected:
 		return
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("UI Accept"):
 		confirm()
 
 
 func confirm() -> void:
 	if menu.active == true:
+		#confirmed_action.entry = self
 		confirmed_action.action()

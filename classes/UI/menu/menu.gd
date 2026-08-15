@@ -7,7 +7,7 @@ var current : int = 0
 	set(new):
 		if new == true:
 			entries[current].selected = true
-		visible = new
+		#visible = new
 		active = new
 
 
