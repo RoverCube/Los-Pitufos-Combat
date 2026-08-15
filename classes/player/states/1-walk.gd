@@ -4,7 +4,7 @@ func _on_start_state() -> void:
 	pass # animations
 
 func _update_physics(delta: float) -> void:
-	player.velocity.x = player.speed * delta
+	player.velocity.x = player.speed * delta * player.dir_input
 	player.move_and_slide()
 
 func _on_end_state() -> void:

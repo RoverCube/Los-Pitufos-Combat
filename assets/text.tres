@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://b5k2kvgp4rvht"]
+
+[ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="1_ht7no"]
+
+[resource]
+Label/constants/outline_size = 16
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("1_ht7no")

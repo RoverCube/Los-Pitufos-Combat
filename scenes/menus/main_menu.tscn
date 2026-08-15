@@ -1,0 +1,372 @@
+[gd_scene format=3 uid="uid://bto72rtl3ksjh"]
+
+[ext_resource type="Script" uid="uid://dv51rnudp4rbc" path="res://classes/main.gd" id="1_xqga4"]
+[ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="2_6bivr"]
+[ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="2_ovrgc"]
+[ext_resource type="PackedScene" uid="uid://7vlyhqnjv7cx" path="res://scenes/menus/main_entry.tscn" id="3_1hnlc"]
+[ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="4_6bivr"]
+[ext_resource type="Shader" uid="uid://dnv8426o62o4g" path="res://assets/shaders/repeat.gdshader" id="4_8r73w"]
+[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="5_8r73w"]
+
+[sub_resource type="Animation" id="Animation_xqga4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Splash/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Splash/Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Splash/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Splash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PressAny:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2o76q"]
+resource_name = "selected press any"
+
+[sub_resource type="Animation" id="Animation_ovrgc"]
+resource_name = "start"
+length = 4.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Splash/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Splash/Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.25, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Splash/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.75, 2.25, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Splash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2o76q"]
+_data = {
+&"RESET": SubResource("Animation_xqga4"),
+&"selected press any": SubResource("Animation_2o76q"),
+&"start splash": SubResource("Animation_ovrgc")
+}
+
+[sub_resource type="Gradient" id="Gradient_1hnlc"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_50h1w"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_1hnlc")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_euy4r"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bre17"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_euy4r")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_88kup"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bh4e2"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_88kup")
+width = 512
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hnlc"]
+shader = ExtResource("4_8r73w")
+shader_parameter/offset = Vector2(8, -8)
+shader_parameter/first_color = Color(0, 0.5764706, 0.8156863, 1)
+shader_parameter/second_color = Color(0, 0.0627451, 0.1764706, 1)
+
+[sub_resource type="Gradient" id="Gradient_8r73w"]
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1hnlc"]
+gradient = SubResource("Gradient_8r73w")
+width = 512
+
+[sub_resource type="LabelSettings" id="LabelSettings_8r73w"]
+font_size = 58
+font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(-4, 4)
+stacked_shadow_0/color = Color(0, 0.5764706, 0.8156863, 1)
+stacked_shadow_0/outline_size = -16
+stacked_shadow_1/offset = Vector2(-8, 8)
+stacked_shadow_1/color = Color(0, 0.0627451, 0.1764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1hnlc"]
+font_size = 70
+font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(-4, 4)
+stacked_shadow_0/color = Color(0, 0.5764706, 0.8156863, 1)
+stacked_shadow_0/outline_size = -16
+stacked_shadow_1/offset = Vector2(-8, 8)
+stacked_shadow_1/color = Color(0, 0.0627451, 0.1764706, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xqga4"]
+size = Vector2(512, 512)
+
+[node name="MainMenu" type="Node" unique_id=18320176 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_xqga4")
+anim = NodePath("Animation")
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=621174222]
+libraries/ = SubResource("AnimationLibrary_2o76q")
+autoplay = &"RESET"
+
+[node name="MainMenu" type="Control" parent="." unique_id=1555556740 node_paths=PackedStringArray("entries")]
+layout_mode = 3
+anchor_top = 0.26296297
+anchor_right = 0.425
+anchor_bottom = 0.7185185
+offset_left = 128.0
+offset_top = 10.0
+offset_right = 128.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("2_6bivr")
+entries = [NodePath("Jogar"), NodePath("Configurações"), NodePath("Creditos"), NodePath("Sair")]
+metadata/_custom_type_script = "uid://bhio7ycokfoiy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Jogar" parent="MainMenu" unique_id=1749882407 instance=ExtResource("3_1hnlc")]
+layout_mode = 0
+
+[node name="Configurações" parent="MainMenu" unique_id=1823842418 instance=ExtResource("3_1hnlc")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 127.0
+offset_right = 640.0
+offset_bottom = 238.0
+
+[node name="Label" parent="MainMenu/Configurações" index="0" unique_id=1236118041]
+text = "      COnfigurações"
+
+[node name="Bg" parent="MainMenu/Configurações" index="1" unique_id=1436517177]
+texture = SubResource("GradientTexture1D_50h1w")
+
+[node name="Creditos" parent="MainMenu" unique_id=344160684 instance=ExtResource("3_1hnlc")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 254.0
+offset_right = 704.0
+offset_bottom = 365.0
+
+[node name="Label" parent="MainMenu/Creditos" index="0" unique_id=1236118041]
+text = "      Creditos"
+
+[node name="Bg" parent="MainMenu/Creditos" index="1" unique_id=1436517177]
+texture = SubResource("GradientTexture1D_bre17")
+
+[node name="Sair" parent="MainMenu" unique_id=442386244 instance=ExtResource("3_1hnlc")]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 381.0
+offset_right = 768.0
+offset_bottom = 492.0
+
+[node name="Label" parent="MainMenu/Sair" index="0" unique_id=1236118041]
+text = "      Sair"
+
+[node name="Bg" parent="MainMenu/Sair" index="1" unique_id=1436517177]
+texture = SubResource("GradientTexture1D_bh4e2")
+
+[node name="PressAny" type="Control" parent="." unique_id=95552370]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 144.0
+offset_top = 663.0
+offset_right = 656.0
+offset_bottom = 803.0
+
+[node name="Logo" type="Sprite2D" parent="PressAny" unique_id=179600930]
+self_modulate = Color(0.931, 0.9644834, 0.98, 1)
+material = SubResource("ShaderMaterial_1hnlc")
+position = Vector2(0, -535)
+texture = ExtResource("5_8r73w")
+centered = false
+
+[node name="Bg" type="Sprite2D" parent="PressAny" unique_id=1980530188]
+z_index = -1
+position = Vector2(267.0231, 153.08557)
+scale = Vector2(1.0109253, 175.31702)
+skew = -0.5235988
+texture = SubResource("GradientTexture1D_1hnlc")
+
+[node name="Label" type="Label" parent="PressAny" unique_id=73717437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 78.0
+offset_right = -37.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6bivr")
+theme_override_colors/font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
+theme_override_colors/font_outline_color = Color(0, 0.03529412, 0.09803922, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 58
+text = "PRESSIONE QUALQUER 
+    BUTÃO"
+label_settings = SubResource("LabelSettings_8r73w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PressAny" unique_id=153119675]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -61.0
+offset_right = -5.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6bivr")
+theme_override_colors/font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 70
+text = "LOS PITUFOS COMBAT"
+label_settings = SubResource("LabelSettings_1hnlc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Splash" type="Control" parent="." unique_id=197688304]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Splash" unique_id=638904789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="Sprite2D" parent="Splash" unique_id=1735362943]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+texture = SubResource("PlaceholderTexture2D_xqga4")
+
+[node name="Label" type="Label" parent="Splash" unique_id=2012827139]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ovrgc")
+theme_override_font_sizes/font_size = 64
+text = "Feito por alunos do 
+3° ano do Ensino Medio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="MainMenu/Configurações"]
+[editable path="MainMenu/Creditos"]
+[editable path="MainMenu/Sair"]

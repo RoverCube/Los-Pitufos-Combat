@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfjkde6g2bros"]
 
-[ext_resource type="Texture2D" uid="uid://1v8l4ondcpk3" path="res://a1.png" id="1_4qc02"]
+[ext_resource type="PackedScene" uid="uid://cwtu8c1k0078k" path="res://scenes/player/player_base.tscn" id="2_4wuf8"]
+[ext_resource type="Texture2D" uid="uid://3f0xaeoou7da" path="res://icon.svg" id="2_s02eq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eflb2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,6 +36,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 flip_faces = true
 size = Vector3(12, 3, 12)
 
-[node name="A1" type="Sprite2D" parent="." unique_id=215855854]
-texture = ExtResource("1_4qc02")
-centered = false
+[node name="PlayerBase" parent="." unique_id=2084125617 instance=ExtResource("2_4wuf8")]
+position = Vector2(500, 777)
+
+[node name="Icon" type="Sprite2D" parent="PlayerBase" unique_id=2018101140]
+texture = ExtResource("2_s02eq")
