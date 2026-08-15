@@ -200,13 +200,13 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_287l7")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_555wk"]
+[sub_resource type="Gradient" id="Gradient_euy4r"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_awvna"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_555wk")
+gradient = SubResource("Gradient_euy4r")
 width = 512
 
 [sub_resource type="Gradient" id="Gradient_jygr6"]
@@ -217,6 +217,16 @@ colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 resource_local_to_scene = true
 gradient = SubResource("Gradient_jygr6")
 width = 512
+
+[sub_resource type="Gradient" id="Gradient_88kup"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.11764706, 1)
+colors = PackedColorArray(0, 0.57254905, 0.81960785, 0.39215687, 0, 0.57254905, 0.81960785, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bh4e2"]
+gradient = SubResource("Gradient_88kup")
+width = 1024
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hnlc"]
 shader = ExtResource("4_8r73w")
@@ -231,7 +241,7 @@ colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 gradient = SubResource("Gradient_8r73w")
 width = 512
 
-[sub_resource type="LabelSettings" id="LabelSettings_8r73w"]
+[sub_resource type="LabelSettings" id="LabelSettings_88kup"]
 font_size = 58
 font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
 stacked_shadow_count = 2
@@ -260,6 +270,7 @@ libraries/ = SubResource("AnimationLibrary_2o76q")
 autoplay = &"RESET"
 
 [node name="MainMenu" type="Control" parent="." unique_id=1555556740 node_paths=PackedStringArray("entries")]
+visible = false
 layout_mode = 3
 anchor_top = 0.26296297
 anchor_right = 0.425
@@ -415,10 +426,10 @@ metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 layout_mode = 0
 confirmed_action = NodePath("Close")
 
-[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="0" unique_id=1236118041]
+[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="0" unique_id=1812324059]
 text = "      Fecha jogo"
 
-[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="1" unique_id=1436517177]
+[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="1" unique_id=2036528659]
 texture = SubResource("GradientTexture1D_awvna")
 
 [node name="Close" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" unique_id=903026935]
@@ -432,10 +443,10 @@ offset_right = 640.0
 offset_bottom = 238.0
 confirmed_action = NodePath("CloseSubM")
 
-[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="0" unique_id=1236118041]
+[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="0" unique_id=424915540]
 text = "      Cancelar"
 
-[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="1" unique_id=1436517177]
+[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="1" unique_id=153334505]
 texture = SubResource("GradientTexture1D_n8vdk")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" unique_id=362000074 node_paths=PackedStringArray("menu", "sub_menu")]
@@ -451,6 +462,15 @@ offset_left = 144.0
 offset_top = 663.0
 offset_right = 656.0
 offset_bottom = 803.0
+
+[node name="Logo2" type="Sprite2D" parent="PressAny" unique_id=837465682]
+self_modulate = Color(0.931, 0.9644834, 0.98, 1)
+z_index = -14
+position = Vector2(-653, -450)
+rotation = -0.5061455
+scale = Vector2(0.9173918, 1739.2402)
+texture = SubResource("GradientTexture1D_bh4e2")
+centered = false
 
 [node name="Logo" type="Sprite2D" parent="PressAny" unique_id=179600930]
 self_modulate = Color(0.931, 0.9644834, 0.98, 1)
@@ -484,7 +504,7 @@ theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 58
 text = "PRESSIONE QUALQUER 
     BUTÃO"
-label_settings = SubResource("LabelSettings_8r73w")
+label_settings = SubResource("LabelSettings_88kup")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -507,6 +527,7 @@ text = "LOS PITUFOS COMBAT"
 label_settings = SubResource("LabelSettings_1hnlc")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Splash" type="Control" parent="." unique_id=197688304]
 layout_mode = 3

@@ -5,12 +5,12 @@ extends Node
 var press_any : bool = false
 
 func _ready() -> void:
-	anim.play("start splash")
+	#anim.play("start splash")
 	# plays the quick start animation (5s)
 	# seria massa uma animação aq tmb mas vamo ver se ta so scope dps
 	$PressAny.show()
 	
-	await anim.animation_finished
+	#await anim.animation_finished
 	$Splash.queue_free()
 	
 	press_any = true
