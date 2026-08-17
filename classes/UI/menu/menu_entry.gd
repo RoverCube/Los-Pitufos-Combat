@@ -3,7 +3,7 @@ extends Button
 
 var menu : Menu
 
-@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio: AudioStreamPlayer = $Audio
 @onready var anim: AnimationPlayer = $Animation
 @export var confirmed_action : MenuAction
 
@@ -40,5 +40,4 @@ func play_sfx(sfx: AudioStream) -> void:
 		audible = true
 		return
 	audio.stream = sfx
-	audio.play()
-	print(name)
+	if audio.is_inside_tree(): audio.play()

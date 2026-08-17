@@ -1,6 +1,7 @@
 class_name Menu
 extends Control
 
+@export_enum("Up Down", "Left Right") var dir: int
 @export var entries : Array[MenuEntry]
 var current : int = 0
 @export var active : bool = false:
@@ -17,9 +18,18 @@ func _ready() -> void:
 	entries[0].audible = false
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("UI Down"):
+	var add_input: String
+	var sub_input: String
+	if dir == 0:
+		add_input = "UI Down"
+		sub_input = "UI Up"
+	else :
+		add_input = "UI Right"
+		sub_input = "UI Left"
+	
+	if Input.is_action_just_pressed(add_input):
 		change_current(1)
-	if Input.is_action_just_pressed("UI Up"):
+	if Input.is_action_just_pressed(sub_input):
 		change_current(-1)
 
 func change_current(change:int) -> void:

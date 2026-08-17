@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://dv51rnudp4rbc" path="res://classes/main.gd" id="1_xqga4"]
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="2_6bivr"]
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="2_ovrgc"]
-[ext_resource type="PackedScene" uid="uid://7vlyhqnjv7cx" path="res://scenes/menus/main_entry.tscn" id="3_1hnlc"]
+[ext_resource type="PackedScene" uid="uid://7vlyhqnjv7cx" path="res://scenes/menus/entries/main_entry.tscn" id="3_1hnlc"]
 [ext_resource type="Script" uid="uid://bowlw1lx3v74k" path="res://classes/UI/menu/actions/open_submenu.gd" id="4_1hnlc"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="4_6bivr"]
 [ext_resource type="Shader" uid="uid://dnv8426o62o4g" path="res://assets/shaders/repeat.gdshader" id="4_8r73w"]
 [ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="5_8r73w"]
 [ext_resource type="Script" uid="uid://d3p1pp108cmd" path="res://classes/UI/menu/actions/close_submenu.gd" id="5_50h1w"]
+[ext_resource type="Script" uid="uid://ba7maawqrws5l" path="res://classes/UI/menu/actions/character_select.gd" id="5_bre17"]
 [ext_resource type="Script" uid="uid://cgdtr1ecuka67" path="res://classes/UI/menu/actions/close_game.gd" id="6_euy4r"]
 
 [sub_resource type="Animation" id="Animation_xqga4"]
@@ -323,8 +324,9 @@ script = ExtResource("2_6bivr")
 entries = [NodePath("Campanha"), NodePath("Versus"), NodePath("Treino"), NodePath("Voltar")]
 metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
-[node name="Campanha" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=162486321 instance=ExtResource("3_1hnlc")]
+[node name="Campanha" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=162486321 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
+confirmed_action = NodePath("CharcterSelect")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" index="0" unique_id=1236118041]
 text = "      Campanha"
@@ -332,12 +334,16 @@ text = "      Campanha"
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" index="1" unique_id=1436517177]
 texture = SubResource("GradientTexture1D_bre17")
 
-[node name="Versus" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=812995220 instance=ExtResource("3_1hnlc")]
+[node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" unique_id=339667835]
+script = ExtResource("5_bre17")
+
+[node name="Versus" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=812995220 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 127.0
 offset_right = 640.0
 offset_bottom = 238.0
+confirmed_action = NodePath("CharcterSelect")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" index="0" unique_id=1236118041]
 text = "      Versus"
@@ -345,18 +351,27 @@ text = "      Versus"
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" index="1" unique_id=1436517177]
 texture = SubResource("GradientTexture1D_3w8rc")
 
-[node name="Treino" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=394815060 instance=ExtResource("3_1hnlc")]
+[node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" unique_id=728872630]
+script = ExtResource("5_bre17")
+id = 1
+
+[node name="Treino" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=394815060 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 254.0
 offset_right = 704.0
 offset_bottom = 365.0
+confirmed_action = NodePath("CharcterSelect")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" index="0" unique_id=1236118041]
 text = "      Treino"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" index="1" unique_id=1436517177]
 texture = SubResource("GradientTexture1D_vr0hv")
+
+[node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" unique_id=1196988921]
+script = ExtResource("5_bre17")
+id = 2
 
 [node name="Voltar" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=946078085 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0

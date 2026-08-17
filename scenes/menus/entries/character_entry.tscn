@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://c2boueblx8dew"]
+
+[ext_resource type="Script" uid="uid://dnacy77lj7c8w" path="res://classes/UI/menu/menu_entry.gd" id="1_dvw7l"]
+[ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="2_1cbdb"]
+[ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/UI/sfx/sound-4.mp3" id="3_03gid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iagde"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqh8u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rruee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bdck"]
+
+[sub_resource type="Gradient" id="Gradient_1cbdb"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.19836843, 0.44058925, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_03gid"]
+gradient = SubResource("Gradient_1cbdb")
+width = 512
+height = 512
+fill_from = Vector2(1, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1cbdb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_03gid"]
+resource_local_to_scene = true
+font_size = 52
+font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
+shadow_size = 0
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(-4, 4)
+stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
+stacked_shadow_0/outline_size = 4
+
+[sub_resource type="Animation" id="Animation_jduwr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bg/Border:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bg/Border:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1cbdb"]
+resource_name = "deselected"
+length = 0.25000837
+step = 0.08333334
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(512, 0, 0, 0, -561.5, 64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bg/Border:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bg/Border:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_03gid"]
+resource_name = "selected"
+length = 0.25000837
+step = 0.08333334
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(64, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bg/Border:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bg/Border:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jduwr"]
+_data = {
+&"RESET": SubResource("Animation_jduwr"),
+&"deselected": SubResource("Animation_1cbdb"),
+&"selected": SubResource("Animation_03gid")
+}
+
+[node name="CharacterEntry" type="Button" unique_id=2052988392]
+custom_minimum_size = Vector2(64, 0)
+offset_right = 77.376945
+offset_bottom = 512.0
+localize_numeral_system = false
+focus_mode = 0
+focus_behavior_recursive = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h0nby")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iagde")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wqh8u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rruee")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7bdck")
+text = "
+"
+script = ExtResource("1_dvw7l")
+metadata/_custom_type_script = "uid://dnacy77lj7c8w"
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1642638236]
+skew = 0.2617994
+texture = SubResource("GradientTexture2D_03gid")
+centered = false
+
+[node name="Border" type="Sprite2D" parent="Bg" unique_id=2095950395]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1.5258789e-05, 512)
+rotation = -1.5707964
+texture = SubResource("NoiseTexture2D_1cbdb")
+centered = false
+
+[node name="Label" type="Label" parent="Bg" unique_id=1829866386]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.274187e-05
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 320.0
+grow_vertical = 2
+rotation = -1.5707964
+theme = ExtResource("2_1cbdb")
+theme_override_colors/font_color = Color(0.9506, 0.931, 0.98, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 58
+text = "    C R I S T I A N"
+label_settings = SubResource("LabelSettings_03gid")
+vertical_alignment = 1
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=2141658472]
+libraries/ = SubResource("AnimationLibrary_jduwr")
+autoplay = &"RESET"
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=322692242]
+stream = ExtResource("3_03gid")
+volume_db = -15.0
+pitch_scale = 2.0

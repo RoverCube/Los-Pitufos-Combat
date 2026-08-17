@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bd64ut1p7yfmt"]
 
-[ext_resource type="Script" uid="uid://dnacy77lj7c8w" path="res://classes/UI/menu/menu_entry.gd" id="1_0hlpr"]
+[ext_resource type="Script" uid="uid://dnacy77lj7c8w" path="res://classes/UI/menu/menu_entry.gd" id="1_o3shm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
 
@@ -26,9 +26,5 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_rruee")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7bdck")
 text = "
 "
-script = ExtResource("1_0hlpr")
+script = ExtResource("1_o3shm")
 metadata/_custom_type_script = "uid://dnacy77lj7c8w"
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="." to="." method="_on_pressed"]
