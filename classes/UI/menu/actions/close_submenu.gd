@@ -8,6 +8,7 @@ func action() -> void:
 	tween.tween_property(menu,"position",    Vector2(menu.position.x     + 256,menu.position.y), 0.25)
 	tween.tween_property(sub_menu,"position",Vector2(sub_menu.position.x - 320,sub_menu.position.y), 0.25)
 	tween.tween_property(sub_menu,"modulate",Color("fff0"), 0.25)
+	sub_menu.entries[0].audible = false
 	
 	await tween.finished
 

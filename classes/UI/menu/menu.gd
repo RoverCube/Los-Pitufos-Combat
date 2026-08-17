@@ -14,6 +14,7 @@ var current : int = 0
 func _ready() -> void:
 	for x in entries:
 		x.menu = self
+	entries[0].audible = false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("UI Down"):

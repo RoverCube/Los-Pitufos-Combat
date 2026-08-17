@@ -1,5 +1,6 @@
 extends MenuAction
 
+@export var entry    : MenuEntry
 @export var menu     : Menu
 @export var sub_menu : Menu
 

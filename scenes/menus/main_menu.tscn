@@ -137,15 +137,6 @@ _data = {
 &"start splash": SubResource("Animation_ovrgc")
 }
 
-[sub_resource type="Gradient" id="Gradient_50h1w"]
-resource_local_to_scene = true
-colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_euy4r"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_50h1w")
-width = 512
-
 [sub_resource type="Gradient" id="Gradient_bre17"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
@@ -153,6 +144,15 @@ colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_88kup"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_bre17")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_euy4r"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bre17"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_euy4r")
 width = 512
 
 [sub_resource type="Gradient" id="Gradient_bh4e2"]
@@ -200,13 +200,13 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_287l7")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_euy4r"]
+[sub_resource type="Gradient" id="Gradient_555wk"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_awvna"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_euy4r")
+gradient = SubResource("Gradient_555wk")
 width = 512
 
 [sub_resource type="Gradient" id="Gradient_jygr6"]
@@ -216,6 +216,15 @@ colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n8vdk"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_jygr6")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_6imgi"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1hq2q"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_6imgi")
 width = 512
 
 [sub_resource type="Gradient" id="Gradient_88kup"]
@@ -292,8 +301,12 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 confirmed_action = NodePath("OpenSubM")
 
-[node name="OpenSubM" type="Node" parent="MainMenu/Jogar" unique_id=1291794507 node_paths=PackedStringArray("menu", "sub_menu")]
+[node name="Bg" parent="MainMenu/Jogar" index="1" unique_id=1436517177]
+texture = SubResource("GradientTexture1D_88kup")
+
+[node name="OpenSubM" type="Node" parent="MainMenu/Jogar" unique_id=1291794507 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
 script = ExtResource("4_1hnlc")
+entry = NodePath("SubMenu/Campanha")
 menu = NodePath("../..")
 sub_menu = NodePath("SubMenu")
 
@@ -317,7 +330,7 @@ layout_mode = 0
 text = "      Campanha"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_euy4r")
+texture = SubResource("GradientTexture1D_bre17")
 
 [node name="Versus" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=812995220 instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -330,7 +343,7 @@ offset_bottom = 238.0
 text = "      Versus"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_88kup")
+texture = SubResource("GradientTexture1D_3w8rc")
 
 [node name="Treino" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=394815060 instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -343,7 +356,7 @@ offset_bottom = 365.0
 text = "      Treino"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_3w8rc")
+texture = SubResource("GradientTexture1D_vr0hv")
 
 [node name="Voltar" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=946078085 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -357,7 +370,7 @@ confirmed_action = NodePath("CloseSubM")
 text = "      Voltar"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_vr0hv")
+texture = SubResource("GradientTexture1D_25m6f")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" unique_id=57999734 node_paths=PackedStringArray("menu", "sub_menu")]
 script = ExtResource("5_50h1w")
@@ -375,7 +388,7 @@ offset_bottom = 238.0
 text = "      COnfigurações"
 
 [node name="Bg" parent="MainMenu/Configurações" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_25m6f")
+texture = SubResource("GradientTexture1D_w32d4")
 
 [node name="Creditos" parent="MainMenu" unique_id=344160684 instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -388,7 +401,7 @@ offset_bottom = 365.0
 text = "      Creditos"
 
 [node name="Bg" parent="MainMenu/Creditos" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_w32d4")
+texture = SubResource("GradientTexture1D_8hoqd")
 
 [node name="Sair" parent="MainMenu" unique_id=442386244 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -402,10 +415,11 @@ confirmed_action = NodePath("OpenSubM")
 text = "      Sair"
 
 [node name="Bg" parent="MainMenu/Sair" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_8hoqd")
+texture = SubResource("GradientTexture1D_awvna")
 
-[node name="OpenSubM" type="Node" parent="MainMenu/Sair" unique_id=1973488684 node_paths=PackedStringArray("menu", "sub_menu")]
+[node name="OpenSubM" type="Node" parent="MainMenu/Sair" unique_id=1973488684 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
 script = ExtResource("4_1hnlc")
+entry = NodePath("../../Jogar")
 menu = NodePath("../..")
 sub_menu = NodePath("SubCloseMenu")
 
@@ -426,11 +440,11 @@ metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 layout_mode = 0
 confirmed_action = NodePath("Close")
 
-[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="0" unique_id=1812324059]
+[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="0" unique_id=1236118041]
 text = "      Fecha jogo"
 
-[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="1" unique_id=2036528659]
-texture = SubResource("GradientTexture1D_awvna")
+[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="1" unique_id=1436517177]
+texture = SubResource("GradientTexture1D_n8vdk")
 
 [node name="Close" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" unique_id=903026935]
 script = ExtResource("6_euy4r")
@@ -443,11 +457,11 @@ offset_right = 640.0
 offset_bottom = 238.0
 confirmed_action = NodePath("CloseSubM")
 
-[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="0" unique_id=424915540]
+[node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="0" unique_id=1236118041]
 text = "      Cancelar"
 
-[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="1" unique_id=153334505]
-texture = SubResource("GradientTexture1D_n8vdk")
+[node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="1" unique_id=1436517177]
+texture = SubResource("GradientTexture1D_1hq2q")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" unique_id=362000074 node_paths=PackedStringArray("menu", "sub_menu")]
 script = ExtResource("5_50h1w")
@@ -566,6 +580,7 @@ text = "Feito por alunos do
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[editable path="MainMenu/Jogar"]
 [editable path="MainMenu/Jogar/OpenSubM/SubMenu/Campanha"]
 [editable path="MainMenu/Jogar/OpenSubM/SubMenu/Versus"]
 [editable path="MainMenu/Jogar/OpenSubM/SubMenu/Treino"]
