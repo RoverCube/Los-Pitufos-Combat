@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dli4lpbxcotj6" path="res://classes/UI/menu/entry/character_entry.gd" id="1_1cbdb"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="2_1cbdb"]
-[ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/UI/sfx/sound-4.mp3" id="3_03gid"]
-[ext_resource type="Texture2D" uid="uid://1v8l4ondcpk3" path="res://a1.png" id="3_jduwr"]
+[ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="3_03gid"]
+[ext_resource type="Texture2D" uid="uid://1v8l4ondcpk3" path="res://a1.png" id="5_esjy4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
 
@@ -84,7 +84,7 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Bg" unique_id=1846850534]
 offset_right = 512.0
 offset_bottom = 512.0
-texture = ExtResource("3_jduwr")
+texture = ExtResource("5_esjy4")
 expand_mode = 1
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=2076017323]

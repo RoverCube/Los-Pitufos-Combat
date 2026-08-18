@@ -35,31 +35,43 @@ alignment = 1
 [node name="CR" parent="Menu/HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "C R I S T I A N"
+color_1 = Color(0.59180814, 0.4687999, 0.94048834, 1)
+color_2 = Color(0.5109204, 0.29206452, 0.93992406, 1)
 
 [node name="DK" parent="Menu/HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "D I U K"
+offset = 1
+color_1 = Color(0.90588236, 0.36078432, 0.3882353, 1)
+color_2 = Color(0.8269051, 0.17598563, 0.26106519, 1)
+color_3 = Color(0.10036557, 0, 0.007434533, 1)
 
 [node name="ES" parent="Menu/HBoxContainer" unique_id=377653097 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "E S Q U I L O"
+offset = 2
 
 [node name="HD" parent="Menu/HBoxContainer" unique_id=1117618457 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "H E D E R"
+offset = 3
 
 [node name="KK" parent="Menu/HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "K A I K"
+offset = 4
 
 [node name="KA" parent="Menu/HBoxContainer" unique_id=1215892020 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "K A U Ã"
+offset = 5
 
 [node name="OS" parent="Menu/HBoxContainer" unique_id=243520075 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "O S M A R"
+offset = 6
 
 [node name="PE" parent="Menu/HBoxContainer" unique_id=2068197230 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "P E D R O"
+offset = 7

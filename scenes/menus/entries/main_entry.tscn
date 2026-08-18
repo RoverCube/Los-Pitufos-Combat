@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://7vlyhqnjv7cx"]
 
-[ext_resource type="Script" uid="uid://dnacy77lj7c8w" path="res://classes/UI/menu/menu_entry.gd" id="1_fi0bx"]
+[ext_resource type="Script" uid="uid://34xqlb2g1m6d" path="res://classes/UI/menu/entry/main_entry.gd" id="1_5vogq"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="2_hxc5l"]
-[ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/UI/sfx/sound-4.mp3" id="3_hxc5l"]
+[ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="3_hxc5l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
 
@@ -125,7 +125,7 @@ _data = {
 &"selected": SubResource("Animation_50h1w")
 }
 
-[node name="Jogar" type="Button" unique_id=1749882407]
+[node name="Jogar" type="Button" unique_id=1796989010]
 offset_right = 576.0
 offset_bottom = 111.0
 localize_numeral_system = false
@@ -139,8 +139,8 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_rruee")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7bdck")
 text = "
 "
-script = ExtResource("1_fi0bx")
-metadata/_custom_type_script = "uid://dnacy77lj7c8w"
+script = ExtResource("1_5vogq")
+metadata/_custom_type_script = "uid://34xqlb2g1m6d"
 
 [node name="Label" type="Label" parent="." unique_id=1236118041]
 layout_mode = 1

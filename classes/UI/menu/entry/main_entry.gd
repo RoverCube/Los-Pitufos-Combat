@@ -1,8 +1,8 @@
 class_name MainMEntry
 extends MenuEntry
 
-const SELECT_SOUND = preload("res://assets/UI/sfx/sound-8.mp3")
-const CONFIRM_SOUND = preload("res://assets/UI/sfx/sound-13.mp3")
+const SELECT_SOUND = preload("res://assets/sound/sfx/sound-8.mp3")
+const CONFIRM_SOUND = preload("res://assets/sound/sfx/sound-13.mp3")
 
 func _on_selected() -> void:
 	anim.play("selected")

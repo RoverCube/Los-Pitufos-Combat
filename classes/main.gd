@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	#await anim.animation_finished
 	$Splash.queue_free()
-	
+	$BgMusic.play()
 	press_any = true
 
 func _input(_event: InputEvent) -> void:

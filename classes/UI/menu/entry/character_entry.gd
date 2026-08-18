@@ -2,7 +2,13 @@ class_name CharacterSEntry
 extends MenuEntry
 
 @export var c_name  : String
+@export var offset  : int = 0
 @export var color_1 : Color
+@export var color_2 : Color
+@export var color_3 : Color
+var tweeen : Tween
+
+var rects : Array[ColorRect]
 const MAX_WIDTH: int   = 448
 
 const MIN_WIDTH: int   = 128
@@ -11,6 +17,7 @@ const TIME     : float = 0.2
 
 func _ready() -> void:
 	$Bg/Label.text = c_name
+	$Bg/Label.label_settings.outline_color = color_3
 	$Bg.texture.gradient.set_color(0, color_1)
 
 func confirm() -> void:
