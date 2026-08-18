@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dli4lpbxcotj6" path="res://classes/UI/menu/entry/character_entry.gd" id="1_1cbdb"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="2_1cbdb"]
 [ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="3_03gid"]
+[ext_resource type="Shader" uid="uid://dnv8426o62o4g" path="res://assets/shaders/repeat.gdshader" id="3_jduwr"]
 [ext_resource type="Texture2D" uid="uid://1v8l4ondcpk3" path="res://a1.png" id="5_esjy4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
@@ -29,6 +30,15 @@ width = 128
 height = 512
 fill_from = Vector2(1, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_esjy4"]
+resource_local_to_scene = true
+shader = ExtResource("3_jduwr")
+shader_parameter/offset = Vector2(16, -8)
+shader_parameter/full_white = false
+shader_parameter/alt_base_color = Color(1, 1, 1, 1)
+shader_parameter/first_color = Color(0.4259003, 0.044620074, 0.1179306, 1)
+shader_parameter/second_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_03gid"]
 resource_local_to_scene = true
 font_size = 52
@@ -52,7 +62,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7bdck")
 text = "
 "
 script = ExtResource("1_1cbdb")
-color_1 = Color(0.5686275, 0.5686275, 0.5686275, 1)
+color_1 = Color(0.5921569, 0.47058824, 0.9411765, 1)
+color_2 = Color(0.50980395, 0.2901961, 0.9411765, 1)
+color_3 = Color(0.047058824, 0, 0.14117648, 1)
 metadata/_custom_type_script = "uid://dli4lpbxcotj6"
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1642638236]
@@ -61,6 +73,14 @@ scale = Vector2(1, 0.99999994)
 skew = 0.2617994
 texture = SubResource("GradientTexture2D_03gid")
 centered = false
+
+[node name="CharacterTexture" type="TextureRect" parent="Bg" unique_id=1846850534]
+material = SubResource("ShaderMaterial_esjy4")
+offset_left = -192.0
+offset_right = 320.0
+offset_bottom = 512.0
+texture = ExtResource("5_esjy4")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="Bg" unique_id=1829866386]
 anchors_preset = 4
@@ -80,12 +100,6 @@ text = "TEST"
 label_settings = SubResource("LabelSettings_03gid")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Bg" unique_id=1846850534]
-offset_right = 512.0
-offset_bottom = 512.0
-texture = ExtResource("5_esjy4")
-expand_mode = 1
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=2076017323]
 

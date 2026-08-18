@@ -6,7 +6,6 @@ extends MenuEntry
 @export var color_1 : Color
 @export var color_2 : Color
 @export var color_3 : Color
-var tweeen : Tween
 
 var rects : Array[ColorRect]
 const MAX_WIDTH: int   = 448
@@ -19,6 +18,9 @@ func _ready() -> void:
 	$Bg/Label.text = c_name
 	$Bg/Label.label_settings.outline_color = color_3
 	$Bg.texture.gradient.set_color(0, color_1)
+	$Bg/CharacterTexture.material.set_shader_parameter("first_color", color_2)
+	$Bg/CharacterTexture.material.set_shader_parameter("second_color", color_1)
+	$Bg/CharacterTexture.material.set_shader_parameter("alt_base_color", color_3)
 
 func confirm() -> void:
 	pass
@@ -29,6 +31,8 @@ func _on_selected() -> void:
 	tween.tween_property(self,"custom_minimum_size",
 	Vector2(MAX_WIDTH,0), TIME)
 	tween.tween_property($Bg.texture,"width", MAX_WIDTH, TIME)
+	tween.tween_property($Bg/CharacterTexture,"position",Vector2(0,0),TIME)
+	$Bg/CharacterTexture.material.set_shader_parameter("full_white", false)
 
 func _on_deselected() -> void:
 	await get_tree().create_timer(0.1).timeout
@@ -36,3 +40,5 @@ func _on_deselected() -> void:
 	tween.tween_property(self,"custom_minimum_size",
 	Vector2(MIN_WIDTH,0), TIME)
 	tween.tween_property($Bg.texture,"width", MIN_WIDTH, TIME)
+	tween.tween_property($Bg/CharacterTexture,"position",Vector2(-192,0),TIME)
+	$Bg/CharacterTexture.material.set_shader_parameter("full_white", true)

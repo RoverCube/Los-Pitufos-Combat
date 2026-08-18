@@ -35,8 +35,9 @@ alignment = 1
 [node name="CR" parent="Menu/HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "C R I S T I A N"
-color_1 = Color(0.59180814, 0.4687999, 0.94048834, 1)
-color_2 = Color(0.5109204, 0.29206452, 0.93992406, 1)
+color_1 = Color(0.49225795, 0.32592678, 0.86856776, 1)
+color_2 = Color(0.18833724, 0.045630105, 0.40186444, 1)
+color_3 = Color(0.04587838, 5.3404077e-05, 0.1399549, 1)
 
 [node name="DK" parent="Menu/HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
 layout_mode = 2
@@ -50,16 +51,25 @@ color_3 = Color(0.10036557, 0, 0.007434533, 1)
 layout_mode = 2
 c_name = "E S Q U I L O"
 offset = 2
+color_1 = Color(0.8677466, 0.7296837, 0.021132866, 1)
+color_2 = Color(0.41689578, 0.2998199, 0, 1)
+color_3 = Color(0.0329271, 0.012618442, 7.52043e-10, 1)
 
 [node name="HD" parent="Menu/HBoxContainer" unique_id=1117618457 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "H E D E R"
 offset = 3
+color_1 = Color(0.1575574, 0.5904153, 0.338533, 1)
+color_2 = Color(0.03882093, 0.32414594, 0.22689793, 1)
+color_3 = Color(0.0011537633, 0.04535661, 0.026308004, 1)
 
 [node name="KK" parent="Menu/HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "K A I K"
 offset = 4
+color_1 = Color(0.985545, 0.2814961, 0.0047374135, 1)
+color_2 = Color(0.6318243, 0.10157453, 0.02822214, 1)
+color_3 = Color(0.075966425, 0, 0.000457379, 1)
 
 [node name="KA" parent="Menu/HBoxContainer" unique_id=1215892020 instance=ExtResource("1_oablf")]
 layout_mode = 2
@@ -70,6 +80,9 @@ offset = 5
 layout_mode = 2
 c_name = "O S M A R"
 offset = 6
+color_1 = Color(0.10181982, 0.27304292, 0.76500213, 1)
+color_2 = Color(0.059588753, 0.07295174, 0.4817468, 1)
+color_3 = Color(0.0062995, 0.0032291252, 0.12707433, 1)
 
 [node name="PE" parent="Menu/HBoxContainer" unique_id=2068197230 instance=ExtResource("1_oablf")]
 layout_mode = 2
