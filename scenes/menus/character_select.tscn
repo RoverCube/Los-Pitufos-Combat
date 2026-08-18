@@ -18,58 +18,45 @@ entries = [NodePath("HBoxContainer/CR"), NodePath("HBoxContainer/DK"), NodePath(
 metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=326753565]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 417.33307
-offset_top = 265.5089
-offset_right = 1413.333
-offset_bottom = 763.5089
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
+layout_mode = 0
+offset_left = 480.0
+offset_top = 535.0
+offset_right = 1888.0
+offset_bottom = 558.0
+theme_override_constants/separation = 0
+alignment = 2
 
 [node name="CR" parent="Menu/HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "C R I S T I A N"
-color_1 = Color(0.49225795, 0.32592678, 0.86856776, 1)
-color_2 = Color(0.18833724, 0.045630105, 0.40186444, 1)
-color_3 = Color(0.04587838, 5.3404077e-05, 0.1399549, 1)
 
 [node name="DK" parent="Menu/HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "D I U K"
 offset = 1
-color_1 = Color(0.90588236, 0.36078432, 0.3882353, 1)
-color_2 = Color(0.8269051, 0.17598563, 0.26106519, 1)
-color_3 = Color(0.10036557, 0, 0.007434533, 1)
+color_1 = Color(0.7764706, 0.22352941, 0.32156864, 1)
+color_2 = Color(0.3166088, 0.03253088, 0.07369649, 1)
+color_3 = Color(0.1012005, 0, 0.003221134, 1)
+color_4 = Color(0.8739043, 0.2785846, 0.42414305, 1)
 
 [node name="ES" parent="Menu/HBoxContainer" unique_id=377653097 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "E S Q U I L O"
 offset = 2
-color_1 = Color(0.8677466, 0.7296837, 0.021132866, 1)
-color_2 = Color(0.41689578, 0.2998199, 0, 1)
-color_3 = Color(0.0329271, 0.012618442, 7.52043e-10, 1)
+color_1 = Color(0.20186812, 0.5292059, 0.35583928, 1)
+color_2 = Color(0.043712094, 0.19621032, 0.09934176, 1)
+color_3 = Color(0, 0.046099074, 0.030204566, 1)
+color_4 = Color(0.26996598, 0.60917485, 0.36080474, 1)
 
 [node name="HD" parent="Menu/HBoxContainer" unique_id=1117618457 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "H E D E R"
 offset = 3
-color_1 = Color(0.1575574, 0.5904153, 0.338533, 1)
-color_2 = Color(0.03882093, 0.32414594, 0.22689793, 1)
-color_3 = Color(0.0011537633, 0.04535661, 0.026308004, 1)
 
 [node name="KK" parent="Menu/HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "K A I K"
 offset = 4
-color_1 = Color(0.985545, 0.2814961, 0.0047374135, 1)
-color_2 = Color(0.6318243, 0.10157453, 0.02822214, 1)
-color_3 = Color(0.075966425, 0, 0.000457379, 1)
 
 [node name="KA" parent="Menu/HBoxContainer" unique_id=1215892020 instance=ExtResource("1_oablf")]
 layout_mode = 2
@@ -80,9 +67,10 @@ offset = 5
 layout_mode = 2
 c_name = "O S M A R"
 offset = 6
-color_1 = Color(0.10181982, 0.27304292, 0.76500213, 1)
-color_2 = Color(0.059588753, 0.07295174, 0.4817468, 1)
-color_3 = Color(0.0062995, 0.0032291252, 0.12707433, 1)
+color_1 = Color(0.21749848, 0.44252113, 0.8165721, 1)
+color_2 = Color(0.044664577, 0.13139984, 0.38736507, 1)
+color_3 = Color(0.009673198, 0, 0.17331845, 1)
+color_4 = Color(0.25082928, 0.5304057, 0.8722254, 1)
 
 [node name="PE" parent="Menu/HBoxContainer" unique_id=2068197230 instance=ExtResource("1_oablf")]
 layout_mode = 2

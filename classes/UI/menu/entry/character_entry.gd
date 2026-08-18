@@ -2,10 +2,12 @@ class_name CharacterSEntry
 extends MenuEntry
 
 @export var c_name  : String
+@export var texture : Texture
 @export var offset  : int = 0
 @export var color_1 : Color
 @export var color_2 : Color
 @export var color_3 : Color
+@export var color_4 : Color
 
 var rects : Array[ColorRect]
 const MAX_WIDTH: int   = 448
@@ -19,8 +21,10 @@ func _ready() -> void:
 	$Bg/Label.label_settings.outline_color = color_3
 	$Bg.texture.gradient.set_color(0, color_1)
 	$Bg/CharacterTexture.material.set_shader_parameter("first_color", color_2)
-	$Bg/CharacterTexture.material.set_shader_parameter("second_color", color_1)
+	$Bg/CharacterTexture.material.set_shader_parameter("second_color", color_4)
 	$Bg/CharacterTexture.material.set_shader_parameter("alt_base_color", color_3)
+	$Bg/ColorRect.color = color_4
+	$Bg/CharacterTexture.texture = texture
 
 func confirm() -> void:
 	pass

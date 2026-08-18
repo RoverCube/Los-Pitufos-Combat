@@ -24,5 +24,7 @@ void fragment() {
  vec2 texelSize = vec2(1.0) / vec2(textureSize(texture_to_scroll, 0));
  vec2 snappedUV = round(scaled_uv / texelSize) * texelSize;
 
- COLOR = texture(texture_to_scroll, snappedUV);
+vec4 sex =texture(texture_to_scroll, snappedUV);
+
+ COLOR = mix(vec4(0.0),COLOR,sex.r);
 }
