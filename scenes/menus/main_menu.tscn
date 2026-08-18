@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bowlw1lx3v74k" path="res://classes/UI/menu/actions/open_submenu.gd" id="4_1hnlc"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="4_6bivr"]
 [ext_resource type="Shader" uid="uid://dnv8426o62o4g" path="res://assets/shaders/repeat.gdshader" id="4_8r73w"]
+[ext_resource type="Script" uid="uid://34xqlb2g1m6d" path="res://classes/UI/menu/entry/main_entry.gd" id="4_88kup"]
 [ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="5_8r73w"]
 [ext_resource type="Script" uid="uid://d3p1pp108cmd" path="res://classes/UI/menu/actions/close_submenu.gd" id="5_50h1w"]
 [ext_resource type="Script" uid="uid://ba7maawqrws5l" path="res://classes/UI/menu/actions/character_select.gd" id="5_bre17"]
@@ -138,24 +139,6 @@ _data = {
 &"start splash": SubResource("Animation_ovrgc")
 }
 
-[sub_resource type="Gradient" id="Gradient_bre17"]
-resource_local_to_scene = true
-colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_88kup"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_bre17")
-width = 512
-
-[sub_resource type="Gradient" id="Gradient_euy4r"]
-resource_local_to_scene = true
-colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bre17"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_euy4r")
-width = 512
-
 [sub_resource type="Gradient" id="Gradient_bh4e2"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
@@ -226,6 +209,24 @@ colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1hq2q"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_6imgi")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_wxcro"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y4gey"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_wxcro")
+width = 512
+
+[sub_resource type="Gradient" id="Gradient_ykxr0"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eeloc"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ykxr0")
 width = 512
 
 [sub_resource type="Gradient" id="Gradient_88kup"]
@@ -300,10 +301,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Jogar" parent="MainMenu" unique_id=1749882407 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("OpenSubM")
 
 [node name="Bg" parent="MainMenu/Jogar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_88kup")
+texture = SubResource("GradientTexture1D_3w8rc")
 
 [node name="OpenSubM" type="Node" parent="MainMenu/Jogar" unique_id=1291794507 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
 script = ExtResource("4_1hnlc")
@@ -326,13 +328,14 @@ metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
 [node name="Campanha" parent="MainMenu/Jogar/OpenSubM/SubMenu" unique_id=162486321 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("CharcterSelect")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" index="0" unique_id=1236118041]
 text = "      Campanha"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_bre17")
+texture = SubResource("GradientTexture1D_vr0hv")
 
 [node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" unique_id=339667835]
 script = ExtResource("5_bre17")
@@ -343,13 +346,14 @@ offset_left = 64.0
 offset_top = 127.0
 offset_right = 640.0
 offset_bottom = 238.0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("CharcterSelect")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" index="0" unique_id=1236118041]
 text = "      Versus"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_3w8rc")
+texture = SubResource("GradientTexture1D_25m6f")
 
 [node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" unique_id=728872630]
 script = ExtResource("5_bre17")
@@ -361,13 +365,14 @@ offset_left = 128.0
 offset_top = 254.0
 offset_right = 704.0
 offset_bottom = 365.0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("CharcterSelect")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" index="0" unique_id=1236118041]
 text = "      Treino"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_vr0hv")
+texture = SubResource("GradientTexture1D_w32d4")
 
 [node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" unique_id=1196988921]
 script = ExtResource("5_bre17")
@@ -379,13 +384,14 @@ offset_left = 192.0
 offset_top = 381.0
 offset_right = 768.0
 offset_bottom = 492.0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("CloseSubM")
 
 [node name="Label" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" index="0" unique_id=1236118041]
 text = "      Voltar"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_25m6f")
+texture = SubResource("GradientTexture1D_8hoqd")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" unique_id=57999734 node_paths=PackedStringArray("menu", "sub_menu")]
 script = ExtResource("5_50h1w")
@@ -398,12 +404,13 @@ offset_left = 64.0
 offset_top = 127.0
 offset_right = 640.0
 offset_bottom = 238.0
+script = ExtResource("4_88kup")
 
 [node name="Label" parent="MainMenu/Configurações" index="0" unique_id=1236118041]
 text = "      COnfigurações"
 
 [node name="Bg" parent="MainMenu/Configurações" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_w32d4")
+texture = SubResource("GradientTexture1D_awvna")
 
 [node name="Creditos" parent="MainMenu" unique_id=344160684 instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -411,12 +418,13 @@ offset_left = 128.0
 offset_top = 254.0
 offset_right = 704.0
 offset_bottom = 365.0
+script = ExtResource("4_88kup")
 
 [node name="Label" parent="MainMenu/Creditos" index="0" unique_id=1236118041]
 text = "      Creditos"
 
 [node name="Bg" parent="MainMenu/Creditos" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_8hoqd")
+texture = SubResource("GradientTexture1D_n8vdk")
 
 [node name="Sair" parent="MainMenu" unique_id=442386244 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -424,13 +432,14 @@ offset_left = 192.0
 offset_top = 381.0
 offset_right = 768.0
 offset_bottom = 492.0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("OpenSubM")
 
 [node name="Label" parent="MainMenu/Sair" index="0" unique_id=1236118041]
 text = "      Sair"
 
 [node name="Bg" parent="MainMenu/Sair" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_awvna")
+texture = SubResource("GradientTexture1D_1hq2q")
 
 [node name="OpenSubM" type="Node" parent="MainMenu/Sair" unique_id=1973488684 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
 script = ExtResource("4_1hnlc")
@@ -453,13 +462,14 @@ metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
 [node name="FecharJogo" parent="MainMenu/Sair/OpenSubM/SubCloseMenu" unique_id=1908474848 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("Close")
 
 [node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="0" unique_id=1236118041]
 text = "      Fecha jogo"
 
 [node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_n8vdk")
+texture = SubResource("GradientTexture1D_y4gey")
 
 [node name="Close" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" unique_id=903026935]
 script = ExtResource("6_euy4r")
@@ -470,13 +480,14 @@ offset_left = 64.0
 offset_top = 127.0
 offset_right = 640.0
 offset_bottom = 238.0
+script = ExtResource("4_88kup")
 confirmed_action = NodePath("CloseSubM")
 
 [node name="Label" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="0" unique_id=1236118041]
 text = "      Cancelar"
 
 [node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_1hq2q")
+texture = SubResource("GradientTexture1D_eeloc")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" unique_id=362000074 node_paths=PackedStringArray("menu", "sub_menu")]
 script = ExtResource("5_50h1w")

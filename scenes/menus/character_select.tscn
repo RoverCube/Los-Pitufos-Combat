@@ -4,108 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c2boueblx8dew" path="res://scenes/menus/entries/character_entry.tscn" id="1_oablf"]
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="1_rptr7"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_5qjx0"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="Gradient" id="Gradient_5qjx0"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(5.1514945e-08, 0.050058126, 0.01570865, 1, 1.5642495e-07, 0.25731698, 0.1342575, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kbvb4"]
-gradient = SubResource("Gradient_5qjx0")
-width = 512
-height = 512
-fill_from = Vector2(1, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_kbvb4"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_xae3q"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_u125y"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_i56mv"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_jblrn"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="Gradient" id="Gradient_kbvb4"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(0, 0.16078432, 0.0627451, 1, 0.07058824, 0.4, 0.32156864, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xae3q"]
-gradient = SubResource("Gradient_kbvb4")
-width = 512
-height = 512
-fill_from = Vector2(1, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_okqu4"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_sf7fi"]
-resource_local_to_scene = true
-font_size = 52
-font_color = Color(0.92941177, 0.9647059, 0.98039216, 1)
-shadow_size = 0
-stacked_shadow_count = 1
-stacked_shadow_0/offset = Vector2(-4, 4)
-stacked_shadow_0/color = Color(0.052000012, 0.02, 0.1, 1)
-stacked_shadow_0/outline_size = 4
-
 [node name="CharacterSelect" type="Node" unique_id=72217984]
 script = ExtResource("1_5qjx0")
 
@@ -116,7 +14,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_rptr7")
 dir = 1
-entries = [NodePath("HBoxContainer/Cristian"), NodePath("HBoxContainer/Diuk"), NodePath("HBoxContainer/Heder"), NodePath("HBoxContainer/Esquilo"), NodePath("HBoxContainer/Kaik"), NodePath("HBoxContainer/Kaua"), NodePath("HBoxContainer/Osmar"), NodePath("HBoxContainer/Pedro")]
+entries = [NodePath("HBoxContainer/CR"), NodePath("HBoxContainer/DK"), NodePath("HBoxContainer/ES"), NodePath("HBoxContainer/HD"), NodePath("HBoxContainer/KK"), NodePath("HBoxContainer/KA"), NodePath("HBoxContainer/OS"), NodePath("HBoxContainer/PE")]
 metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=326753565]
@@ -132,73 +30,36 @@ offset_right = 1413.333
 offset_bottom = 763.5089
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="Cristian" parent="Menu/HBoxContainer" unique_id=2052988392 instance=ExtResource("1_oablf")]
+[node name="CR" parent="Menu/HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "C R I S T I A N"
 
-[node name="Label" parent="Menu/HBoxContainer/Cristian/Bg" parent_id_path=PackedInt32Array(2052988392, 1642638236) index="0" unique_id=1829866386]
-label_settings = SubResource("LabelSettings_5qjx0")
-
-[node name="Diuk" parent="Menu/HBoxContainer" unique_id=1547237843 instance=ExtResource("1_oablf")]
+[node name="DK" parent="Menu/HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "D I U K"
 
-[node name="Bg" parent="Menu/HBoxContainer/Diuk" index="0" unique_id=1642638236]
-texture = SubResource("GradientTexture2D_kbvb4")
-
-[node name="Label" parent="Menu/HBoxContainer/Diuk/Bg" index="0" unique_id=1829866386]
-text = "    D I U K"
-label_settings = SubResource("LabelSettings_kbvb4")
-
-[node name="Heder" parent="Menu/HBoxContainer" unique_id=281702235 instance=ExtResource("1_oablf")]
+[node name="ES" parent="Menu/HBoxContainer" unique_id=377653097 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "E S Q U I L O"
 
-[node name="Label" parent="Menu/HBoxContainer/Heder/Bg" parent_id_path=PackedInt32Array(281702235, 1642638236) index="0" unique_id=1829866386]
-text = "    H E D E R"
-label_settings = SubResource("LabelSettings_xae3q")
-
-[node name="Esquilo" parent="Menu/HBoxContainer" unique_id=1961577274 instance=ExtResource("1_oablf")]
+[node name="HD" parent="Menu/HBoxContainer" unique_id=1117618457 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "H E D E R"
 
-[node name="Label" parent="Menu/HBoxContainer/Esquilo/Bg" parent_id_path=PackedInt32Array(1961577274, 1642638236) index="0" unique_id=1829866386]
-text = "    E S Q U I L O"
-label_settings = SubResource("LabelSettings_u125y")
-
-[node name="Kaik" parent="Menu/HBoxContainer" unique_id=842972716 instance=ExtResource("1_oablf")]
+[node name="KK" parent="Menu/HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "K A I K"
 
-[node name="Label" parent="Menu/HBoxContainer/Kaik/Bg" parent_id_path=PackedInt32Array(842972716, 1642638236) index="0" unique_id=1829866386]
-text = "    K A I K"
-label_settings = SubResource("LabelSettings_i56mv")
-
-[node name="Kaua" parent="Menu/HBoxContainer" unique_id=1590384856 instance=ExtResource("1_oablf")]
+[node name="KA" parent="Menu/HBoxContainer" unique_id=1215892020 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "K A U Ã"
 
-[node name="Label" parent="Menu/HBoxContainer/Kaua/Bg" parent_id_path=PackedInt32Array(1590384856, 1642638236) index="0" unique_id=1829866386]
-text = "    K A U Ã"
-label_settings = SubResource("LabelSettings_jblrn")
-
-[node name="Osmar" parent="Menu/HBoxContainer" unique_id=1171082454 instance=ExtResource("1_oablf")]
+[node name="OS" parent="Menu/HBoxContainer" unique_id=243520075 instance=ExtResource("1_oablf")]
 layout_mode = 2
+c_name = "O S M A R"
 
-[node name="Bg" parent="Menu/HBoxContainer/Osmar" index="0" unique_id=1642638236]
-texture = SubResource("GradientTexture2D_xae3q")
-
-[node name="Label" parent="Menu/HBoxContainer/Osmar/Bg" index="0" unique_id=1829866386]
-text = "    O S M A R"
-label_settings = SubResource("LabelSettings_okqu4")
-
-[node name="Pedro" parent="Menu/HBoxContainer" unique_id=1263324143 instance=ExtResource("1_oablf")]
+[node name="PE" parent="Menu/HBoxContainer" unique_id=2068197230 instance=ExtResource("1_oablf")]
 layout_mode = 2
-
-[node name="Label" parent="Menu/HBoxContainer/Pedro/Bg" parent_id_path=PackedInt32Array(1263324143, 1642638236) index="0" unique_id=1829866386]
-text = "    P E D R O"
-label_settings = SubResource("LabelSettings_sf7fi")
-
-[editable path="Menu/HBoxContainer/Cristian"]
-[editable path="Menu/HBoxContainer/Diuk"]
-[editable path="Menu/HBoxContainer/Heder"]
-[editable path="Menu/HBoxContainer/Esquilo"]
-[editable path="Menu/HBoxContainer/Kaik"]
-[editable path="Menu/HBoxContainer/Kaua"]
-[editable path="Menu/HBoxContainer/Osmar"]
-[editable path="Menu/HBoxContainer/Pedro"]
+c_name = "P E D R O"

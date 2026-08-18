@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bd64ut1p7yfmt"]
 
-[ext_resource type="Script" uid="uid://dnacy77lj7c8w" path="res://classes/UI/menu/menu_entry.gd" id="1_o3shm"]
+[ext_resource type="Script" uid="uid://34xqlb2g1m6d" path="res://classes/UI/menu/entry/main_entry.gd" id="1_o3shm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
 
@@ -12,7 +12,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bdck"]
 
-[node name="MenuEntry" type="Button" unique_id=2052988392]
+[node name="MenuEntry" type="Button" unique_id=946086359]
 offset_right = 64.0
 offset_bottom = 64.0
 localize_numeral_system = false
@@ -27,4 +27,4 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7bdck")
 text = "
 "
 script = ExtResource("1_o3shm")
-metadata/_custom_type_script = "uid://dnacy77lj7c8w"
+metadata/_custom_type_script = "uid://34xqlb2g1m6d"
