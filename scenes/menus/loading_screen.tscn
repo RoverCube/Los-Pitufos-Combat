@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://deqtdwfup8pur"]
+
+[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="2_7krkx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6do7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7krkx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LoadingScreen" type="ColorRect" unique_id=339945927]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1873371754]
+sprite_frames = SubResource("SpriteFrames_u6do7")
+autoplay = "default"
+frame_progress = 0.39207634
+centered = false

@@ -11,7 +11,8 @@
 [ext_resource type="Script" uid="uid://d3p1pp108cmd" path="res://classes/UI/menu/actions/close_submenu.gd" id="5_50h1w"]
 [ext_resource type="Script" uid="uid://ba7maawqrws5l" path="res://classes/UI/menu/actions/character_select.gd" id="5_bre17"]
 [ext_resource type="Script" uid="uid://cgdtr1ecuka67" path="res://classes/UI/menu/actions/close_game.gd" id="6_euy4r"]
-[ext_resource type="AudioStream" uid="uid://b6yeku2ajlmt0" path="res://assets/sound/music/main_menu_theme.mp3" id="12_88kup"]
+[ext_resource type="AudioStream" uid="uid://b6yeku2ajlmt0" path="res://assets/sound/music/main_menu.mp3" id="12_88kup"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="13_bh4e2"]
 
 [sub_resource type="Animation" id="Animation_xqga4"]
 length = 0.001
@@ -139,94 +140,94 @@ _data = {
 &"start splash": SubResource("Animation_ovrgc")
 }
 
-[sub_resource type="Gradient" id="Gradient_bre17"]
+[sub_resource type="Gradient" id="Gradient_3w8rc"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_88kup"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uxao6"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_bre17")
+gradient = SubResource("Gradient_3w8rc")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_bh4e2"]
+[sub_resource type="Gradient" id="Gradient_vr0hv"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3w8rc"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a3hrp"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_bh4e2")
+gradient = SubResource("Gradient_vr0hv")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_uxao6"]
+[sub_resource type="Gradient" id="Gradient_25m6f"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vr0hv"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nkawv"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_uxao6")
+gradient = SubResource("Gradient_25m6f")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_a3hrp"]
+[sub_resource type="Gradient" id="Gradient_w32d4"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_25m6f"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_287l7"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_a3hrp")
+gradient = SubResource("Gradient_w32d4")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_nkawv"]
+[sub_resource type="Gradient" id="Gradient_8hoqd"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w32d4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_555wk"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_nkawv")
+gradient = SubResource("Gradient_8hoqd")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_287l7"]
+[sub_resource type="Gradient" id="Gradient_awvna"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8hoqd"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jygr6"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_287l7")
+gradient = SubResource("Gradient_awvna")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_555wk"]
+[sub_resource type="Gradient" id="Gradient_n8vdk"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_awvna"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6imgi"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_555wk")
+gradient = SubResource("Gradient_n8vdk")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_jygr6"]
+[sub_resource type="Gradient" id="Gradient_1hq2q"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_n8vdk"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wxcro"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_jygr6")
+gradient = SubResource("Gradient_1hq2q")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_6imgi"]
+[sub_resource type="Gradient" id="Gradient_y4gey"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1hq2q"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ykxr0"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_6imgi")
+gradient = SubResource("Gradient_y4gey")
 width = 512
 
-[sub_resource type="Gradient" id="Gradient_wxcro"]
+[sub_resource type="Gradient" id="Gradient_eeloc"]
 resource_local_to_scene = true
 colors = PackedColorArray(0, 0.03529412, 0.09803922, 1, 0, 0.07333336, 0.2, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_y4gey"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oina4"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_wxcro")
+gradient = SubResource("Gradient_eeloc")
 width = 512
 
 [sub_resource type="Gradient" id="Gradient_88kup"]
@@ -242,6 +243,8 @@ width = 1024
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hnlc"]
 shader = ExtResource("4_8r73w")
 shader_parameter/offset = Vector2(8, -8)
+shader_parameter/full_white = false
+shader_parameter/alt_base_color = Color(0, 0, 0, 1)
 shader_parameter/first_color = Color(0, 0.5764706, 0.8156863, 1)
 shader_parameter/second_color = Color(0, 0.0627451, 0.1764706, 1)
 
@@ -304,7 +307,7 @@ layout_mode = 0
 confirmed_action = NodePath("OpenSubM")
 
 [node name="Bg" parent="MainMenu/Jogar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_88kup")
+texture = SubResource("GradientTexture1D_uxao6")
 
 [node name="OpenSubM" type="Node" parent="MainMenu/Jogar" unique_id=1291794507 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
 script = ExtResource("4_1hnlc")
@@ -333,7 +336,7 @@ confirmed_action = NodePath("CharcterSelect")
 text = "      Campanha"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_3w8rc")
+texture = SubResource("GradientTexture1D_a3hrp")
 
 [node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Campanha" unique_id=339667835]
 script = ExtResource("5_bre17")
@@ -350,7 +353,7 @@ confirmed_action = NodePath("CharcterSelect")
 text = "      Versus"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_vr0hv")
+texture = SubResource("GradientTexture1D_nkawv")
 
 [node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Versus" unique_id=728872630]
 script = ExtResource("5_bre17")
@@ -368,7 +371,7 @@ confirmed_action = NodePath("CharcterSelect")
 text = "      Treino"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_25m6f")
+texture = SubResource("GradientTexture1D_287l7")
 
 [node name="CharcterSelect" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Treino" unique_id=1196988921]
 script = ExtResource("5_bre17")
@@ -386,7 +389,7 @@ confirmed_action = NodePath("CloseSubM")
 text = "      Voltar"
 
 [node name="Bg" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_w32d4")
+texture = SubResource("GradientTexture1D_555wk")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Jogar/OpenSubM/SubMenu/Voltar" unique_id=57999734 node_paths=PackedStringArray("menu", "sub_menu")]
 script = ExtResource("5_50h1w")
@@ -404,7 +407,7 @@ offset_bottom = 238.0
 text = "      COnfigurações"
 
 [node name="Bg" parent="MainMenu/Configurações" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_8hoqd")
+texture = SubResource("GradientTexture1D_jygr6")
 
 [node name="Creditos" parent="MainMenu" unique_id=344160684 instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -417,7 +420,7 @@ offset_bottom = 365.0
 text = "      Creditos"
 
 [node name="Bg" parent="MainMenu/Creditos" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_awvna")
+texture = SubResource("GradientTexture1D_6imgi")
 
 [node name="Sair" parent="MainMenu" unique_id=442386244 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
@@ -431,7 +434,7 @@ confirmed_action = NodePath("OpenSubM")
 text = "      Sair"
 
 [node name="Bg" parent="MainMenu/Sair" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_n8vdk")
+texture = SubResource("GradientTexture1D_wxcro")
 
 [node name="OpenSubM" type="Node" parent="MainMenu/Sair" unique_id=1973488684 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
 script = ExtResource("4_1hnlc")
@@ -460,7 +463,7 @@ confirmed_action = NodePath("Close")
 text = "      Fecha jogo"
 
 [node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_1hq2q")
+texture = SubResource("GradientTexture1D_ykxr0")
 
 [node name="Close" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/FecharJogo" unique_id=903026935]
 script = ExtResource("6_euy4r")
@@ -477,7 +480,7 @@ confirmed_action = NodePath("CloseSubM")
 text = "      Cancelar"
 
 [node name="Bg" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" index="1" unique_id=1436517177]
-texture = SubResource("GradientTexture1D_y4gey")
+texture = SubResource("GradientTexture1D_oina4")
 
 [node name="CloseSubM" type="Node" parent="MainMenu/Sair/OpenSubM/SubCloseMenu/Cancelar" unique_id=362000074 node_paths=PackedStringArray("menu", "sub_menu")]
 script = ExtResource("5_50h1w")
@@ -596,10 +599,12 @@ text = "Feito por alunos do
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BgMusic" type="AudioStreamPlayer" parent="." unique_id=1056720518]
+[node name="BgMusic" type="AudioStreamPlayer" parent="." unique_id=2022928794]
 stream = ExtResource("12_88kup")
 volume_db = -15.0
 autoplay = true
+script = ExtResource("13_bh4e2")
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 
 [editable path="MainMenu/Jogar"]
 [editable path="MainMenu/Jogar/OpenSubM/SubMenu/Campanha"]

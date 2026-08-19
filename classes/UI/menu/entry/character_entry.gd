@@ -3,6 +3,7 @@ extends MenuEntry
 
 @export var c_name  : String
 @export var texture : Texture
+@export var big_one : Texture
 @export var offset  : int = 0
 @export var color_1 : Color
 @export var color_2 : Color

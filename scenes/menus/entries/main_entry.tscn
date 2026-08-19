@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://34xqlb2g1m6d" path="res://classes/UI/menu/entry/main_entry.gd" id="1_5vogq"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="2_hxc5l"]
 [ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="3_hxc5l"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="4_t4hye"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0nby"]
 
@@ -171,7 +172,10 @@ centered = false
 libraries/ = SubResource("AnimationLibrary_euy4r")
 autoplay = &"RESET"
 
-[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1944250556]
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1711654661]
 stream = ExtResource("3_hxc5l")
 volume_db = -15.0
 pitch_scale = 2.0
+script = ExtResource("4_t4hye")
+type = 1
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"

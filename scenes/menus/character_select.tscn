@@ -3,6 +3,116 @@
 [ext_resource type="Script" uid="uid://cqkpqjac82q5l" path="res://classes/UI/menu/character_select.gd" id="1_5qjx0"]
 [ext_resource type="PackedScene" uid="uid://c2boueblx8dew" path="res://scenes/menus/entries/character_entry.tscn" id="1_oablf"]
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="1_rptr7"]
+[ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="3_jblrn"]
+[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="4_kbvb4"]
+[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="4_xae3q"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="6_i56mv"]
+[ext_resource type="AudioStream" uid="uid://cbjfdn2fapemt" path="res://assets/sound/music/character_select.mp3" id="6_u125y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i56mv"]
+resource_local_to_scene = true
+font_size = 96
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(12, -12)
+stacked_shadow_0/color = Color(0.42745098, 0.043137256, 0.11764706, 1)
+
+[sub_resource type="Animation" id="Animation_5qjx0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kbvb4"]
+resource_name = "enter"
+step = 0.08333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xae3q"]
+_data = {
+&"RESET": SubResource("Animation_5qjx0"),
+&"enter": SubResource("Animation_kbvb4")
+}
 
 [node name="CharacterSelect" type="Node" unique_id=72217984]
 script = ExtResource("1_5qjx0")
@@ -10,25 +120,50 @@ script = ExtResource("1_5qjx0")
 [node name="Menu" type="Control" parent="." unique_id=654253324 node_paths=PackedStringArray("entries")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1856.0
+offset_top = 521.0
+offset_right = 1856.0
+offset_bottom = 521.0
 script = ExtResource("1_rptr7")
 dir = 1
 entries = [NodePath("HBoxContainer/CR"), NodePath("HBoxContainer/DK"), NodePath("HBoxContainer/ES"), NodePath("HBoxContainer/HD"), NodePath("HBoxContainer/KK"), NodePath("HBoxContainer/KA"), NodePath("HBoxContainer/OS"), NodePath("HBoxContainer/PE")]
 metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
+[node name="Character" type="Label" parent="Menu" unique_id=638536756]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1024.0
+offset_top = -208.0
+offset_bottom = -54.0
+grow_horizontal = 0
+theme = ExtResource("3_jblrn")
+text = "cristian"
+label_settings = SubResource("LabelSettings_i56mv")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Deco" type="Polygon2D" parent="Menu" unique_id=1814739187]
+antialiased = true
+polygon = PackedVector2Array(8, -24, 7.999998, -56, -384.00003, -56.000008, -384.00003, -48.000008)
+uv = PackedVector2Array(8, -24, 7.999998, -56, -464, -55.999996, -464, -48)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=326753565]
-layout_mode = 0
-offset_left = 480.0
-offset_top = 535.0
-offset_right = 1888.0
-offset_bottom = 558.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1408.0
+offset_bottom = 23.0
+grow_horizontal = 0
 theme_override_constants/separation = 0
 alignment = 2
 
 [node name="CR" parent="Menu/HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "C R I S T I A N"
+big_one = ExtResource("4_xae3q")
 
 [node name="DK" parent="Menu/HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
 layout_mode = 2
@@ -52,6 +187,10 @@ color_4 = Color(0.26996598, 0.60917485, 0.36080474, 1)
 layout_mode = 2
 c_name = "H E D E R"
 offset = 3
+color_1 = Color(0.13725491, 0.50980395, 0.5764706, 1)
+color_2 = Color(0.010861823, 0.18391526, 0.22848639, 1)
+color_3 = Color(2.256129e-08, 0.040945508, 0.06407089, 1)
+color_4 = Color(0.16391799, 0.5879597, 0.65256447, 1)
 
 [node name="KK" parent="Menu/HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
 layout_mode = 2
@@ -76,3 +215,22 @@ color_4 = Color(0.25082928, 0.5304057, 0.8722254, 1)
 layout_mode = 2
 c_name = "P E D R O"
 offset = 7
+
+[node name="BlackScreen" parent="." unique_id=339945927 instance=ExtResource("4_kbvb4")]
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1123670152]
+libraries/ = SubResource("AnimationLibrary_xae3q")
+
+[node name="VoiceLine" type="AudioStreamPlayer" parent="." unique_id=1533841391]
+script = ExtResource("6_i56mv")
+type = 2
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=300427106]
+stream = ExtResource("6_u125y")
+volume_db = -15.0
+autoplay = true
+script = ExtResource("6_i56mv")
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
+
+[connection signal="selected_changed" from="Menu" to="." method="_on_selected_changed"]
