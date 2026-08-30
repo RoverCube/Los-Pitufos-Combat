@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://b5k2kvgp4rvht"]
 
-[ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="1_ht7no"]
+[ext_resource type="FontFile" uid="uid://dx6gbug2im382" path="res://assets/fonts/komika-display.regular.ttf" id="1_ht7no"]
 
 [resource]
 Label/constants/outline_size = 16

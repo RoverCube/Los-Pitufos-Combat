@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b00aeum2sxp7a"
-path="res://.godot/imported/NumberFont.otf-5edf97edb36f923b831f3dcb979173eb.fontdata"
+uid="uid://dx6gbug2im382"
+path="res://.godot/imported/komika-display.regular.ttf-6caea05aa9b5c7c8373f02583fc0c207.fontdata"
 
 [deps]
 
-source_file="res://assets/UI/NumberFont.otf"
-dest_files=["res://.godot/imported/NumberFont.otf-5edf97edb36f923b831f3dcb979173eb.fontdata"]
+source_file="res://assets/fonts/komika-display.regular.ttf"
+dest_files=["res://.godot/imported/komika-display.regular.ttf-6caea05aa9b5c7c8373f02583fc0c207.fontdata"]
 
 [params]
 
@@ -30,12 +30,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

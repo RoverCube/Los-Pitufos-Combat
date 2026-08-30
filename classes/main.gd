@@ -1,8 +1,9 @@
 class_name Main
 extends Node
 
-@export var anim : AnimationPlayer
-var press_any : bool = false
+@onready var anim  : AnimationPlayer = $Animation
+var press_any      : bool = false
+var input_sequence : String
 
 func _ready() -> void:
 	#anim.play("start splash")
@@ -21,3 +22,12 @@ func _input(_event: InputEvent) -> void:
 		$MainMenu.active = true
 		$MainMenu.visible = true
 		press_any = false
+	
+	if Input.is_action_just_pressed("UI Up"): input_sequence += "w"
+	if Input.is_action_just_pressed("UI Down"): input_sequence += "s"
+	if Input.is_action_just_pressed("UI Right"): input_sequence += "d"
+	if Input.is_action_just_pressed("UI Left"): input_sequence += "a"
+	
+	if "wwssdadawsws" in input_sequence and Autofuck.gay_mode == false:
+		print("sex")
+		Autofuck.turn_gay()

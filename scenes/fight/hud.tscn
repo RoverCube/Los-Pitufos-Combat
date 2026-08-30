@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c11xk6eeo2434" path="res://assets/UI/HUD/score/score_2.png" id="8_3176t"]
 [ext_resource type="Texture2D" uid="uid://d37hnjw4h00rv" path="res://assets/UI/HUD/score/score_1.png" id="9_xpfw1"]
 [ext_resource type="Texture2D" uid="uid://cuov8jdqdg1cl" path="res://assets/UI/HUD/time.png" id="10_3176t"]
-[ext_resource type="FontFile" uid="uid://b00aeum2sxp7a" path="res://assets/UI/NumberFont.otf" id="10_xpfw1"]
+[ext_resource type="FontFile" uid="uid://b00aeum2sxp7a" path="res://assets/fonts/NumberFont.otf" id="10_xpfw1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8kp1x"]
 shader = ExtResource("1_va6dd")

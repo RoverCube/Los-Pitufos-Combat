@@ -19,7 +19,7 @@ func play_voice_line() -> void:
 
 
 func _on_selected_changed(new: int) -> void:
-	var entry := menu.entries[menu.current] as CharacterSEntry
+	var entry := menu.entries[new] as CharacterSEntry
 	$Menu/Character.text = entry.c_name.remove_chars(" ")
 	$Menu/Character.label_settings.set_stacked_shadow_color(0, entry.color_1)
 	

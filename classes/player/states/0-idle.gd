@@ -1,5 +1,8 @@
 extends PlayerState
 
+func _on_start_state() -> void:
+	player.velocity = Vector3.ZERO
+
 func _check_change() -> void:
 	if player.dir_input != 0:
 		change_state.emit("walk")

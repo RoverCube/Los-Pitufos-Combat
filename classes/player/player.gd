@@ -1,11 +1,13 @@
 class_name Player
-extends CharacterBody2D
+extends CharacterBody3D
 
-var pn: int = 1 # PN = Player Number 1 or 2
+@export var pn: int = 1 # PN = Player Number 1 or 2
+@onready var sprite: AnimatedSprite3D = $Sprite
 
 @export_range(100,225,25,"prefer_slider") var health: int  = 150
-@export var speed: float = 10.0
-@export var jump:  float = 10.0
+@export var speed     : float = 512.0
+@export var air_speed : float = 64.0
+@export var jump      : float = 512.0
 
 var dir_input: float
 var jump_input: bool
@@ -19,6 +21,7 @@ var lk_input: bool
 
 var s_input: bool # super
 var special: bool # super
+
 
 func _input(_event: InputEvent) -> void:
 	dir_input = Input.get_axis(str(pn,"Left"),str(pn,"Right"))

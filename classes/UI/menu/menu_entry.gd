@@ -1,6 +1,6 @@
 @abstract
 class_name MenuEntry
-extends Button
+extends Control
 
 var menu : Menu
 

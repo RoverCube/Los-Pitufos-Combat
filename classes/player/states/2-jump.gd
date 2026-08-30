@@ -1,14 +1,19 @@
 extends PlayerState
 
-const GRAVITY: int = 20
-const FALL:    int = 20
+const GRAVITY   : float = 32.0
+const FALL      : float = 32.0
+var start_speed : float = 0.0
 
 func _on_start_state() -> void:
-	player.velocity.y -= player.jump
+	player.velocity.y += player.jump
+	start_speed = player.velocity.x
 
 func _update_physics(delta: float) -> void:
-	player.velocity.y += delta * GRAVITY
-	if player.velocity.y >= 0: player.velocity.y += delta * FALL
+	# air movement
+	player.velocity.x = player.air_speed * delta * player.dir_input + start_speed
+	
+	player.velocity.y -= delta * GRAVITY
+	if player.velocity.y >= 0: player.velocity.y -= delta * FALL
 	player.move_and_slide()
 
 func _check_change() -> void:
