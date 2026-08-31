@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bskx223fq3suj" path="res://classes/player/player.gd" id="1_5np8l"]
 [ext_resource type="Script" uid="uid://cjb6p0dk8jcn1" path="res://classes/statemachine/state_machine.gd" id="1_xb0ah"]
+[ext_resource type="PackedScene" path="res://classes/player/boxes/hurt_box.tscn" id="3_j3kt6"]
 [ext_resource type="Script" uid="uid://drigvsmw78w1u" path="res://classes/player/states/0-idle.gd" id="3_ra71l"]
 [ext_resource type="Script" uid="uid://chslucqvouqj5" path="res://classes/player/states/1-walk.gd" id="4_ibn3i"]
 [ext_resource type="Script" uid="uid://d1sgeqgfblbtv" path="res://classes/player/states/2-jump.gd" id="5_j3kt6"]
@@ -133,6 +134,12 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibn3i"]
 size = Vector3(0.5, 1.6, 0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_300uk"]
+size = Vector3(0.5, 1.6, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3kt6"]
+size = Vector3(0.5, 0.9, 0.5)
+
 [sub_resource type="Animation" id="Animation_ra71l"]
 resource_name = "new_animation"
 step = 0.08333334
@@ -160,6 +167,13 @@ frame_progress = 0.8178476
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("BoxShape3D_ibn3i")
 
+[node name="HurtBox" parent="." unique_id=533693197 instance=ExtResource("3_j3kt6")]
+visible = false
+
+[node name="HurtCol" type="CollisionShape3D" parent="HurtBox" unique_id=2045773994]
+shape = SubResource("BoxShape3D_300uk")
+debug_color = Color(0, 0.6013788, 0.70120233, 0)
+
 [node name="StateMachine" type="Node" parent="." unique_id=899047569 node_paths=PackedStringArray("buffer_timer", "all_states")]
 script = ExtResource("1_xb0ah")
 buffer_timer = NodePath("Buffer")
@@ -180,6 +194,7 @@ player = NodePath("../..")
 
 [node name="Crouch" type="Node" parent="StateMachine" unique_id=446201836 node_paths=PackedStringArray("player")]
 script = ExtResource("6_300uk")
+crouch_col = SubResource("BoxShape3D_j3kt6")
 player = NodePath("../..")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=551642325 node_paths=PackedStringArray("player")]
@@ -193,5 +208,5 @@ player = NodePath("../..")
 [node name="Buffer" type="Timer" parent="StateMachine" unique_id=75076894]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=66766873]
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=66766873]
 libraries/ = SubResource("AnimationLibrary_ibn3i")

@@ -9,5 +9,6 @@ func _update_physics(delta: float) -> void:
 
 func _check_change() -> void:
 	if player.dir_input == 0: change_state.emit("idle")
-	if player.jump_input: change_state.emit("jump")
-	if player.attack_input: change_state.emit("attack")
+	if player.jump_input:     change_state.emit("jump")
+	if player.crouch_input:   change_state.emit("crouch")
+	generic_to(4) # attack

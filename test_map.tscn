@@ -57,11 +57,7 @@ debug_color = Color(0.9985511, 0.7531349, 0.3118315, 1)
 
 [node name="PlayerBase" parent="." unique_id=1355532886 instance=ExtResource("1_4qc02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
-speed = 128.0
-jump = 12.0
 
 [node name="PlayerBase2" parent="." unique_id=1430187080 instance=ExtResource("1_4qc02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 pn = 2
-speed = 128.0
-jump = 12.0

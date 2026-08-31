@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bvdxexs5acptx"]
+
+[ext_resource type="Script" uid="uid://bhd1gu5vxd5ng" path="res://classes/player/boxes/hit_box.gd" id="1_kfmbc"]
+
+[node name="HitBox" type="Area3D" unique_id=1225930080]
+collision_layer = 4
+collision_mask = 0
+input_ray_pickable = false
+script = ExtResource("1_kfmbc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -17,3 +17,8 @@ func turn_gay() -> void:
 	await audio.finished
 	audio.queue_free()
 	print("gay")
+
+func hit_freeze(seconds: float) -> void:
+	Engine.time_scale = 0.0
+	await get_tree().create_timer(seconds, true, false, true).timeout
+	Engine.time_scale = 1.0

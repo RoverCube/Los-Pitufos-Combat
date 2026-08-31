@@ -10,5 +10,4 @@ func _check_change() -> void:
 		change_state.emit("jump")
 	if player.crouch_input: # idle always on ground
 		change_state.emit("crouch")
-	if player.attack_input: # idle always on ground
-		change_state.emit("attack")
+	generic_to(4) # attack

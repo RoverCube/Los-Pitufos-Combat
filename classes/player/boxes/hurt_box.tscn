@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ckcv2k3id580g"]
+
+[ext_resource type="Script" uid="uid://kwlv5ni3hg8r" path="res://Main/CollisionBox/hurt_box.gd" id="1_w2gcw"]
+
+[node name="HurtBox" type="Area3D"]
+collision_layer = 8
+collision_mask = 4
+input_ray_pickable = false
+monitorable = false
+script = ExtResource("1_w2gcw")
+metadata/_custom_type_script = "uid://kwlv5ni3hg8r"
+
+[connection signal="area_entered" from="." to="." method="_on_area"]
