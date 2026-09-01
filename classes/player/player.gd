@@ -37,6 +37,7 @@ func _input(_event: InputEvent) -> void:
 	s_input = Input.is_action_pressed(str(pn,"#"))
 
 func anim(animation_name: String) -> void:
+	if self.animation == null or self.sprite == null: return
 	if animation.has_animation(animation_name): animation.play(animation_name)
 	else: push_warning(name," --- AnimationPlayer dosent have animation named ",animation_name)
 	if sprite.sprite_frames.has_animation(animation_name): sprite.play(animation_name)
