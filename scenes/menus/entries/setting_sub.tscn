@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dn5tjsy8tseel"]
+
+[ext_resource type="Script" uid="uid://c5dvmb3sgxady" path="res://classes/UI/menu/entry/settings_subs.gd" id="1_inn63"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="2_eyd8t"]
+[ext_resource type="FontFile" uid="uid://dyst1psv8vqck" path="res://assets/fonts/escrita_pitufo/escrita_pitufo.fnt" id="2_h451s"]
+
+[node name="SettingSub" type="Control" unique_id=1616646948]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_inn63")
+metadata/_custom_type_script = "uid://c5dvmb3sgxady"
+
+[node name="Label" type="Label" parent="." unique_id=1051978255]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_h451s")
+text = "menu"
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=362738861]
+script = ExtResource("2_eyd8t")
+type = 1
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1501928332]

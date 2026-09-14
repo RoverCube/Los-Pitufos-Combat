@@ -4,7 +4,6 @@
 [ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="2_gbvhw"]
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="5_1uv3n"]
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="5_gbvhw"]
-[ext_resource type="Texture2D" uid="uid://bnv7e87lvo7t0" path="res://assets/UI/settings/icon_atlas.png" id="5_ja7rp"]
 [ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="6_1uv3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1uv3n"]
@@ -38,10 +37,6 @@ shader_parameter/scale = Vector2(1, 1)
 shader_parameter/strength = 0.2
 shader_parameter/fps = 2.0
 shader_parameter/noise = ExtResource("6_1uv3n")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybhws"]
-atlas = ExtResource("5_ja7rp")
-region = Rect2(296, 0, 216, 232)
 
 [sub_resource type="Animation" id="Animation_1uv3n"]
 length = 0.001
@@ -132,14 +127,13 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 32
 theme_override_fonts/font = ExtResource("5_1uv3n")
 theme_override_font_sizes/font_size = 96
-text = "0%"
+text = "100%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Handle" type="Sprite2D" parent="." unique_id=1001619722]
 material = SubResource("ShaderMaterial_oug2i")
 position = Vector2(512, 0)
-texture = SubResource("AtlasTexture_ybhws")
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1722530461]
 libraries/ = SubResource("AnimationLibrary_pnld3")

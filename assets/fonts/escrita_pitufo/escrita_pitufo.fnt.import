@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dyst1psv8vqck"
+path="res://.godot/imported/escrita_pitufo.fnt-efa515c0ae15851e5c79e918dac33fd9.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/escrita_pitufo/escrita_pitufo.fnt"
+dest_files=["res://.godot/imported/escrita_pitufo.fnt-efa515c0ae15851e5c79e918dac33fd9.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

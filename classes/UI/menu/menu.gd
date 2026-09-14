@@ -19,7 +19,7 @@ func _ready() -> void:
 	for x in entries:
 		x.menu = self
 	entries[0].audible = false
-	active = true
+	if name =="PH" :active = true
 
 func _input(_event: InputEvent) -> void:
 	var add_input: String
