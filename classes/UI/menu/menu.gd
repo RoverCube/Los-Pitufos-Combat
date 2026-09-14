@@ -7,7 +7,6 @@ var current : int = 0:
 	set(new):
 		current = new
 		selected_changed.emit(new)
-		print(entries[current])
 @export var active : bool = false:
 	set(new):
 		if new == true:

@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="1_del6v"]
 [ext_resource type="PackedScene" uid="uid://d3eqyksyqv3yq" path="res://scenes/menus/entries/volume_setting.tscn" id="2_erjg3"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="3_e7wif"]
-[ext_resource type="Texture2D" uid="uid://c8qo265o2c4a7" path="res://assets/UI/settings/music_atlas.tres" id="3_g2810"]
-[ext_resource type="Texture2D" uid="uid://bnv7e87lvo7t0" path="res://assets/UI/icon_atlas.png" id="5_swl1s"]
+[ext_resource type="Texture2D" uid="uid://bnv7e87lvo7t0" path="res://assets/UI/settings/icon_atlas.png" id="5_swl1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swl1s"]
+atlas = ExtResource("5_swl1s")
+region = Rect2(136, 0, 160, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8vgy"]
 atlas = ExtResource("5_swl1s")
@@ -17,7 +20,7 @@ load_path = "res://.godot/imported/icon_atlas.png-ff69b8d00e9622f10c3750d0fab153
 atlas = SubResource("CompressedTexture2D_v4co7")
 region = Rect2(704, 8, 128, 208)
 
-[node name="Menu" type="Control" unique_id=506898134 node_paths=PackedStringArray("entries")]
+[node name="SubVolume" type="Control" unique_id=506898134 node_paths=PackedStringArray("entries")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 128.0
@@ -30,36 +33,30 @@ metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
 [node name="MusicVolume" parent="." unique_id=65295983 instance=ExtResource("2_erjg3")]
 layout_mode = 0
-offset_right = 0.0
-offset_bottom = 0.0
-icon = ExtResource("3_g2810")
+icon = SubResource("AtlasTexture_swl1s")
 
 [node name="Audio" type="AudioStreamPlayer" parent="MusicVolume" unique_id=2091927631]
 script = ExtResource("3_e7wif")
 metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 
-[node name="SfxVolume" parent="." unique_id=1866176381 instance=ExtResource("2_erjg3")]
+[node name="SfxVolume" parent="." unique_id=683037741 instance=ExtResource("2_erjg3")]
 layout_mode = 0
-offset_top = 256.0
-offset_right = 0.0
-offset_bottom = 256.0
+offset_top = 224.0
+offset_bottom = 264.0
 icon = SubResource("AtlasTexture_d8vgy")
 type = 1
 
-[node name="Audio" type="AudioStreamPlayer" parent="SfxVolume" unique_id=1145859042]
+[node name="Audio" type="AudioStreamPlayer" parent="SfxVolume" unique_id=1609705971]
 script = ExtResource("3_e7wif")
-type = 1
 metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 
-[node name="VoiceVolume" parent="." unique_id=158176520 instance=ExtResource("2_erjg3")]
+[node name="VoiceVolume" parent="." unique_id=2065596484 instance=ExtResource("2_erjg3")]
 layout_mode = 0
-offset_top = 512.0
-offset_right = 0.0
-offset_bottom = 512.0
+offset_top = 448.0
+offset_bottom = 488.0
 icon = SubResource("AtlasTexture_d8rlf")
 type = 2
 
-[node name="Audio" type="AudioStreamPlayer" parent="VoiceVolume" unique_id=1674039304]
+[node name="Audio" type="AudioStreamPlayer" parent="VoiceVolume" unique_id=620632581]
 script = ExtResource("3_e7wif")
-type = 2
 metadata/_custom_type_script = "uid://b6wbpp7yjqsej"

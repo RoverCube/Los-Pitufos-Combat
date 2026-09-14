@@ -37,5 +37,5 @@ func update_visual() -> void:
 	$Label.text = str(roundi(value*100))+"%"
 
 func confirm() -> void: pass
-func _on_selected() -> void: pass
-func _on_deselected() -> void: pass
+func _on_selected() -> void: anim.play("selected")
+func _on_deselected() -> void: anim.play("deselected")
