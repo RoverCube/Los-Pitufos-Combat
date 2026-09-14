@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dilbaydb8bq3n"]
+
+[ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="1_del6v"]
+[ext_resource type="PackedScene" uid="uid://d3eqyksyqv3yq" path="res://scenes/menus/entries/volume_setting.tscn" id="2_erjg3"]
+
+[node name="Menu" type="Control" unique_id=506898134 node_paths=PackedStringArray("entries")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_del6v")
+entries = [NodePath("MusicVolume"), NodePath("SfxVolume"), NodePath("VoiceVolume")]
+metadata/_custom_type_script = "uid://bhio7ycokfoiy"
+
+[node name="MusicVolume" parent="." unique_id=65295983 instance=ExtResource("2_erjg3")]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 188.0
+offset_right = 282.0
+offset_bottom = 228.0
+
+[node name="SfxVolume" parent="." unique_id=1866176381 instance=ExtResource("2_erjg3")]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 656.0
+offset_right = 304.0
+offset_bottom = 696.0
+type = 1
+
+[node name="VoiceVolume" parent="." unique_id=158176520 instance=ExtResource("2_erjg3")]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 1103.0
+offset_right = 295.0
+offset_bottom = 1143.0
+type = 2

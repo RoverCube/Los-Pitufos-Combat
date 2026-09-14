@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d3eqyksyqv3yq"]
+
+[ext_resource type="Script" uid="uid://dnv43kwe6ed36" path="res://classes/UI/menu/entry/settings_entry.gd" id="1_cfweo"]
+[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="2_jf18c"]
+[ext_resource type="Shader" uid="uid://dkk3yc21kqyuh" path="res://assets/shaders/simple_hover.gdshader" id="2_oug2i"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="3_ck6ww"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbvhw"]
+resource_local_to_scene = true
+shader = ExtResource("2_oug2i")
+shader_parameter/amplitude = 0.2000000095
+shader_parameter/speed = 0.10000000475
+
+[node name="MusicVolume" type="Control" unique_id=65295983]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_cfweo")
+metadata/_custom_type_script = "uid://dnv43kwe6ed36"
+
+[node name="Handle" type="Sprite2D" parent="." unique_id=1001619722]
+material = SubResource("ShaderMaterial_gbvhw")
+texture = ExtResource("2_jf18c")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=924038014]
+texture = ExtResource("2_jf18c")
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1722530461]
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=487606419]
+script = ExtResource("3_ck6ww")
+type = 1
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
+
+[node name="Label" type="Label" parent="." unique_id=1230563897]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 19.0
+offset_right = 589.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 220

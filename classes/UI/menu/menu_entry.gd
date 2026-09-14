@@ -4,7 +4,7 @@ extends Control
 
 var menu : Menu
 
-@onready var audio: AudioStreamPlayer = $Audio
+@onready var audio: AudioPlayer = $Audio
 @onready var anim: AnimationPlayer = $Animation
 @export var confirmed_action : MenuAction
 

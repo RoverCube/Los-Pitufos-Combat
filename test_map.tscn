@@ -27,7 +27,6 @@ environment = SubResource("Environment_4wuf8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 keep_aspect = 0
 fov = 70.0
-far = 128.0
 script = ExtResource("1_4wuf8")
 p1 = NodePath("../PlayerBase")
 p2 = NodePath("../PlayerBase2")

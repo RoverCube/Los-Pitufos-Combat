@@ -7,6 +7,7 @@ var current : int = 0:
 	set(new):
 		current = new
 		selected_changed.emit(new)
+		print(entries[current])
 @export var active : bool = false:
 	set(new):
 		if new == true:
@@ -19,6 +20,7 @@ func _ready() -> void:
 	for x in entries:
 		x.menu = self
 	entries[0].audible = false
+	active = true
 
 func _input(_event: InputEvent) -> void:
 	var add_input: String
