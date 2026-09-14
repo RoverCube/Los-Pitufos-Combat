@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cc16ov6tbjkdm" path="res://assets/PHMenuBG.jpg" id="2_3w8rc"]
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="2_6bivr"]
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="2_ovrgc"]
+[ext_resource type="Shader" uid="uid://cc1ryv1e73hvs" path="res://assets/shaders/monocrome.gdshader" id="2_vr0hv"]
 [ext_resource type="PackedScene" uid="uid://7vlyhqnjv7cx" path="res://scenes/menus/entries/main_entry.tscn" id="3_1hnlc"]
 [ext_resource type="Script" uid="uid://bowlw1lx3v74k" path="res://classes/UI/menu/actions/open_submenu.gd" id="4_1hnlc"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="4_6bivr"]
@@ -15,6 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://biaetv84go8ei" path="res://test.png" id="8_uxao6"]
 [ext_resource type="AudioStream" uid="uid://b6yeku2ajlmt0" path="res://assets/sound/music/main_menu.mp3" id="12_88kup"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="13_bh4e2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxao6"]
+shader = ExtResource("2_vr0hv")
+shader_parameter/mono_color = Color(0, 0.5764706, 0.8156863, 1)
+shader_parameter/intensity = 1.0
+shader_parameter/contrast = 1.0
 
 [sub_resource type="Animation" id="Animation_xqga4"]
 length = 0.001
@@ -194,17 +201,25 @@ stacked_shadow_1/color = Color(0, 0.0627451, 0.1764706, 1)
 [node name="MainMenu" type="Node" unique_id=18320176]
 script = ExtResource("1_xqga4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=176394568]
+[node name="PH" type="ColorRect" parent="." unique_id=1118572894]
+visible = false
 clip_children = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MonocromeFilter" type="ColorRect" parent="." unique_id=176394568]
+clip_children = 2
+material = SubResource("ShaderMaterial_uxao6")
 offset_left = -331.0
 offset_top = -382.00003
 offset_right = 885.0
 offset_bottom = 1093.7338
 rotation = 0.2617994
-color = Color(0, 0.5764706, 0.8156863, 1)
 
 [node name="PhMenuBg" type="Sprite2D" parent="." unique_id=204475112]
-visible = false
 z_index = -9
 scale = Vector2(1.1986681, 1.1986681)
 texture = ExtResource("2_3w8rc")

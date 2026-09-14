@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://7vlyhqnjv7cx"]
 
 [ext_resource type="Script" uid="uid://34xqlb2g1m6d" path="res://classes/UI/menu/entry/main_entry.gd" id="1_t4hye"]
+[ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="2_4ue6e"]
 [ext_resource type="Texture2D" uid="uid://biaetv84go8ei" path="res://test.png" id="2_f258e"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="2_hxc5l"]
+[ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="3_cx3v0"]
 [ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="3_hxc5l"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="4_t4hye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3di7p"]
+shader = ExtResource("2_4ue6e")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_cx3v0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ue6e"]
 atlas = ExtResource("2_f258e")
@@ -119,6 +128,7 @@ script = ExtResource("1_t4hye")
 metadata/_custom_type_script = "uid://34xqlb2g1m6d"
 
 [node name="Text" type="Sprite2D" parent="." unique_id=1850129324]
+material = SubResource("ShaderMaterial_3di7p")
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_4ue6e")
 
