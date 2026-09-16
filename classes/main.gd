@@ -18,6 +18,10 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if press_any and Input.is_anything_pressed():
+		anim.play("press any")
+		
+		await anim.animation_finished
+		
 		$PressAny.queue_free()
 		$MainMenu.active = true
 		$MainMenu.visible = true

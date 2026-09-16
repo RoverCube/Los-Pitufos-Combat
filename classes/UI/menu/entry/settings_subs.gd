@@ -3,6 +3,9 @@ extends MenuEntry
 
 @export var sub_menu: Menu
 
+func _ready() -> void:
+	$Label.text = name.to_lower()
+
 func confirm() -> void:
 	anim.play("enterSub")
 	sub_menu.active = true

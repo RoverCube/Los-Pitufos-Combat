@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dilbaydb8bq3n"]
 
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="1_del6v"]
+[ext_resource type="Texture2D" uid="uid://bwwyg3mysutfi" path="res://assets/UI/settings/bg.png" id="2_d8vgy"]
 [ext_resource type="PackedScene" uid="uid://d3eqyksyqv3yq" path="res://scenes/menus/entries/volume_setting.tscn" id="2_erjg3"]
 [ext_resource type="PackedScene" uid="uid://dn5tjsy8tseel" path="res://scenes/menus/entries/setting_sub.tscn" id="2_swl1s"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="3_e7wif"]
@@ -24,17 +25,27 @@ region = Rect2(704, 8, 128, 208)
 [node name="PH" type="Control" unique_id=1087732353 node_paths=PackedStringArray("entries")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 179.0
+offset_top = 179.0
+offset_right = 219.0
+offset_bottom = 219.0
 script = ExtResource("1_del6v")
 entries = [NodePath("Volume")]
 metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
+[node name="Bg" type="Sprite2D" parent="." unique_id=1236991098]
+position = Vector2(-104, -115)
+texture = ExtResource("2_d8vgy")
+centered = false
+
 [node name="Video" parent="." unique_id=1616646948 instance=ExtResource("2_swl1s")]
 layout_mode = 0
 
-[node name="Volume" parent="." unique_id=106052320 instance=ExtResource("2_swl1s")]
+[node name="Volume" parent="." unique_id=106052320 node_paths=PackedStringArray("sub_menu") instance=ExtResource("2_swl1s")]
 layout_mode = 0
+offset_top = 64.0
+offset_bottom = 104.0
+sub_menu = NodePath("SubVolume")
 
 [node name="SubVolume" type="Control" parent="Volume" unique_id=506898134 node_paths=PackedStringArray("entries")]
 visible = false
@@ -76,3 +87,5 @@ metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 
 [node name="Controles" parent="." unique_id=58800114 instance=ExtResource("2_swl1s")]
 layout_mode = 0
+offset_top = 128.0
+offset_bottom = 168.0

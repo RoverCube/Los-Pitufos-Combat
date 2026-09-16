@@ -1,6 +1,13 @@
 extends MenuAction
 
 @export_enum("Campanha","Versus","Treino") var id: int
+@export var cselect: Menu
+@export var main: Menu
+@export var anim: AnimationPlayer
 
 func action() -> void:
-	print(id)#get_tree().change_scene_to_file("res://scenes/menus/character_select.tscn")
+	anim.play("go to cselect")
+	await anim.animation_finished
+	main.active = false
+	cselect.active = true
+	

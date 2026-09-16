@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqkpqjac82q5l" path="res://classes/UI/menu/character_select.gd" id="1_5qjx0"]
 [ext_resource type="PackedScene" uid="uid://c2boueblx8dew" path="res://scenes/menus/entries/character_entry.tscn" id="1_oablf"]
-[ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="1_rptr7"]
 [ext_resource type="Theme" uid="uid://b5k2kvgp4rvht" path="res://assets/text.tres" id="3_jblrn"]
-[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="4_kbvb4"]
 [ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="4_xae3q"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="6_i56mv"]
 [ext_resource type="AudioStream" uid="uid://cbjfdn2fapemt" path="res://assets/sound/music/character_select.mp3" id="6_u125y"]
@@ -20,93 +18,10 @@ stacked_shadow_0/color = Color(0.42745098, 0.043137256, 0.11764706, 1)
 
 [sub_resource type="Animation" id="Animation_5qjx0"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackScreen:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackScreen:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_kbvb4"]
 resource_name = "enter"
 step = 0.08333334
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackScreen:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackScreen:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xae3q"]
 _data = {
@@ -114,22 +29,19 @@ _data = {
 &"enter": SubResource("Animation_kbvb4")
 }
 
-[node name="CharacterSelect" type="Node" unique_id=72217984]
-script = ExtResource("1_5qjx0")
-
-[node name="Menu" type="Control" parent="." unique_id=654253324 node_paths=PackedStringArray("entries")]
+[node name="Menu" type="Control" unique_id=654253324 node_paths=PackedStringArray("entries")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1856.0
 offset_top = 521.0
 offset_right = 1856.0
 offset_bottom = 521.0
-script = ExtResource("1_rptr7")
+script = ExtResource("1_5qjx0")
 dir = 1
 entries = [NodePath("HBoxContainer/CR"), NodePath("HBoxContainer/DK"), NodePath("HBoxContainer/ES"), NodePath("HBoxContainer/HD"), NodePath("HBoxContainer/KK"), NodePath("HBoxContainer/KA"), NodePath("HBoxContainer/OS"), NodePath("HBoxContainer/PE")]
 metadata/_custom_type_script = "uid://bhio7ycokfoiy"
 
-[node name="Character" type="Label" parent="Menu" unique_id=638536756]
+[node name="Character" type="Label" parent="." unique_id=638536756]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -144,12 +56,12 @@ label_settings = SubResource("LabelSettings_i56mv")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Deco" type="Polygon2D" parent="Menu" unique_id=1814739187]
+[node name="Deco" type="Polygon2D" parent="." unique_id=1814739187]
 antialiased = true
 polygon = PackedVector2Array(8, -24, 7.999998, -56, -384.00003, -56.000008, -384.00003, -48.000008)
 uv = PackedVector2Array(8, -24, 7.999998, -56, -464, -55.999996, -464, -48)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu" unique_id=326753565]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=326753565]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -159,13 +71,14 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_constants/separation = 0
 alignment = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="CR" parent="Menu/HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
+[node name="CR" parent="HBoxContainer" unique_id=271687836 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "C R I S T I A N"
 big_one = ExtResource("4_xae3q")
 
-[node name="DK" parent="Menu/HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
+[node name="DK" parent="HBoxContainer" unique_id=1757845917 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "D I U K"
 offset = 1
@@ -174,7 +87,7 @@ color_2 = Color(0.3166088, 0.03253088, 0.07369649, 1)
 color_3 = Color(0.1012005, 0, 0.003221134, 1)
 color_4 = Color(0.8739043, 0.2785846, 0.42414305, 1)
 
-[node name="ES" parent="Menu/HBoxContainer" unique_id=377653097 instance=ExtResource("1_oablf")]
+[node name="ES" parent="HBoxContainer" unique_id=377653097 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "E S Q U I L O"
 offset = 2
@@ -183,7 +96,7 @@ color_2 = Color(0.043712094, 0.19621032, 0.09934176, 1)
 color_3 = Color(0, 0.046099074, 0.030204566, 1)
 color_4 = Color(0.26996598, 0.60917485, 0.36080474, 1)
 
-[node name="HD" parent="Menu/HBoxContainer" unique_id=1117618457 instance=ExtResource("1_oablf")]
+[node name="HD" parent="HBoxContainer" unique_id=1117618457 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "H E D E R"
 offset = 3
@@ -192,17 +105,17 @@ color_2 = Color(0.010861823, 0.18391526, 0.22848639, 1)
 color_3 = Color(2.256129e-08, 0.040945508, 0.06407089, 1)
 color_4 = Color(0.16391799, 0.5879597, 0.65256447, 1)
 
-[node name="KK" parent="Menu/HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
+[node name="KK" parent="HBoxContainer" unique_id=1346027481 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "K A I K"
 offset = 4
 
-[node name="KA" parent="Menu/HBoxContainer" unique_id=1215892020 instance=ExtResource("1_oablf")]
+[node name="KA" parent="HBoxContainer" unique_id=1215892020 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "K A U Ã"
 offset = 5
 
-[node name="OS" parent="Menu/HBoxContainer" unique_id=243520075 instance=ExtResource("1_oablf")]
+[node name="OS" parent="HBoxContainer" unique_id=243520075 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "O S M A R"
 offset = 6
@@ -211,14 +124,13 @@ color_2 = Color(0.044664577, 0.13139984, 0.38736507, 1)
 color_3 = Color(0.009673198, 0, 0.17331845, 1)
 color_4 = Color(0.25082928, 0.5304057, 0.8722254, 1)
 
-[node name="PE" parent="Menu/HBoxContainer" unique_id=2068197230 instance=ExtResource("1_oablf")]
+[node name="PE" parent="HBoxContainer" unique_id=2068197230 instance=ExtResource("1_oablf")]
 layout_mode = 2
 c_name = "P E D R O"
 offset = 7
 
-[node name="BlackScreen" parent="." unique_id=339945927 instance=ExtResource("4_kbvb4")]
-
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1123670152]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_xae3q")
 
 [node name="VoiceLine" type="AudioStreamPlayer" parent="." unique_id=1533841391]
@@ -232,5 +144,3 @@ volume_db = -15.0
 autoplay = true
 script = ExtResource("6_i56mv")
 metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
-
-[connection signal="selected_changed" from="Menu" to="." method="_on_selected_changed"]
