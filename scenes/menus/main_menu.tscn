@@ -320,7 +320,7 @@ region = Rect2(0, 576, 160, 64)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_25m6f"]
 shader = ExtResource("11_vr0hv")
 shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 0.35
+shader_parameter/strength = 0.2
 shader_parameter/fps = 2.0
 shader_parameter/noise = ExtResource("12_a3hrp")
 
@@ -331,7 +331,7 @@ region = Rect2(0, 512, 352, 64)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nkawv"]
 shader = ExtResource("11_vr0hv")
 shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 0.5
+shader_parameter/strength = 0.4
 shader_parameter/fps = 2.0
 shader_parameter/noise = ExtResource("12_a3hrp")
 

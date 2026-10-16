@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ciuwvk1irym1u"]
+
+[ext_resource type="Script" uid="uid://c58vdexq3eogo" path="res://classes/UI/cs_menu/cs_menu.gd" id="1_2vd3b"]
+[ext_resource type="PackedScene" uid="uid://dem3fgcdddtm0" path="res://scenes/menus/cs_menu/cs_entry.tscn" id="2_vydsi"]
+[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="3_k4sfe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_npo1t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k4sfe")
+}],
+"loop": true,
+"name": &"unselected",
+"speed": 5.0
+}]
+
+[node name="CSMenu" type="Node2D" unique_id=1981336561]
+script = ExtResource("1_2vd3b")
+metadata/_custom_type_script = "uid://c58vdexq3eogo"
+
+[node name="CSEntry" parent="." unique_id=231153885 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("2_vydsi")]
+position = Vector2(433, 269)
+on_left = NodePath("../CSEntry2")
+on_right = NodePath("../CSEntry2")
+on_up = NodePath("../CSEntry7")
+on_down = NodePath("../CSEntry3")
+frames = SubResource("SpriteFrames_npo1t")
+
+[node name="CSEntry2" parent="." unique_id=1315458521 instance=ExtResource("2_vydsi")]
+position = Vector2(949, 115)
+
+[node name="CSEntry3" parent="." unique_id=1699829141 instance=ExtResource("2_vydsi")]
+position = Vector2(575, 369)
+
+[node name="CSEntry4" parent="." unique_id=2020105206 instance=ExtResource("2_vydsi")]
+position = Vector2(971, 331)
+
+[node name="CSEntry5" parent="." unique_id=2123977860 instance=ExtResource("2_vydsi")]
+position = Vector2(553, 639)
+
+[node name="CSEntry6" parent="." unique_id=1166383905 instance=ExtResource("2_vydsi")]
+position = Vector2(986, 611)
+
+[node name="CSEntry7" parent="." unique_id=244003927 instance=ExtResource("2_vydsi")]
+position = Vector2(560, 906)
+
+[node name="CSEntry8" parent="." unique_id=1044196538 instance=ExtResource("2_vydsi")]
+position = Vector2(977, 896)

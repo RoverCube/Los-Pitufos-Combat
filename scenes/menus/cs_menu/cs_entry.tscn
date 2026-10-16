@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dem3fgcdddtm0"]
+
+[ext_resource type="Script" uid="uid://unj30wf6mmsl" path="res://classes/UI/cs_menu/cs_entry.gd" id="1_cgdrk"]
+[ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="2_7g82a"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="2_a6stq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7g82a"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"confirm",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"unselected",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6stq"]
+
+[node name="CSEntry" type="Node2D" unique_id=231153885]
+script = ExtResource("1_cgdrk")
+confirm_voices = Dictionary[int, AudioStream]({
+-1: null,
+0: ExtResource("2_7g82a"),
+1: null,
+2: null,
+3: null,
+4: null,
+5: null,
+6: null,
+7: null
+})
+metadata/_custom_type_script = "uid://unj30wf6mmsl"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=750821273]
+sprite_frames = SubResource("SpriteFrames_7g82a")
+animation = &"unselected"
+
+[node name="BorderSprite" type="AnimatedSprite2D" parent="." unique_id=372733408]
+sprite_frames = SubResource("SpriteFrames_a6stq")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=370142100]
+script = ExtResource("2_a6stq")
+type = 2
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"

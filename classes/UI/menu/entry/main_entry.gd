@@ -14,7 +14,7 @@ const CONFIRM_SOUND = preload("res://assets/sound/sfx/sound-13.mp3")
 
 func _on_selected() -> void:
 	anim.play("selected")
-	main_anim.play("selected "+name)
+	#main_anim.play("selected "+name)
 	play_sfx(SELECT_SOUND)
 
 func _on_deselected() -> void:
