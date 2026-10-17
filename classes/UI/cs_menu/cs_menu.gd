@@ -20,13 +20,15 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("1DRight"): p1_seletion = entries[p1_seletion].on_right.id
 		if Input.is_action_just_pressed("1DUp"):    p1_seletion = entries[p1_seletion].on_up.id
 		if Input.is_action_just_pressed("1DDown"):  p1_seletion = entries[p1_seletion].on_down.id
-		$P1Deco.material.set_shader_parameter("color",entries[p1_seletion].color)
+		if $P1Deco.get_instance_shader_parameter("color") != entries[p1_seletion].color:
+			$P1Deco.material.set_shader_parameter("color",entries[p1_seletion].color)
 	if p2_confirmed == false:
 		if Input.is_action_just_pressed("2DLeft"):  p2_seletion = entries[p2_seletion].on_left.id
 		if Input.is_action_just_pressed("2DRight"): p2_seletion = entries[p2_seletion].on_right.id
 		if Input.is_action_just_pressed("2DUp"):    p2_seletion = entries[p2_seletion].on_up.id
 		if Input.is_action_just_pressed("2DDown"):  p2_seletion = entries[p2_seletion].on_down.id
-		$P2Deco.material.set_shader_parameter("color",entries[p2_seletion].color)
+		if $P2Deco.get_instance_shader_parameter("color") != entries[p2_seletion].color:
+			$P2Deco.material.set_shader_parameter("color",entries[p2_seletion].color)
 
 	if Input.is_action_just_pressed("1LK"):
 		entries[p1_seletion].confirm()

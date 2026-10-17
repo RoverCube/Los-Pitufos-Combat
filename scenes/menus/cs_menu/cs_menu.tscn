@@ -12,6 +12,17 @@
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="8_sd0fl"]
 [ext_resource type="Shader" uid="uid://b2a8mjsoh7k5" path="res://assets/shaders/waveform.gdshader" id="11_74ckb"]
 
+[sub_resource type="Gradient" id="Gradient_74ckb"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0.176213, 0.36948937, 1, 0.003921569, 0.02745098, 0.047058824, 1, 0.36078432, 0, 0.08235294, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7fmv1"]
+gradient = SubResource("Gradient_74ckb")
+width = 1920
+height = 1080
+fill_from = Vector2(0, 0.37976003)
+fill_to = Vector2(1, 0.6134585)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dq3eo"]
 shader = ExtResource("11_74ckb")
 shader_parameter/lines = 80
@@ -24,7 +35,7 @@ shader_parameter/fade = 0.0
 shader_parameter/rest_size = 0.30000010925
 shader_parameter/edge = 0.0800000038
 shader_parameter/speed = 0.5
-shader_parameter/color = Color(0.74269843, 0.75123364, 0.38901705, 1)
+shader_parameter/color = Color(0.40392157, 0.79607844, 0.8352941, 1)
 shader_parameter/dot_matrix = false
 shader_parameter/dot_matriz_size = 80
 shader_parameter/speech_sim = false
@@ -73,6 +84,10 @@ region = Rect2(288, 576, 64, 64)
 script = ExtResource("1_2vd3b")
 metadata/_custom_type_script = "uid://c58vdexq3eogo"
 
+[node name="Gradient" type="Sprite2D" parent="." unique_id=696763849]
+texture = SubResource("GradientTexture2D_7fmv1")
+centered = false
+
 [node name="P2Deco" type="ColorRect" parent="." unique_id=1695335140]
 material = SubResource("ShaderMaterial_dq3eo")
 offset_left = 1367.0
@@ -116,7 +131,7 @@ on_up = NodePath("../CSEntry7")
 on_down = NodePath("../CSEntry3")
 p1_indicator_pos = Vector2(-44, -76)
 p2_indicator_pos = Vector2(40, 91)
-color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+color = Color(0.61960787, 0.61960787, 0.61960787, 1)
 
 [node name="Lock" type="Sprite2D" parent="CSEntry" unique_id=1131653516]
 material = SubResource("ShaderMaterial_7fmv1")
@@ -132,7 +147,7 @@ on_up = NodePath("../CSEntry8")
 on_down = NodePath("../CSEntry4")
 p1_indicator_pos = Vector2(-30, -86)
 p2_indicator_pos = Vector2(33, 96)
-color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+color = Color(0.61960787, 0.61960787, 0.61960787, 1)
 
 [node name="Lock" type="Sprite2D" parent="CSEntry2" unique_id=1922484898]
 material = SubResource("ShaderMaterial_7fmv1")
@@ -175,12 +190,14 @@ color = Color(0.76464605, 0.27933437, 0.28486985, 1)
 
 [node name="CSEntry6" parent="." unique_id=1612784783 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(967, 680)
+character = 3
 on_left = NodePath("../CSEntry5")
 on_right = NodePath("../CSEntry5")
 on_up = NodePath("../CSEntry4")
 on_down = NodePath("../CSEntry8")
 p1_indicator_pos = Vector2(-26, -103)
 p2_indicator_pos = Vector2(9, 118)
+color = Color(0.40392157, 0.79607844, 0.8352941, 1)
 
 [node name="CSEntry7" parent="." unique_id=1091145050 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(697, 888)
@@ -190,7 +207,7 @@ on_up = NodePath("../CSEntry5")
 on_down = NodePath("../CSEntry")
 p1_indicator_pos = Vector2(-5, -107)
 p2_indicator_pos = Vector2(54, 88)
-color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+color = Color(0.61960787, 0.61960787, 0.61960787, 1)
 
 [node name="Lock" type="Sprite2D" parent="CSEntry7" unique_id=116305423]
 material = SubResource("ShaderMaterial_7fmv1")
@@ -206,7 +223,7 @@ on_up = NodePath("../CSEntry6")
 on_down = NodePath("../CSEntry2")
 p1_indicator_pos = Vector2(-30, -90)
 p2_indicator_pos = Vector2(73, 104)
-color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+color = Color(0.61960787, 0.61960787, 0.61960787, 1)
 
 [node name="Lock" type="Sprite2D" parent="CSEntry8" unique_id=1163988920]
 material = SubResource("ShaderMaterial_7fmv1")

@@ -17,7 +17,8 @@ var id               : int = -1
 @export var p1_indicator_pos : Vector2
 @export var p2_indicator_pos : Vector2
 @export var color            : Color = Color("bdc063")
-@export var confirm_voices: Dictionary[int, AudioStream]
+@export var name_texture     : AtlasTexture
+@export var confirm_voices   : Dictionary[int, AudioStream]
 
 func confirm() -> void:
 	audio_player.play_this(confirm_voices[character])
