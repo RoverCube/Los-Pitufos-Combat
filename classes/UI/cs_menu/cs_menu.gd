@@ -7,8 +7,6 @@ var p1_confirmed: bool = false
 var p2_confirmed: bool = false
 var entries: Array[CSEntry]
 
-@onready var p1_mdelay: Timer = $P1MDelay
-@onready var p2_mdelay: Timer = $P2MDelay
 
 func _enter_tree() -> void:
 	for x in get_children(false):
@@ -17,21 +15,17 @@ func _enter_tree() -> void:
 			entries.insert(entries.size(),x)
 
 func _process(_delta: float) -> void:
-	var p1_input = Input.get_vector("1DLeft","1DRight","1DUp","1DDown") # Dpad
-	var p2_input = Input.get_vector("2DLeft","2DRight","2DUp","2DDown") # Dpad
-	if p1_confirmed == false and p1_mdelay.is_stopped():
-		p1_mdelay.start()
-		if p1_input == Vector2.UP: p1_seletion    = entries[p1_seletion].on_up.id
-		if p1_input == Vector2.DOWN: p1_seletion  = entries[p1_seletion].on_down.id
-		if p1_input == Vector2.LEFT: p1_seletion  = entries[p1_seletion].on_left.id
-		if p1_input == Vector2.RIGHT: p1_seletion = entries[p1_seletion].on_right.id
+	if p1_confirmed == false:
+		if Input.is_action_just_pressed("1DLeft"):  p1_seletion = entries[p1_seletion].on_left.id
+		if Input.is_action_just_pressed("1DRight"): p1_seletion = entries[p1_seletion].on_right.id
+		if Input.is_action_just_pressed("1DUp"):    p1_seletion = entries[p1_seletion].on_up.id
+		if Input.is_action_just_pressed("1DDown"):  p1_seletion = entries[p1_seletion].on_down.id
 		$P1Deco.material.set_shader_parameter("color",entries[p1_seletion].color)
-	if p2_confirmed == false and p2_mdelay.is_stopped():
-		p2_mdelay.start()
-		if p2_input == Vector2.UP: p2_seletion    = entries[p2_seletion].on_up.id
-		if p2_input == Vector2.DOWN: p2_seletion  = entries[p2_seletion].on_down.id
-		if p2_input == Vector2.LEFT: p2_seletion  = entries[p2_seletion].on_left.id
-		if p2_input == Vector2.RIGHT: p2_seletion = entries[p2_seletion].on_right.id
+	if p2_confirmed == false:
+		if Input.is_action_just_pressed("2DLeft"):  p2_seletion = entries[p2_seletion].on_left.id
+		if Input.is_action_just_pressed("2DRight"): p2_seletion = entries[p2_seletion].on_right.id
+		if Input.is_action_just_pressed("2DUp"):    p2_seletion = entries[p2_seletion].on_up.id
+		if Input.is_action_just_pressed("2DDown"):  p2_seletion = entries[p2_seletion].on_down.id
 		$P2Deco.material.set_shader_parameter("color",entries[p2_seletion].color)
 
 	if Input.is_action_just_pressed("1LK"):
