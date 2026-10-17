@@ -8,11 +8,11 @@ var music_volume : float = 0.0
 var sfx_volume   : float = 1.0
 var voice_volume : float = 1.0
 # INPUT SETTINGS
-
 func load_save_file() -> void: pass
 func save_save_file() -> void: pass
-
-
+# MATCH INFORMATION
+var p1_character_id: int = 0
+var p2_character_id: int = 0
 
 func turn_gay() -> void:
 	gay_mode = true

@@ -15,7 +15,6 @@ animations = [{
 }]
 
 [node name="LoadingScreen" type="ColorRect" unique_id=339945927]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_8ycgy")
+metadata/_edit_use_anchors_ = true
 
 [node name="LoadingSprite" type="AnimatedSprite2D" parent="." unique_id=1873371754]
 position = Vector2(960, 540)

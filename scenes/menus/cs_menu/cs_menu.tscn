@@ -1,49 +1,81 @@
 [gd_scene format=3 uid="uid://ciuwvk1irym1u"]
 
 [ext_resource type="Script" uid="uid://c58vdexq3eogo" path="res://classes/UI/cs_menu/cs_menu.gd" id="1_2vd3b"]
-[ext_resource type="PackedScene" uid="uid://dem3fgcdddtm0" path="res://scenes/menus/cs_menu/cs_entry.tscn" id="2_vydsi"]
-[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="3_k4sfe"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_npo1t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_k4sfe")
-}],
-"loop": true,
-"name": &"unselected",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="2_npo1t"]
+[ext_resource type="Texture2D" uid="uid://dbwx0bt2wj5i1" path="res://assets/UI/character_select/bg.png" id="2_vydsi"]
+[ext_resource type="PackedScene" uid="uid://dem3fgcdddtm0" path="res://scenes/menus/cs_menu/cs_entry.tscn" id="3_k4sfe"]
 
 [node name="CSMenu" type="Node2D" unique_id=1981336561]
 script = ExtResource("1_2vd3b")
 metadata/_custom_type_script = "uid://c58vdexq3eogo"
 
-[node name="CSEntry" parent="." unique_id=231153885 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("2_vydsi")]
-position = Vector2(433, 269)
+[node name="Bg" type="Sprite2D" parent="." unique_id=66687115]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_vydsi")
+centered = false
+
+[node name="CSEntry" parent="." unique_id=231153885 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(939, 185)
 on_left = NodePath("../CSEntry2")
 on_right = NodePath("../CSEntry2")
 on_up = NodePath("../CSEntry7")
 on_down = NodePath("../CSEntry3")
-frames = SubResource("SpriteFrames_npo1t")
 
-[node name="CSEntry2" parent="." unique_id=1315458521 instance=ExtResource("2_vydsi")]
-position = Vector2(949, 115)
+[node name="CSEntry2" parent="." unique_id=1370521382 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(1121, 203)
+on_left = NodePath("../CSEntry")
+on_right = NodePath("../CSEntry")
+on_up = NodePath("../CSEntry8")
+on_down = NodePath("../CSEntry4")
 
-[node name="CSEntry3" parent="." unique_id=1699829141 instance=ExtResource("2_vydsi")]
-position = Vector2(575, 369)
+[node name="CSEntry3" parent="." unique_id=1748215491 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(872, 411)
+on_left = NodePath("../CSEntry4")
+on_right = NodePath("../CSEntry4")
+on_up = NodePath("../CSEntry")
+on_down = NodePath("../CSEntry5")
 
-[node name="CSEntry4" parent="." unique_id=2020105206 instance=ExtResource("2_vydsi")]
-position = Vector2(971, 331)
+[node name="CSEntry4" parent="." unique_id=248293550 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(1038, 446)
+on_left = NodePath("../CSEntry3")
+on_right = NodePath("../CSEntry3")
+on_up = NodePath("../CSEntry2")
+on_down = NodePath("../CSEntry6")
 
-[node name="CSEntry5" parent="." unique_id=2123977860 instance=ExtResource("2_vydsi")]
-position = Vector2(553, 639)
+[node name="CSEntry5" parent="." unique_id=186366365 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(800, 652)
+on_left = NodePath("../CSEntry6")
+on_right = NodePath("../CSEntry6")
+on_up = NodePath("../CSEntry3")
+on_down = NodePath("../CSEntry7")
 
-[node name="CSEntry6" parent="." unique_id=1166383905 instance=ExtResource("2_vydsi")]
-position = Vector2(986, 611)
+[node name="CSEntry6" parent="." unique_id=1612784783 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(967, 680)
+on_left = NodePath("../CSEntry5")
+on_right = NodePath("../CSEntry5")
+on_up = NodePath("../CSEntry4")
+on_down = NodePath("../CSEntry8")
 
-[node name="CSEntry7" parent="." unique_id=244003927 instance=ExtResource("2_vydsi")]
-position = Vector2(560, 906)
+[node name="CSEntry7" parent="." unique_id=1091145050 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(697, 888)
+on_left = NodePath("../CSEntry8")
+on_right = NodePath("../CSEntry8")
+on_up = NodePath("../CSEntry5")
+on_down = NodePath("../CSEntry")
 
-[node name="CSEntry8" parent="." unique_id=1044196538 instance=ExtResource("2_vydsi")]
-position = Vector2(977, 896)
+[node name="CSEntry8" parent="." unique_id=1543366118 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
+position = Vector2(894, 920)
+on_left = NodePath("../CSEntry7")
+on_right = NodePath("../CSEntry7")
+on_up = NodePath("../CSEntry6")
+on_down = NodePath("../CSEntry2")
+
+[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_npo1t")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
