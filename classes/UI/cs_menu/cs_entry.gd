@@ -16,6 +16,7 @@ var id               : int = -1
 @export var on_down  : CSEntry
 @export var p1_indicator_pos : Vector2
 @export var p2_indicator_pos : Vector2
+@export var color            : Color = Color("bdc063")
 @export var confirm_voices: Dictionary[int, AudioStream]
 
 func confirm() -> void:

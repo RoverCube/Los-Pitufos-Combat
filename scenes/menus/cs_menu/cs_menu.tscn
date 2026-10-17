@@ -2,12 +2,62 @@
 
 [ext_resource type="Script" uid="uid://c58vdexq3eogo" path="res://classes/UI/cs_menu/cs_menu.gd" id="1_2vd3b"]
 [ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="2_npo1t"]
+[ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="2_sd0fl"]
 [ext_resource type="Texture2D" uid="uid://dbwx0bt2wj5i1" path="res://assets/UI/character_select/bg.png" id="2_vydsi"]
+[ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="3_74ckb"]
 [ext_resource type="PackedScene" uid="uid://dem3fgcdddtm0" path="res://scenes/menus/cs_menu/cs_entry.tscn" id="3_k4sfe"]
 [ext_resource type="Script" uid="uid://87a5faftndx3" path="res://classes/UI/cs_menu/player_indicator.gd" id="5_nwg75"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="5_wle4u"]
+[ext_resource type="AudioStream" uid="uid://b6yeku2ajlmt0" path="res://assets/sound/music/main_menu.mp3" id="7_e2stv"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="8_sd0fl"]
+[ext_resource type="Shader" uid="uid://b2a8mjsoh7k5" path="res://assets/shaders/waveform.gdshader" id="11_74ckb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nwg75"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dq3eo"]
+shader = ExtResource("11_74ckb")
+shader_parameter/lines = 80
+shader_parameter/amplitude = 1.0
+shader_parameter/frequency = 0.1
+shader_parameter/intensity = 0.75
+shader_parameter/line_sharpness = 1.0
+shader_parameter/line_size = 1.0
+shader_parameter/fade = 0.0
+shader_parameter/rest_size = 0.30000010925
+shader_parameter/edge = 0.0800000038
+shader_parameter/speed = 0.5
+shader_parameter/color = Color(0.74269843, 0.75123364, 0.38901705, 1)
+shader_parameter/dot_matrix = false
+shader_parameter/dot_matriz_size = 80
+shader_parameter/speech_sim = false
+shader_parameter/speech_intensity = 0.8
+shader_parameter/progress = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_74ckb"]
+shader = ExtResource("11_74ckb")
+shader_parameter/lines = 80
+shader_parameter/amplitude = 1.0
+shader_parameter/frequency = 0.1
+shader_parameter/intensity = 0.75
+shader_parameter/line_sharpness = 1.0
+shader_parameter/line_size = 1.0
+shader_parameter/fade = 0.0
+shader_parameter/rest_size = 0.30000010925
+shader_parameter/edge = 0.0800000038
+shader_parameter/speed = 0.5
+shader_parameter/color = Color(0.61999047, 0.39892012, 0.7978681, 1)
+shader_parameter/dot_matrix = false
+shader_parameter/dot_matriz_size = 80
+shader_parameter/speech_sim = false
+shader_parameter/speech_intensity = 0.8
+shader_parameter/progress = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fmv1"]
+shader = ExtResource("2_sd0fl")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_74ckb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd0fl"]
 atlas = ExtResource("5_wle4u")
 region = Rect2(160, 576, 64, 64)
 
@@ -15,20 +65,45 @@ region = Rect2(160, 576, 64, 64)
 atlas = ExtResource("5_wle4u")
 region = Rect2(224, 576, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwg75"]
+atlas = ExtResource("5_wle4u")
+region = Rect2(288, 576, 64, 64)
+
 [node name="CSMenu" type="Node2D" unique_id=1981336561]
 script = ExtResource("1_2vd3b")
 metadata/_custom_type_script = "uid://c58vdexq3eogo"
 
+[node name="P2Deco" type="ColorRect" parent="." unique_id=1695335140]
+material = SubResource("ShaderMaterial_dq3eo")
+offset_left = 1367.0
+offset_top = -256.0
+offset_right = 2253.2207
+offset_bottom = 256.0
+rotation = -1.0226699
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(0, 256)
+
+[node name="P1Deco" type="ColorRect" parent="." unique_id=939099025]
+material = SubResource("ShaderMaterial_74ckb")
+offset_left = 471.0
+offset_top = 824.0
+offset_right = 1357.2207
+offset_bottom = 1336.0
+rotation = -1.0226699
+pivot_offset = Vector2(0, 256)
+
 [node name="Bg" type="Sprite2D" parent="." unique_id=66687115]
-modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_7fmv1")
 texture = ExtResource("2_vydsi")
 centered = false
 
 [node name="P1Indicator" type="Sprite2D" parent="." unique_id=1227723531]
-texture = SubResource("AtlasTexture_nwg75")
+material = SubResource("ShaderMaterial_7fmv1")
+texture = SubResource("AtlasTexture_sd0fl")
 script = ExtResource("5_nwg75")
 
 [node name="P2Indicator" type="Sprite2D" parent="." unique_id=1938790490]
+material = SubResource("ShaderMaterial_7fmv1")
 texture = SubResource("AtlasTexture_46me4")
 script = ExtResource("5_nwg75")
 player_2 = true
@@ -41,6 +116,13 @@ on_up = NodePath("../CSEntry7")
 on_down = NodePath("../CSEntry3")
 p1_indicator_pos = Vector2(-44, -76)
 p2_indicator_pos = Vector2(40, 91)
+color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+
+[node name="Lock" type="Sprite2D" parent="CSEntry" unique_id=1131653516]
+material = SubResource("ShaderMaterial_7fmv1")
+position = Vector2(2, 13)
+rotation = 0.06844463
+texture = SubResource("AtlasTexture_nwg75")
 
 [node name="CSEntry2" parent="." unique_id=1370521382 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(1121, 203)
@@ -50,6 +132,13 @@ on_up = NodePath("../CSEntry8")
 on_down = NodePath("../CSEntry4")
 p1_indicator_pos = Vector2(-30, -86)
 p2_indicator_pos = Vector2(33, 96)
+color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+
+[node name="Lock" type="Sprite2D" parent="CSEntry2" unique_id=1922484898]
+material = SubResource("ShaderMaterial_7fmv1")
+position = Vector2(-3.0000005, 9)
+rotation = 0.27962017
+texture = SubResource("AtlasTexture_nwg75")
 
 [node name="CSEntry3" parent="." unique_id=1748215491 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(872, 411)
@@ -60,6 +149,7 @@ on_up = NodePath("../CSEntry")
 on_down = NodePath("../CSEntry5")
 p1_indicator_pos = Vector2(-5, -83)
 p2_indicator_pos = Vector2(29, 101)
+color = Color(0.61960787, 0.4, 0.79607844, 1)
 
 [node name="CSEntry4" parent="." unique_id=248293550 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(1038, 446)
@@ -70,6 +160,7 @@ on_up = NodePath("../CSEntry2")
 on_down = NodePath("../CSEntry6")
 p1_indicator_pos = Vector2(-22, -108)
 p2_indicator_pos = Vector2(-4, 93)
+color = Color(0.40392157, 0.7764706, 0.9529412, 1)
 
 [node name="CSEntry5" parent="." unique_id=186366365 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(800, 652)
@@ -80,10 +171,10 @@ on_up = NodePath("../CSEntry3")
 on_down = NodePath("../CSEntry7")
 p1_indicator_pos = Vector2(13, -98)
 p2_indicator_pos = Vector2(22, 111)
+color = Color(0.76464605, 0.27933437, 0.28486985, 1)
 
 [node name="CSEntry6" parent="." unique_id=1612784783 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(967, 680)
-character = 3
 on_left = NodePath("../CSEntry5")
 on_right = NodePath("../CSEntry5")
 on_up = NodePath("../CSEntry4")
@@ -99,6 +190,13 @@ on_up = NodePath("../CSEntry5")
 on_down = NodePath("../CSEntry")
 p1_indicator_pos = Vector2(-5, -107)
 p2_indicator_pos = Vector2(54, 88)
+color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+
+[node name="Lock" type="Sprite2D" parent="CSEntry7" unique_id=116305423]
+material = SubResource("ShaderMaterial_7fmv1")
+position = Vector2(15.999998, -9.999998)
+rotation = 0.27962017
+texture = SubResource("AtlasTexture_nwg75")
 
 [node name="CSEntry8" parent="." unique_id=1543366118 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(894, 920)
@@ -108,6 +206,13 @@ on_up = NodePath("../CSEntry6")
 on_down = NodePath("../CSEntry2")
 p1_indicator_pos = Vector2(-30, -90)
 p2_indicator_pos = Vector2(73, 104)
+color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+
+[node name="Lock" type="Sprite2D" parent="CSEntry8" unique_id=1163988920]
+material = SubResource("ShaderMaterial_7fmv1")
+position = Vector2(8.999998, 4.0000005)
+rotation = 0.10624954
+texture = SubResource("AtlasTexture_nwg75")
 
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_npo1t")]
 visible = false
@@ -118,3 +223,19 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=217583148]
+stream = ExtResource("7_e2stv")
+autoplay = true
+script = ExtResource("8_sd0fl")
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
+
+[node name="P1MDelay" type="Timer" parent="." unique_id=746063416]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="P2MDelay" type="Timer" parent="." unique_id=1087255007]
+wait_time = 0.1
+one_shot = true
+autostart = true

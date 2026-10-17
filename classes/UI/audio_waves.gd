@@ -34,6 +34,7 @@ func _process(_delta):
 
 	for i in range(1, count + 1):
 		var hz = i * FREQ_MAX / count
+		await ready
 		var magnitude = spectrum.get_magnitude_for_frequency_range(prev_hz, hz).length()
 		var energy = clampf((MIN_DB + linear_to_db(magnitude)) / MIN_DB, 0, 1)
 		var height = energy * HEIGHT * HEIGHT_SCALE
@@ -54,7 +55,8 @@ func _process(_delta):
 
 
 func _ready():
-	spectrum = AudioServer.get_bus_effect_instance(0, 0)
+	spectrum = AudioServer.get_bus_effect_instance(AudioServer.get_bus_index($"../AudioPlayer".bus), 0)
+	
 	min_values.resize(count)
 	max_values.resize(count)
 	min_values.fill(0.0)
