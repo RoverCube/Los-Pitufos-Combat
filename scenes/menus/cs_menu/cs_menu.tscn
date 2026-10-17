@@ -4,6 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="2_npo1t"]
 [ext_resource type="Texture2D" uid="uid://dbwx0bt2wj5i1" path="res://assets/UI/character_select/bg.png" id="2_vydsi"]
 [ext_resource type="PackedScene" uid="uid://dem3fgcdddtm0" path="res://scenes/menus/cs_menu/cs_entry.tscn" id="3_k4sfe"]
+[ext_resource type="Script" uid="uid://87a5faftndx3" path="res://classes/UI/cs_menu/player_indicator.gd" id="5_nwg75"]
+[ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="5_wle4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwg75"]
+atlas = ExtResource("5_wle4u")
+region = Rect2(160, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46me4"]
+atlas = ExtResource("5_wle4u")
+region = Rect2(224, 576, 64, 64)
 
 [node name="CSMenu" type="Node2D" unique_id=1981336561]
 script = ExtResource("1_2vd3b")
@@ -14,12 +24,23 @@ modulate = Color(0, 0, 0, 1)
 texture = ExtResource("2_vydsi")
 centered = false
 
+[node name="P1Indicator" type="Sprite2D" parent="." unique_id=1227723531]
+texture = SubResource("AtlasTexture_nwg75")
+script = ExtResource("5_nwg75")
+
+[node name="P2Indicator" type="Sprite2D" parent="." unique_id=1938790490]
+texture = SubResource("AtlasTexture_46me4")
+script = ExtResource("5_nwg75")
+player_2 = true
+
 [node name="CSEntry" parent="." unique_id=231153885 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(939, 185)
 on_left = NodePath("../CSEntry2")
 on_right = NodePath("../CSEntry2")
 on_up = NodePath("../CSEntry7")
 on_down = NodePath("../CSEntry3")
+p1_indicator_pos = Vector2(-44, -76)
+p2_indicator_pos = Vector2(40, 91)
 
 [node name="CSEntry2" parent="." unique_id=1370521382 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(1121, 203)
@@ -27,34 +48,48 @@ on_left = NodePath("../CSEntry")
 on_right = NodePath("../CSEntry")
 on_up = NodePath("../CSEntry8")
 on_down = NodePath("../CSEntry4")
+p1_indicator_pos = Vector2(-30, -86)
+p2_indicator_pos = Vector2(33, 96)
 
 [node name="CSEntry3" parent="." unique_id=1748215491 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(872, 411)
+character = 0
 on_left = NodePath("../CSEntry4")
 on_right = NodePath("../CSEntry4")
 on_up = NodePath("../CSEntry")
 on_down = NodePath("../CSEntry5")
+p1_indicator_pos = Vector2(-5, -83)
+p2_indicator_pos = Vector2(29, 101)
 
 [node name="CSEntry4" parent="." unique_id=248293550 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(1038, 446)
+character = 1
 on_left = NodePath("../CSEntry3")
 on_right = NodePath("../CSEntry3")
 on_up = NodePath("../CSEntry2")
 on_down = NodePath("../CSEntry6")
+p1_indicator_pos = Vector2(-22, -108)
+p2_indicator_pos = Vector2(-4, 93)
 
 [node name="CSEntry5" parent="." unique_id=186366365 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(800, 652)
+character = 2
 on_left = NodePath("../CSEntry6")
 on_right = NodePath("../CSEntry6")
 on_up = NodePath("../CSEntry3")
 on_down = NodePath("../CSEntry7")
+p1_indicator_pos = Vector2(13, -98)
+p2_indicator_pos = Vector2(22, 111)
 
 [node name="CSEntry6" parent="." unique_id=1612784783 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(967, 680)
+character = 3
 on_left = NodePath("../CSEntry5")
 on_right = NodePath("../CSEntry5")
 on_up = NodePath("../CSEntry4")
 on_down = NodePath("../CSEntry8")
+p1_indicator_pos = Vector2(-26, -103)
+p2_indicator_pos = Vector2(9, 118)
 
 [node name="CSEntry7" parent="." unique_id=1091145050 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(697, 888)
@@ -62,6 +97,8 @@ on_left = NodePath("../CSEntry8")
 on_right = NodePath("../CSEntry8")
 on_up = NodePath("../CSEntry5")
 on_down = NodePath("../CSEntry")
+p1_indicator_pos = Vector2(-5, -107)
+p2_indicator_pos = Vector2(54, 88)
 
 [node name="CSEntry8" parent="." unique_id=1543366118 node_paths=PackedStringArray("on_left", "on_right", "on_up", "on_down") instance=ExtResource("3_k4sfe")]
 position = Vector2(894, 920)
@@ -69,6 +106,8 @@ on_left = NodePath("../CSEntry7")
 on_right = NodePath("../CSEntry7")
 on_up = NodePath("../CSEntry6")
 on_down = NodePath("../CSEntry2")
+p1_indicator_pos = Vector2(-30, -90)
+p2_indicator_pos = Vector2(73, 104)
 
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_npo1t")]
 visible = false

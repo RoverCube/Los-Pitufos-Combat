@@ -1,8 +1,8 @@
 class_name CSMenu
 extends Node2D
 
-var p1_seletion: int = 0
-var p2_seletion: int = 1
+var p1_seletion: int = 2
+var p2_seletion: int = 5
 var p1_confirmed: bool = false
 var p2_confirmed: bool = false
 var entries: Array[CSEntry]
@@ -13,7 +13,9 @@ func _enter_tree() -> void:
 			x.id = entries.size()
 			entries.insert(entries.size(),x)
 
-func _input(_event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
+	if event.is_echo(): return
+	if event is InputEventMouse: return
 	var p1_input = Input.get_vector("1DLeft","1DRight","1DUp","1DDown") # Dpad
 	var p2_input = Input.get_vector("2DLeft","2DRight","2DUp","2DDown") # Dpad
 	if p1_confirmed == false:
@@ -28,10 +30,10 @@ func _input(_event: InputEvent) -> void:
 		if p2_input == Vector2.RIGHT: p2_seletion = entries[p2_seletion].on_right.id
 	if Input.is_action_just_pressed("1LK"):
 		entries[p1_seletion].confirm()
-		p1_confirmed = true
+		if entries[p1_seletion].character != -1: p1_confirmed = true
 	if Input.is_action_just_pressed("2LK"):
 		entries[p2_seletion].confirm()
-		p2_confirmed = true
+		if entries[p2_seletion].character != -1: p2_confirmed = true
 	if Input.is_action_just_pressed("1HK"):
 		entries[p1_seletion].cancel()
 		p1_confirmed = false

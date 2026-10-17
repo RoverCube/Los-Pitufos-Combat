@@ -14,7 +14,8 @@ var id               : int = -1
 @export var on_right : CSEntry
 @export var on_up    : CSEntry
 @export var on_down  : CSEntry
-@export var frames   : SpriteFrames
+@export var p1_indicator_pos : Vector2
+@export var p2_indicator_pos : Vector2
 @export var confirm_voices: Dictionary[int, AudioStream]
 
 func confirm() -> void:

@@ -6,9 +6,7 @@
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="2_ovrgc"]
 [ext_resource type="PackedScene" uid="uid://7vlyhqnjv7cx" path="res://scenes/menus/entries/main_entry.tscn" id="3_1hnlc"]
 [ext_resource type="PackedScene" uid="uid://chs33cruyp4t2" path="res://scenes/menus/character_select.tscn" id="3_a3hrp"]
-[ext_resource type="Script" uid="uid://bowlw1lx3v74k" path="res://classes/UI/menu/actions/open_submenu.gd" id="4_1hnlc"]
 [ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="5_8r73w"]
-[ext_resource type="Script" uid="uid://d3p1pp108cmd" path="res://classes/UI/menu/actions/close_submenu.gd" id="5_50h1w"]
 [ext_resource type="Script" uid="uid://ba7maawqrws5l" path="res://classes/UI/menu/actions/character_select.gd" id="5_bre17"]
 [ext_resource type="Script" uid="uid://cgdtr1ecuka67" path="res://classes/UI/menu/actions/close_game.gd" id="6_euy4r"]
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="11_vr0hv"]
@@ -343,7 +341,6 @@ region = Rect2(512, 256, 256, 256)
 script = ExtResource("1_xqga4")
 
 [node name="PhMenuBg" type="Sprite2D" parent="." unique_id=204475112]
-visible = false
 z_index = -9
 scale = Vector2(1.1986681, 1.1986681)
 texture = ExtResource("2_3w8rc")
@@ -398,46 +395,10 @@ offset_top = 76.0
 offset_bottom = 99.0
 main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_vr0hv")
-confirmed_action = NodePath("OpenSubM")
-
-[node name="SubCloseMenu" type="Control" parent="MainMenu/Sair" unique_id=337100750 node_paths=PackedStringArray("entries")]
-modulate = Color(1, 1, 1, 0)
-z_index = -3
-anchors_preset = 0
-offset_left = 40.0
-offset_top = -72.0
-offset_right = 80.0
-offset_bottom = -32.0
-script = ExtResource("2_6bivr")
-entries = [NodePath("FecharJogo"), NodePath("Cancelar")]
-metadata/_custom_type_script = "uid://bhio7ycokfoiy"
-
-[node name="FecharJogo" parent="MainMenu/Sair/SubCloseMenu" unique_id=1908474848 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
-layout_mode = 0
-offset_right = 8.0
 confirmed_action = NodePath("Close")
 
-[node name="Close" type="Node" parent="MainMenu/Sair/SubCloseMenu/FecharJogo" unique_id=903026935]
+[node name="Close" type="Node" parent="MainMenu/Sair" unique_id=903026935]
 script = ExtResource("6_euy4r")
-
-[node name="Cancelar" parent="MainMenu/Sair/SubCloseMenu" unique_id=881551200 node_paths=PackedStringArray("confirmed_action") instance=ExtResource("3_1hnlc")]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 127.0
-offset_right = 640.0
-offset_bottom = 238.0
-confirmed_action = NodePath("CloseSubM")
-
-[node name="CloseSubM" type="Node" parent="MainMenu/Sair/SubCloseMenu/Cancelar" unique_id=362000074 node_paths=PackedStringArray("menu", "sub_menu")]
-script = ExtResource("5_50h1w")
-menu = NodePath("../../../..")
-sub_menu = NodePath("../..")
-
-[node name="OpenSubM" type="Node" parent="MainMenu/Sair" unique_id=1973488684 node_paths=PackedStringArray("entry", "menu", "sub_menu")]
-script = ExtResource("4_1hnlc")
-entry = NodePath("../../Brigar")
-menu = NodePath("../..")
-sub_menu = NodePath("../SubCloseMenu")
 
 [node name="PressAny" type="Control" parent="." unique_id=95552370]
 visible = false
@@ -512,3 +473,4 @@ script = ExtResource("13_bh4e2")
 metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("16_vr0hv")]
+visible = false
