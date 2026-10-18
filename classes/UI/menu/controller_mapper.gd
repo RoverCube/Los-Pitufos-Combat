@@ -4,13 +4,17 @@ const actions: Array[String] = ["Left","Right","Jump","Crouch","HP","LP","HK","L
 @export_enum("Left","Right","Jump","Crouch","HP","LP","HK","LK","#","DLeft","DRight","DUp","DDown","Exit:-1") var id: int
 @export_enum("Player1:1","Player2:2") var player: int = 1
 var binding: bool = false
+@export var load: LoadingScreen
 
 func _enter_tree() -> void:
 	connect("pressed",on_pressed)
 	text = actions[id]
 
 func on_pressed() -> void:
-	if id == -1: get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	if id == -1:
+		load.summon()
+		await load.got_black
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 	text = "binding "+actions[id]
 	binding = true
 

@@ -252,7 +252,7 @@ script = ExtResource("2_a3kdu")
 id = 7
 player = 2
 
-[node name="Button6" type="Button" parent="." unique_id=773877186]
+[node name="Button6" type="Button" parent="." unique_id=773877186 node_paths=PackedStringArray("load")]
 custom_minimum_size = Vector2(256, 128)
 layout_mode = 1
 anchors_preset = 8
@@ -271,6 +271,7 @@ autowrap_mode = 2
 script = ExtResource("2_a3kdu")
 id = -1
 player = 2
+load = NodePath("../LoadingScreen")
 
 [node name="P22" type="VBoxContainer" parent="." unique_id=1826730428]
 layout_mode = 0
@@ -324,11 +325,11 @@ id = 12
 player = 2
 
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_53tfa")]
-top_level = true
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
-enter = true

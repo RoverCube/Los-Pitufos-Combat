@@ -24,7 +24,9 @@ func confirm() -> void:
 	audio_player.play_this(confirm_voices[character])
 	print(confirm_voices[character])
 	if character == -2:
-		pass
+		$"../LoadingScreen".summon()
+		await $"../LoadingScreen".got_black
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 func cancel() -> void:
 	audio_player.play_this(CANCEL_SFX)

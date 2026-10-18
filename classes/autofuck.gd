@@ -2,6 +2,7 @@ extends Node
 
 const HEHE = preload("uid://bfb2dqgmai451")
 
+var on_loading_screen : bool = false
 var gay_mode     : bool
 # PREFERENCES
 var music_volume : float = 0.0
