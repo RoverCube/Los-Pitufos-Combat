@@ -7,7 +7,6 @@ var p1_confirmed: bool = false
 var p2_confirmed: bool = false
 var entries: Array[CSEntry]
 
-
 func _enter_tree() -> void:
 	for x in get_children(false):
 		if x is CSEntry:

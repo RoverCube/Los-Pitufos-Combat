@@ -1,0 +1,334 @@
+[gd_scene format=3 uid="uid://cssxhsm7bol7t"]
+
+[ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="1_sl1rt"]
+[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="2_53tfa"]
+[ext_resource type="Script" uid="uid://c4lsfmh5hfytl" path="res://classes/UI/menu/controller_mapper.gd" id="2_a3kdu"]
+[ext_resource type="Shader" uid="uid://cjkj2gf3aqeyq" path="res://assets/shaders/grid_scrol.gdshader" id="3_mi40u"]
+
+[sub_resource type="Gradient" id="Gradient_46rm6"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9)
+colors = PackedColorArray(0.028545806, 0.032648917, 0.046838433, 1, 0.08826355, 0.12830928, 0.17980275, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vr0hv"]
+gradient = SubResource("Gradient_46rm6")
+fill = 2
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v20fp"]
+shader = ExtResource("3_mi40u")
+shader_parameter/scroll_speed = 0.150000007125
+shader_parameter/angle_degrees = 315.0000149625
+shader_parameter/repeat_x = 16.0000007125
+shader_parameter/repeat_y = 9.00000038
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = SubResource("GradientTexture2D_vr0hv")
+
+[sub_resource type="Gradient" id="Gradient_25m6f"]
+colors = PackedColorArray(0, 0.5154046, 0.99221903, 0.4509804, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3qohk"]
+gradient = SubResource("Gradient_25m6f")
+width = 1920
+height = 1080
+fill_from = Vector2(1, 1)
+
+[node name="ControllerMapper" type="Label" unique_id=1042202651]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_sl1rt")
+theme_override_font_sizes/font_size = 64
+text = "Player1 || PLayer 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PhMenuBg" type="ColorRect" parent="." unique_id=1607582228]
+z_index = -9
+material = SubResource("ShaderMaterial_v20fp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gradient" type="Sprite2D" parent="." unique_id=262628740]
+texture = SubResource("GradientTexture2D_3qohk")
+centered = false
+
+[node name="P11" type="VBoxContainer" parent="." unique_id=1438734636]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="P11" unique_id=1400997209]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+
+[node name="Button2" type="Button" parent="P11" unique_id=1184108256]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 1
+
+[node name="Button3" type="Button" parent="P11" unique_id=1650208762]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 2
+
+[node name="Button4" type="Button" parent="P11" unique_id=1439506387]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 3
+
+[node name="Button5" type="Button" parent="P11" unique_id=1454367710]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 4
+
+[node name="Button6" type="Button" parent="P11" unique_id=69289297]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 5
+
+[node name="Button7" type="Button" parent="P11" unique_id=499729394]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 6
+
+[node name="Button8" type="Button" parent="P11" unique_id=937686292]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 7
+
+[node name="P12" type="VBoxContainer" parent="." unique_id=2110016304]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 512.0
+offset_bottom = 1052.0
+
+[node name="Button" type="Button" parent="P12" unique_id=265413700]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 8
+
+[node name="Button2" type="Button" parent="P12" unique_id=786801377]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 9
+
+[node name="Button3" type="Button" parent="P12" unique_id=2011460691]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 10
+
+[node name="Button4" type="Button" parent="P12" unique_id=2086261897]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 11
+
+[node name="Button5" type="Button" parent="P12" unique_id=1222278464]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 12
+
+[node name="P21" type="VBoxContainer" parent="." unique_id=1671263837]
+layout_mode = 0
+offset_left = 1664.0
+offset_right = 1920.0
+offset_bottom = 1052.0
+
+[node name="Button" type="Button" parent="P21" unique_id=251814937]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+player = 2
+
+[node name="Button2" type="Button" parent="P21" unique_id=702113386]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 1
+player = 2
+
+[node name="Button3" type="Button" parent="P21" unique_id=605659121]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 2
+player = 2
+
+[node name="Button4" type="Button" parent="P21" unique_id=89570601]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 3
+player = 2
+
+[node name="Button5" type="Button" parent="P21" unique_id=2147167228]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 4
+player = 2
+
+[node name="Button6" type="Button" parent="P21" unique_id=1681593955]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 5
+player = 2
+
+[node name="Button7" type="Button" parent="P21" unique_id=273803604]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 6
+player = 2
+
+[node name="Button8" type="Button" parent="P21" unique_id=1637178879]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 7
+player = 2
+
+[node name="Button6" type="Button" parent="." unique_id=773877186]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 170.0
+offset_right = 128.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = -1
+player = 2
+
+[node name="P22" type="VBoxContainer" parent="." unique_id=1826730428]
+layout_mode = 0
+offset_left = 1408.0
+offset_right = 1664.0
+offset_bottom = 1052.0
+
+[node name="Button" type="Button" parent="P22" unique_id=1031667857]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 8
+player = 2
+
+[node name="Button2" type="Button" parent="P22" unique_id=277937575]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 9
+player = 2
+
+[node name="Button3" type="Button" parent="P22" unique_id=1125129057]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 10
+player = 2
+
+[node name="Button4" type="Button" parent="P22" unique_id=1456768519]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 11
+player = 2
+
+[node name="Button5" type="Button" parent="P22" unique_id=1672291384]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+text = "adasdasdasd"
+autowrap_mode = 2
+script = ExtResource("2_a3kdu")
+id = 12
+player = 2
+
+[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_53tfa")]
+top_level = true
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+enter = true

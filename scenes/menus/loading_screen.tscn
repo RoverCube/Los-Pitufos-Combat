@@ -1,13 +1,75 @@
 [gd_scene format=3 uid="uid://deqtdwfup8pur"]
 
 [ext_resource type="Script" uid="uid://dtdqr7vjojma0" path="res://classes/UI/loading_screen.gd" id="1_8ycgy"]
-[ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="2_7krkx"]
+[ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="2_7krkx"]
+[ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="3_u6do7"]
+[ext_resource type="Texture2D" uid="uid://e3e5agx0i4w0" path="res://assets/UI/loading_sprsht.png" id="4_u6do7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thh8i"]
+shader = ExtResource("2_7krkx")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.2
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_u6do7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thh8i"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(0, 0, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6361"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(228, 0, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vglh"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(456, 0, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n7lv"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(0, 190, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkirn"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(228, 190, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwdd4"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(456, 190, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly7p7"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(0, 380, 228, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmgvp"]
+atlas = ExtResource("4_u6do7")
+region = Rect2(228, 380, 228, 190)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u6do7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7krkx")
+"texture": SubResource("AtlasTexture_thh8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6361")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vglh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n7lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkirn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwdd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly7p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmgvp")
 }],
 "loop": true,
 "name": &"default",
@@ -15,6 +77,7 @@ animations = [{
 }]
 
 [node name="LoadingScreen" type="ColorRect" unique_id=339945927]
+z_index = 64
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,7 +88,8 @@ script = ExtResource("1_8ycgy")
 metadata/_edit_use_anchors_ = true
 
 [node name="LoadingSprite" type="AnimatedSprite2D" parent="." unique_id=1873371754]
-position = Vector2(960, 540)
+material = SubResource("ShaderMaterial_thh8i")
+position = Vector2(231, 889)
 sprite_frames = SubResource("SpriteFrames_u6do7")
 autoplay = "default"
-frame_progress = 0.39207634
+frame_progress = 0.11496319

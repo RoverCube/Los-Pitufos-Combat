@@ -1,20 +1,50 @@
 [gd_scene format=3 uid="uid://bto72rtl3ksjh"]
 
 [ext_resource type="Script" uid="uid://dv51rnudp4rbc" path="res://classes/main.gd" id="1_xqga4"]
-[ext_resource type="Texture2D" uid="uid://cc16ov6tbjkdm" path="res://assets/PHMenuBG.jpg" id="2_3w8rc"]
 [ext_resource type="Script" uid="uid://bhio7ycokfoiy" path="res://classes/UI/menu/menu.gd" id="2_6bivr"]
+[ext_resource type="Shader" uid="uid://cjkj2gf3aqeyq" path="res://assets/shaders/grid_scrol.gdshader" id="2_a3hrp"]
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="2_ovrgc"]
 [ext_resource type="PackedScene" uid="uid://7vlyhqnjv7cx" path="res://scenes/menus/entries/main_entry.tscn" id="3_1hnlc"]
-[ext_resource type="PackedScene" uid="uid://chs33cruyp4t2" path="res://scenes/menus/character_select.tscn" id="3_a3hrp"]
 [ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="5_8r73w"]
-[ext_resource type="Script" uid="uid://ba7maawqrws5l" path="res://classes/UI/menu/actions/character_select.gd" id="5_bre17"]
 [ext_resource type="Script" uid="uid://cgdtr1ecuka67" path="res://classes/UI/menu/actions/close_game.gd" id="6_euy4r"]
+[ext_resource type="PackedScene" uid="uid://ciuwvk1irym1u" path="res://scenes/menus/cs_menu/cs_menu.tscn" id="7_vr0hv"]
+[ext_resource type="Script" uid="uid://cuiwwa5f71qrc" path="res://classes/UI/menu/actions/change_scene.gd" id="8_vr0hv"]
+[ext_resource type="PackedScene" uid="uid://cssxhsm7bol7t" path="res://scenes/menus/controller_mapper.tscn" id="9_a3hrp"]
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="11_vr0hv"]
 [ext_resource type="AudioStream" uid="uid://b6yeku2ajlmt0" path="res://assets/sound/music/main_menu.mp3" id="12_88kup"]
 [ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="12_a3hrp"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="13_bh4e2"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="14_a3hrp"]
 [ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="16_vr0hv"]
+
+[sub_resource type="Gradient" id="Gradient_a3hrp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9)
+colors = PackedColorArray(0.028545806, 0.032648917, 0.046838433, 1, 0.08826355, 0.12830928, 0.17980275, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vr0hv"]
+gradient = SubResource("Gradient_a3hrp")
+fill = 2
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_287l7"]
+shader = ExtResource("2_a3hrp")
+shader_parameter/scroll_speed = 0.150000007125
+shader_parameter/angle_degrees = 315.0000149625
+shader_parameter/repeat_x = 16.0000007125
+shader_parameter/repeat_y = 9.00000038
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = SubResource("GradientTexture2D_vr0hv")
+
+[sub_resource type="Gradient" id="Gradient_25m6f"]
+colors = PackedColorArray(0, 0.5154046, 0.99221903, 0.4509804, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nkawv"]
+gradient = SubResource("Gradient_25m6f")
+width = 1920
+height = 1080
+fill_from = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_xqga4"]
 length = 0.001
@@ -94,34 +124,10 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CharacterSelect:modulate")
+tracks/6/path = NodePath("MainMenu:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MainMenu:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CharacterSelect:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -147,38 +153,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterSelect:modulate")
+tracks/1/path = NodePath("MainMenu:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MainMenu:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterSelect:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_2o76q"]
@@ -472,20 +454,22 @@ shader_parameter/progress = 1.0
 [node name="MainMenu" type="Node" unique_id=18320176]
 script = ExtResource("1_xqga4")
 
-[node name="PhMenuBg" type="Sprite2D" parent="." unique_id=204475112]
-visible = false
+[node name="PhMenuBg" type="ColorRect" parent="." unique_id=305609349]
 z_index = -9
-scale = Vector2(1.1986681, 1.1986681)
-texture = ExtResource("2_3w8rc")
+material = SubResource("ShaderMaterial_287l7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gradient" type="Sprite2D" parent="." unique_id=1893002653]
+texture = SubResource("GradientTexture2D_nkawv")
 centered = false
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=621174222]
 libraries/ = SubResource("AnimationLibrary_2o76q")
 autoplay = &"RESET"
-
-[node name="CharacterSelect" parent="." unique_id=72217984 instance=ExtResource("3_a3hrp")]
-visible = false
-modulate = Color(1, 1, 1, 0)
 
 [node name="MainMenu" type="Control" parent="." unique_id=1555556740 node_paths=PackedStringArray("entries")]
 visible = false
@@ -508,19 +492,23 @@ main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_uxao6")
 confirmed_action = NodePath("CharcterSelect2")
 
-[node name="CharcterSelect2" type="Node" parent="MainMenu/Brigar" unique_id=515614484 node_paths=PackedStringArray("cselect", "main", "anim")]
-script = ExtResource("5_bre17")
-id = 1
-cselect = NodePath("../../../CharacterSelect")
-main = NodePath("../..")
-anim = NodePath("../../../Animation")
+[node name="CharcterSelect2" type="Node" parent="MainMenu/Brigar" unique_id=515614484 node_paths=PackedStringArray("load")]
+script = ExtResource("8_vr0hv")
+load = NodePath("../../../LoadingScreen")
+scene = ExtResource("7_vr0hv")
 
-[node name="Opições" parent="MainMenu" unique_id=786973914 node_paths=PackedStringArray("main_anim") instance=ExtResource("3_1hnlc")]
+[node name="Opições" parent="MainMenu" unique_id=786973914 node_paths=PackedStringArray("main_anim", "confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0
 offset_top = 40.0
 offset_bottom = 63.0
 main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_3w8rc")
+confirmed_action = NodePath("ControllerSetup")
+
+[node name="ControllerSetup" type="Node" parent="MainMenu/Opições" unique_id=1886946477 node_paths=PackedStringArray("load")]
+script = ExtResource("8_vr0hv")
+load = NodePath("../../../LoadingScreen")
+scene = ExtResource("9_a3hrp")
 
 [node name="Sair" parent="MainMenu" unique_id=1831880725 node_paths=PackedStringArray("main_anim", "confirmed_action") instance=ExtResource("3_1hnlc")]
 layout_mode = 0

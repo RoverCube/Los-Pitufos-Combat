@@ -7,6 +7,7 @@
 [node name="CSEntry" type="Node2D" unique_id=231153885]
 script = ExtResource("1_cgdrk")
 confirm_voices = Dictionary[int, AudioStream]({
+-2: null,
 -1: null,
 0: ExtResource("2_7g82a"),
 1: null,

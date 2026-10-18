@@ -26,5 +26,5 @@ void fragment() {
 
 vec4 sex =texture(texture_to_scroll, snappedUV);
 
- COLOR = mix(vec4(0.0),COLOR,sex.r);
+ COLOR = sex;
 }
