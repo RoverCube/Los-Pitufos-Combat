@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfjkde6g2bros"]
 
 [ext_resource type="PackedScene" uid="uid://cwtu8c1k0078k" path="res://scenes/player/player_base.tscn" id="1_4qc02"]
-[ext_resource type="Script" uid="uid://bpyrwo8fygcgr" path="res://classes/match/camera.gd" id="1_4wuf8"]
+[ext_resource type="Script" uid="uid://bpyrwo8fygcgr" path="res://classes/fight/camera.gd" id="1_4wuf8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eflb2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -59,4 +59,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 
 [node name="PlayerBase2" parent="." unique_id=1430187080 instance=ExtResource("1_4qc02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
-pn = 2

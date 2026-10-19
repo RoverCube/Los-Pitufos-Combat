@@ -1,13 +1,18 @@
 class_name CSMenu
 extends Node2D
 
+@export var fight_scene : PackedScene
+
 var p1_seletion: int = 2
 var p2_seletion: int = 5
 var p1_confirmed: bool = false
 var p2_confirmed: bool = false
 var entries: Array[CSEntry]
 
+var tree: SceneTree
+
 func _enter_tree() -> void:
+	tree = get_tree()
 	for x in get_children(false):
 		if x is CSEntry:
 			x.id = entries.size()
@@ -42,13 +47,11 @@ func _process(_delta: float) -> void:
 		entries[p2_seletion].cancel()
 		p2_confirmed = false
 
-	print(p1_confirmed,p2_confirmed)
 	if p1_confirmed and p2_confirmed:
 		go_to_map_select()
 
 func go_to_map_select() -> void:
-	$LoadingScreen.summon()
-	Autofuck.p1_character_id = p1_seletion
-	Autofuck.p2_character_id = p2_seletion
-	await $LoadingScreen.got_black
-	breakpoint
+	$LoadingScreen.summon(false)
+	Autofuck.p1_character_id = entries[p1_seletion].character
+	Autofuck.p2_character_id = entries[p2_seletion].character
+	get_tree().change_scene_to_packed(fight_scene)

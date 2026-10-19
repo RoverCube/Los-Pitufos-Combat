@@ -16,10 +16,11 @@ func _enter_tree() -> void:
 	modulate = Color.TRANSPARENT
 	hide()
 
-func summon() -> void:
+func summon(wait:bool = true) -> void:
 	show()
 	var tween: = get_tree().create_tween().tween_property(self,"modulate",Color.WHITE, 0.2)
 	await tween.finished
-	await get_tree().create_timer(2.0).timeout
+	if wait == true:
+		await get_tree().create_timer(2.0).timeout
 	got_black.emit()
 	Autofuck.on_loading_screen = true

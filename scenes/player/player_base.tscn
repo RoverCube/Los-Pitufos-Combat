@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwtu8c1k0078k"]
 
 [ext_resource type="Script" uid="uid://bskx223fq3suj" path="res://classes/player/player.gd" id="1_5np8l"]
-[ext_resource type="Script" uid="uid://cjb6p0dk8jcn1" path="res://classes/statemachine/state_machine.gd" id="1_xb0ah"]
+[ext_resource type="Script" uid="uid://cjb6p0dk8jcn1" path="res://classes/player/statemachine/state_machine.gd" id="1_xb0ah"]
 [ext_resource type="Texture2D" uid="uid://cdhkvsv7cwcr8" path="res://assets/Spritesheet.png" id="2_j3kt6"]
 [ext_resource type="PackedScene" path="res://classes/player/boxes/hurt_box.tscn" id="3_j3kt6"]
 [ext_resource type="Script" uid="uid://drigvsmw78w1u" path="res://classes/player/states/0-idle.gd" id="3_ra71l"]
@@ -10,6 +10,12 @@
 [ext_resource type="Script" uid="uid://bic4yb8klxe2m" path="res://classes/player/states/3-crouch.gd" id="6_300uk"]
 [ext_resource type="Script" uid="uid://dq5ct6e6qir30" path="res://classes/player/states/4-attack.gd" id="7_7w76b"]
 [ext_resource type="Script" uid="uid://bgxe4ac2qqfpl" path="res://classes/player/states/5-hurt.gd" id="8_f4in7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3kt6"]
+size = Vector3(0.5, 1.8, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7w76b"]
+size = Vector3(0.5, 0.9, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3kt6"]
 atlas = ExtResource("2_j3kt6")
@@ -316,16 +322,30 @@ animations = [{
 "loop": false,
 "name": &"light punch",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnykj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rnaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2r5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cerp")
+}],
+"loop": false,
+"name": &"uncrouch",
+"speed": 12.0
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibn3i"]
-size = Vector3(0.5, 1.6, 0.5)
+size = Vector3(0.5, 1.8, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_300uk"]
 size = Vector3(0.5, 1.6, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_j3kt6"]
-size = Vector3(0.5, 0.9, 0.5)
 
 [sub_resource type="Animation" id="Animation_ra71l"]
 resource_name = "new_animation"
@@ -337,8 +357,10 @@ _data = {
 }
 
 [node name="PlayerBase" type="CharacterBody3D" unique_id=1355532886]
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_5np8l")
+collision_shape = SubResource("BoxShape3D_j3kt6")
+collision_crouched = SubResource("BoxShape3D_7w76b")
 metadata/_custom_type_script = "uid://bskx223fq3suj"
 
 [node name="Sprite" type="AnimatedSprite3D" parent="." unique_id=938100279]
@@ -347,14 +369,14 @@ pixel_size = 0.002
 billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_rvw1r")
-animation = &"air attack"
+animation = &"uncrouch"
 autoplay = "idle"
-frame = 2
+frame = 3
 frame_progress = 1.0
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=923562907]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("BoxShape3D_ibn3i")
+debug_color = Color(0.9074752, 0.30204937, 0, 1)
 
 [node name="HurtBox" parent="." unique_id=533693197 instance=ExtResource("3_j3kt6")]
 visible = false
@@ -381,10 +403,8 @@ player = NodePath("../..")
 script = ExtResource("5_j3kt6")
 player = NodePath("../..")
 
-[node name="Crouch" type="Node" parent="StateMachine" unique_id=446201836 node_paths=PackedStringArray("attack_state", "player")]
+[node name="Crouch" type="Node" parent="StateMachine" unique_id=446201836 node_paths=PackedStringArray("player")]
 script = ExtResource("6_300uk")
-attack_state = NodePath("../Attack")
-crouch_col = SubResource("BoxShape3D_j3kt6")
 player = NodePath("../..")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=551642325 node_paths=PackedStringArray("player")]

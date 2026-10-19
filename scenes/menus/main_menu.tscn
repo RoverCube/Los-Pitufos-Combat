@@ -492,9 +492,9 @@ main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_uxao6")
 confirmed_action = NodePath("CharcterSelect2")
 
-[node name="CharcterSelect2" type="Node" parent="MainMenu/Brigar" unique_id=515614484 node_paths=PackedStringArray("load")]
+[node name="CharcterSelect2" type="Node" parent="MainMenu/Brigar" unique_id=515614484 node_paths=PackedStringArray("loads")]
 script = ExtResource("8_vr0hv")
-load = NodePath("../../../LoadingScreen")
+loads = NodePath("../../../LoadingScreen")
 scene = ExtResource("7_vr0hv")
 
 [node name="Opições" parent="MainMenu" unique_id=786973914 node_paths=PackedStringArray("main_anim", "confirmed_action") instance=ExtResource("3_1hnlc")]
@@ -505,9 +505,9 @@ main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_3w8rc")
 confirmed_action = NodePath("ControllerSetup")
 
-[node name="ControllerSetup" type="Node" parent="MainMenu/Opições" unique_id=1886946477 node_paths=PackedStringArray("load")]
+[node name="ControllerSetup" type="Node" parent="MainMenu/Opições" unique_id=1886946477 node_paths=PackedStringArray("loads")]
 script = ExtResource("8_vr0hv")
-load = NodePath("../../../LoadingScreen")
+loads = NodePath("../../../LoadingScreen")
 scene = ExtResource("9_a3hrp")
 
 [node name="Sair" parent="MainMenu" unique_id=1831880725 node_paths=PackedStringArray("main_anim", "confirmed_action") instance=ExtResource("3_1hnlc")]
@@ -596,7 +596,7 @@ metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("16_vr0hv")]
 visible = false
 
-[node name="P2Deco" type="ColorRect" parent="." unique_id=1759761433]
+[node name="SideDeco" type="ColorRect" parent="." unique_id=1759761433]
 material = SubResource("ShaderMaterial_w32d4")
 offset_left = 1867.0
 offset_top = 824.0

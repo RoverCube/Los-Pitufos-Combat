@@ -78,11 +78,8 @@ animations = [{
 
 [node name="LoadingScreen" type="ColorRect" unique_id=339945927]
 z_index = 64
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_8ycgy")
 metadata/_edit_use_anchors_ = true

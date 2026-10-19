@@ -8,6 +8,7 @@ extends PlayerState
 const GRAVITY   : float = 32.0
 const FALL      : float = 32.0
 var start_speed : float = 0.0
+var attacking   : bool = false
 
 func _on_start_state() -> void:
 	player.anim("jump")
@@ -19,7 +20,7 @@ func _on_start_state() -> void:
 func _update_physics(delta: float) -> void:
 	# air movement
 	player.velocity.x = player.air_speed * delta * player.dir_input + start_speed
-	
+
 	player.velocity.y -= delta * GRAVITY
 	if player.velocity.y >= 0: player.velocity.y -= delta * FALL
 	player.move_and_slide()
@@ -28,3 +29,9 @@ func _check_change() -> void:
 	if player.is_on_floor():
 		if player.dir_input: change_state.emit("walk")
 		change_state.emit("idle")
+
+	if player.attack_input == true and attacking == false:
+		attacking = true
+		player.anim("crouch attack")
+		await player.sprite.animation_finished
+		attacking = false

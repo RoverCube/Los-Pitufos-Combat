@@ -24,7 +24,6 @@ func turn_gay() -> void:
 	add_child(audio)
 	await audio.finished
 	audio.queue_free()
-	print("gay")
 
 func hit_freeze(seconds: float) -> void:
 	Engine.time_scale = 0.0

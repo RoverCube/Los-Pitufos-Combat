@@ -22,7 +22,6 @@ var id               : int = -1
 
 func confirm() -> void:
 	audio_player.play_this(confirm_voices[character])
-	print(confirm_voices[character])
 	if character == -2:
 		$"../LoadingScreen".summon()
 		await $"../LoadingScreen".got_black

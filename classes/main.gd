@@ -33,5 +33,4 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("UI Left"): input_sequence += "a"
 	
 	if "wwssdadawsws" in input_sequence and Autofuck.gay_mode == false:
-		print("sex")
 		Autofuck.turn_gay()

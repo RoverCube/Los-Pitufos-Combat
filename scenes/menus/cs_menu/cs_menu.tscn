@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c58vdexq3eogo" path="res://classes/UI/cs_menu/cs_menu.gd" id="1_2vd3b"]
 [ext_resource type="Shader" uid="uid://cjkj2gf3aqeyq" path="res://assets/shaders/grid_scrol.gdshader" id="2_7fmv1"]
+[ext_resource type="PackedScene" uid="uid://3ff2ty5haj2j" path="res://scenes/fight/fight.tscn" id="2_dq3eo"]
 [ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="2_npo1t"]
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="2_sd0fl"]
 [ext_resource type="Texture2D" uid="uid://dbwx0bt2wj5i1" path="res://assets/UI/character_select/bg.png" id="2_vydsi"]
@@ -107,7 +108,10 @@ region = Rect2(160, 576, 64, 64)
 
 [node name="CSMenu" type="Node2D" unique_id=1981336561]
 script = ExtResource("1_2vd3b")
+fight_scene = ExtResource("2_dq3eo")
 metadata/_custom_type_script = "uid://c58vdexq3eogo"
+
+[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_npo1t")]
 
 [node name="PhMenuBg" type="ColorRect" parent="." unique_id=763053635]
 z_index = -9
@@ -280,17 +284,6 @@ player_2 = true
 material = SubResource("ShaderMaterial_7fmv1")
 texture = SubResource("AtlasTexture_sd0fl")
 script = ExtResource("5_nwg75")
-
-[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_npo1t")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 1
-grow_vertical = 1
-enter = true
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=217583148]
 stream = ExtResource("7_e2stv")
