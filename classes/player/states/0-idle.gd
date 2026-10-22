@@ -5,6 +5,7 @@ func _on_start_state() -> void:
 	player.anim("idle")
 
 func _check_change() -> void:
+	player.turn()
 	if player.dir_input != 0:
 		change_state.emit("walk")
 	if player.jump_input: # idle always on ground

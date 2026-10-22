@@ -4,6 +4,8 @@ var attacking : bool = false
 
 func _on_start_state() -> void:
 	player.anim("crouch")
+	await player.sprite.animation_finished
+	player.anim("crouch idle")
 	player.col.shape = player.collision_crouched
 	player.col.position.y = player.collision_crouched.size.y / 2
 
@@ -20,4 +22,5 @@ func _check_change() -> void:
 		attacking = true
 		player.anim("crouch attack")
 		await player.sprite.animation_finished
+		player.anim("crouch idle")
 		attacking = false

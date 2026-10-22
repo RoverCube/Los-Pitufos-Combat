@@ -42,14 +42,14 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	dir_input = Input.get_axis(str(player_id,"Left"),str(player_id,"Right"))
-	jump_input = Input.is_action_pressed(str(player_id,"Jump"))
+	jump_input = Input.is_action_just_pressed(str(player_id,"Jump"))
 	crouch_input = Input.is_action_pressed(str(player_id,"Crouch"))
-	hp_input = Input.is_action_pressed(str(player_id,"HP"))
-	lp_input = Input.is_action_pressed(str(player_id,"LP"))
-	hk_input = Input.is_action_pressed(str(player_id,"HK"))
-	lk_input = Input.is_action_pressed(str(player_id,"LK"))
+	hp_input = Input.is_action_just_pressed(str(player_id,"HP"))
+	lp_input = Input.is_action_just_pressed(str(player_id,"LP"))
+	hk_input = Input.is_action_just_pressed(str(player_id,"HK"))
+	lk_input = Input.is_action_just_pressed(str(player_id,"LK"))
 	attack_input = hp_input or lp_input or hk_input or lk_input
-	s_input = Input.is_action_pressed(str(player_id,"#"))
+	s_input = Input.is_action_just_pressed(str(player_id,"#"))
 
 func turn() -> void:
 	if position.x - other_player.position.x < 0:

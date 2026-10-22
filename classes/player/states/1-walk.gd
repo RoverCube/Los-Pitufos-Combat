@@ -8,6 +8,7 @@ func _update_physics(delta: float) -> void:
 	player.move_and_slide()
 
 func _check_change() -> void:
+	player.turn()
 	if player.dir_input == 0: change_state.emit("idle")
 	if player.jump_input:     change_state.emit("jump")
 	if player.crouch_input:   change_state.emit("crouch")
