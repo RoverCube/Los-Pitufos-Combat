@@ -2,8 +2,7 @@ class_name HitBox
 extends Area3D
 
 @export var damage: int = 25
-@export var knockback: int = 0
-
+@export var low_hit: bool = false
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is HitBox:

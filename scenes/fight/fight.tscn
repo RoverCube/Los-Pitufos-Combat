@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://o4puxcv1of4c" path="res://classes/fight/fight.gd" id="1_34vhe"]
 [ext_resource type="Script" uid="uid://bpyrwo8fygcgr" path="res://classes/fight/camera.gd" id="2_3a20j"]
 [ext_resource type="PackedScene" uid="uid://cwtu8c1k0078k" path="res://scenes/player/player_base.tscn" id="2_3si2p"]
+[ext_resource type="Shader" uid="uid://dp1uegg1xs7a5" path="res://assets/shaders/bar.gdshader" id="5_8og4d"]
+[ext_resource type="Texture2D" uid="uid://bjdlav02cglsv" path="res://assets/UI/HUD/hud atlas.png" id="5_nsrxv"]
+[ext_resource type="Texture2D" uid="uid://d0ox28ohyv2d0" path="res://assets/UI/HUD/Novo Projeto.png" id="6_inaet"]
+[ext_resource type="Script" uid="uid://cpmlmflptlaw7" path="res://classes/fight/bar_shader.gd" id="7_inaet"]
+[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="9_vpnpn"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3si2p"]
 
@@ -10,12 +15,71 @@
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nsrxv"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3si2p"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1sl5h"]
+sky_material = SubResource("ProceduralSkyMaterial_3si2p")
+
+[sub_resource type="Environment" id="Environment_nsrxv"]
+background_mode = 1
+background_color = Color(0.28729492, 0.28729492, 0.2872949, 1)
+sky = SubResource("Sky_1sl5h")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8og4d"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(0, 832, 512, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inaet"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(512, 832, 512, 192)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inaet"]
+shader = ExtResource("5_8og4d")
+shader_parameter/mask = ExtResource("6_inaet")
+shader_parameter/value = 0.6800000323
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsrxv"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(0, 736, 256, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qaks"]
+shader = ExtResource("5_8og4d")
+shader_parameter/mask = ExtResource("6_inaet")
+shader_parameter/value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qaks"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(0, 0, 768, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpnpn"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(0, 192, 768, 192)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpnpn"]
+shader = ExtResource("5_8og4d")
+shader_parameter/mask = ExtResource("6_inaet")
+shader_parameter/value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fohwn"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(0, 384, 672, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fohwn"]
+shader = ExtResource("5_8og4d")
+shader_parameter/mask = ExtResource("6_inaet")
+shader_parameter/value = 1.0
+
 [node name="Fight" type="Node3D" unique_id=459350221]
 script = ExtResource("1_34vhe")
 char_scenes = Array[PackedScene]([ExtResource("2_3si2p"), ExtResource("2_3si2p"), ExtResource("2_3si2p"), ExtResource("2_3si2p")])
+player_distance = 1.0
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1689402613]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 keep_aspect = 0
 fov = 70.0
 script = ExtResource("2_3a20j")
@@ -25,12 +89,12 @@ script = ExtResource("2_3a20j")
 [node name="ColLeft" type="CollisionShape3D" parent="Camera/CameraCol" unique_id=1559100741]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -3.5, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_3si2p")
-debug_color = Color(1, 0.83267456, 0.70484877, 1)
+debug_color = Color(1, 1, 1, 0)
 
 [node name="ColRight" type="CollisionShape3D" parent="Camera/CameraCol" unique_id=1019761656]
 transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 3.5, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_3si2p")
-debug_color = Color(1, 0.83267456, 0.70484877, 1)
+debug_color = Color(1, 1, 1, 0)
 
 [node name="MapCol" type="StaticBody3D" parent="." unique_id=453330670]
 
@@ -47,3 +111,90 @@ debug_color = Color(0.5760774, 0.8222296, 1, 1)
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_nsrxv")
 debug_color = Color(0.5760774, 0.8222296, 1, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1563905219]
+environment = SubResource("Environment_nsrxv")
+
+[node name="Special1" type="Sprite2D" parent="." unique_id=441381680]
+position = Vector2(52, 858)
+texture = SubResource("AtlasTexture_8og4d")
+centered = false
+
+[node name="BG" type="Sprite2D" parent="Special1" unique_id=544414470]
+z_index = -1
+texture = SubResource("AtlasTexture_inaet")
+centered = false
+
+[node name="Bar" type="Sprite2D" parent="Special1" unique_id=820528844]
+z_index = -1
+material = SubResource("ShaderMaterial_inaet")
+position = Vector2(209, 74)
+texture = SubResource("AtlasTexture_nsrxv")
+centered = false
+script = ExtResource("7_inaet")
+
+[node name="Special2" type="Sprite2D" parent="." unique_id=959811336]
+position = Vector2(1868, 858)
+scale = Vector2(-1, 1)
+texture = SubResource("AtlasTexture_8og4d")
+centered = false
+
+[node name="BG" type="Sprite2D" parent="Special2" unique_id=1122346062]
+z_index = -1
+texture = SubResource("AtlasTexture_inaet")
+centered = false
+
+[node name="Bar" type="Sprite2D" parent="Special2" unique_id=1678403273]
+z_index = -1
+material = SubResource("ShaderMaterial_4qaks")
+position = Vector2(209, 74)
+texture = SubResource("AtlasTexture_nsrxv")
+centered = false
+script = ExtResource("7_inaet")
+type = 1
+
+[node name="Health1" type="Sprite2D" parent="." unique_id=2016536649]
+position = Vector2(31, 28)
+texture = SubResource("AtlasTexture_4qaks")
+centered = false
+
+[node name="BG" type="Sprite2D" parent="Health1" unique_id=1933491742]
+z_index = -1
+position = Vector2(10, 1)
+texture = SubResource("AtlasTexture_vpnpn")
+centered = false
+
+[node name="Bar" type="Sprite2D" parent="Health1" unique_id=1593437733]
+z_index = -1
+material = SubResource("ShaderMaterial_vpnpn")
+position = Vector2(54, 34)
+texture = SubResource("AtlasTexture_fohwn")
+centered = false
+script = ExtResource("7_inaet")
+type = 2
+
+[node name="Health2" type="Sprite2D" parent="." unique_id=413517496]
+position = Vector2(1889, 28)
+scale = Vector2(-1, 1)
+texture = SubResource("AtlasTexture_4qaks")
+centered = false
+
+[node name="BG" type="Sprite2D" parent="Health2" unique_id=1918848113]
+z_index = -1
+position = Vector2(10, 1)
+texture = SubResource("AtlasTexture_vpnpn")
+centered = false
+
+[node name="Bar" type="Sprite2D" parent="Health2" unique_id=1159784161]
+z_index = -1
+material = SubResource("ShaderMaterial_fohwn")
+position = Vector2(54, 34)
+texture = SubResource("AtlasTexture_fohwn")
+centered = false
+script = ExtResource("7_inaet")
+type = 3
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1821755614]
+
+[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("9_vpnpn")]
+visible = false

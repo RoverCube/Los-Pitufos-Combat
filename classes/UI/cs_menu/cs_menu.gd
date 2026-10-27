@@ -52,6 +52,7 @@ func _process(_delta: float) -> void:
 
 func go_to_map_select() -> void:
 	$LoadingScreen.summon(false)
+	Autofuck.on_loading_screen = true
 	Autofuck.p1_character_id = entries[p1_seletion].character
 	Autofuck.p2_character_id = entries[p2_seletion].character
 	get_tree().change_scene_to_packed(fight_scene)

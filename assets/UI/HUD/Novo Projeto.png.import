@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7vythocc3i7l"
-path="res://.godot/imported/pitufos hud.png-10a40fb16960d74eb4d097efb02c98ef.ctex"
+uid="uid://d0ox28ohyv2d0"
+path="res://.godot/imported/Novo Projeto.png-72361dae5ed227abb9079f11dd96ae57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/HUD/pitufos hud.png"
-dest_files=["res://.godot/imported/pitufos hud.png-10a40fb16960d74eb4d097efb02c98ef.ctex"]
+source_file="res://assets/UI/HUD/Novo Projeto.png"
+dest_files=["res://.godot/imported/Novo Projeto.png-72361dae5ed227abb9079f11dd96ae57.ctex"]
 
 [params]
 

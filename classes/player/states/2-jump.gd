@@ -32,6 +32,6 @@ func _check_change() -> void:
 
 	if player.attack_input == true and attacking == false:
 		attacking = true
-		player.anim("air attack")
+		player.anim("air attack", true)
 		await player.sprite.animation_finished
 		attacking = false

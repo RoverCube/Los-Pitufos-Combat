@@ -5,6 +5,7 @@ var player_1 : Player
 var player_2 : Player
 var camera: LPCCamera
 
+@onready var animation: AnimationPlayer = $Animation
 @export var char_scenes     : Array[PackedScene]
 #@export var map_scenes      : Array[PackedScene]
 @export var player_distance : float = 3
@@ -26,3 +27,9 @@ func _enter_tree() -> void:
 
 	add_child(player_1)
 	add_child(player_2)
+
+	player_1.died.connect(on_player_died)
+	player_2.died.connect(on_player_died)
+
+func on_player_died(id: int) -> void:
+	pass

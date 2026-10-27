@@ -15,6 +15,9 @@ func save_save_file() -> void: pass
 var p1_character_id: int = 0
 var p2_character_id: int = 0
 
+var combo_counter : int = 0
+var player_2_combo: bool = false
+
 func turn_gay() -> void:
 	gay_mode = true
 	var audio := AudioPlayer.new()
@@ -29,3 +32,8 @@ func hit_freeze(seconds: float) -> void:
 	Engine.time_scale = 0.0
 	await get_tree().create_timer(seconds, true, false, true).timeout
 	Engine.time_scale = 1.0
+
+func combo_count(player_2: bool) -> void:
+	combo_counter += 1
+	if player_2: player_2_combo = true
+	else: player_2_combo = false

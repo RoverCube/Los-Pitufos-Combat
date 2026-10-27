@@ -6,6 +6,7 @@
 collision_layer = 4
 collision_mask = 0
 input_ray_pickable = false
+monitoring = false
 script = ExtResource("1_kfmbc")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -11,10 +11,10 @@ var attack_index: int
 var anims : Array[String] = ["heavy punch","light punch","heavy kick","light kick","crouch attack","air attack"]
 
 func _on_start_state() -> void:
-	player.anim(anims[attack_index], true)
+	if player.special_on:
+		player.anim("#"+anims[attack_index], true)
+	else: player.anim(anims[attack_index], true)
 	await player.sprite.animation_finished
-	if attack_index == 4: change_state.emit("crouch")
-	if attack_index == 5: change_state.emit("air")
 	change_state.emit("idle")
 	# try to get attack index here if not use generic changes
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdrcjmm251w36"
-path="res://.godot/imported/bg.png-10976f4ce087ef28ffafc7f62a21113f.ctex"
+uid="uid://bjdlav02cglsv"
+path="res://.godot/imported/hud atlas.png-0cc8e902e3be969bfdb399b4bda49e70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/HUD/bg.png"
-dest_files=["res://.godot/imported/bg.png-10976f4ce087ef28ffafc7f62a21113f.ctex"]
+source_file="res://assets/UI/HUD/hud atlas.png"
+dest_files=["res://.godot/imported/hud atlas.png-0cc8e902e3be969bfdb399b4bda49e70.ctex"]
 
 [params]
 
