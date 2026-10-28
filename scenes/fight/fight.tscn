@@ -5,8 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://cwtu8c1k0078k" path="res://scenes/player/player_base.tscn" id="2_3si2p"]
 [ext_resource type="Shader" uid="uid://dp1uegg1xs7a5" path="res://assets/shaders/bar.gdshader" id="5_8og4d"]
 [ext_resource type="Texture2D" uid="uid://bjdlav02cglsv" path="res://assets/UI/HUD/hud atlas.png" id="5_nsrxv"]
-[ext_resource type="Texture2D" uid="uid://d0ox28ohyv2d0" path="res://assets/UI/HUD/Novo Projeto.png" id="6_inaet"]
-[ext_resource type="Script" uid="uid://cpmlmflptlaw7" path="res://classes/fight/bar_shader.gd" id="7_inaet"]
+[ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="5_rscwf"]
+[ext_resource type="FontFile" uid="uid://b00aeum2sxp7a" path="res://assets/fonts/NumberFont.otf" id="5_vpnpn"]
+[ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="6_4ho4n"]
+[ext_resource type="Texture2D" uid="uid://d0ox28ohyv2d0" path="res://assets/UI/HUD/bar_mask.png" id="6_inaet"]
+[ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="7_boutc"]
+[ext_resource type="AudioStream" uid="uid://vhk2r41g6t4a" path="res://assets/sound/voice/announcer/ready_fight.mp3" id="8_fohwn"]
+[ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="8_rshxe"]
+[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="9_fohwn"]
 [ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="9_vpnpn"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3si2p"]
@@ -29,6 +35,39 @@ sky = SubResource("Sky_1sl5h")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i672t"]
+load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4d60p"]
+load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rscwf"]
+load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_wksdn"]
+line_spacing = -3.0
+font = ExtResource("5_rscwf")
+font_size = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkawv"]
+shader = ExtResource("6_4ho4n")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.4
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("7_boutc")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rscwf"]
+atlas = ExtResource("8_rshxe")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25m6f"]
+atlas = ExtResource("8_rshxe")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ho4n"]
+atlas = ExtResource("8_rshxe")
+region = Rect2(256, 0, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8og4d"]
 atlas = ExtResource("5_nsrxv")
 region = Rect2(0, 832, 512, 192)
@@ -37,14 +76,27 @@ region = Rect2(0, 832, 512, 192)
 atlas = ExtResource("5_nsrxv")
 region = Rect2(512, 832, 512, 192)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_inaet"]
-shader = ExtResource("5_8og4d")
-shader_parameter/mask = ExtResource("6_inaet")
-shader_parameter/value = 0.6800000323
+[sub_resource type="LabelSettings" id="LabelSettings_fohwn"]
+line_spacing = 0.0
+font = ExtResource("5_vpnpn")
+font_size = 192
+outline_size = 16
+outline_color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+shadow_size = 16
+shadow_color = Color(0.18431373, 0.50980395, 0.6862745, 1)
+shadow_offset = Vector2(-8, 8)
+stacked_outline_count = 1
+stacked_outline_0/size = 16
+stacked_outline_0/color = Color(0.18431373, 0.50980395, 0.6862745, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsrxv"]
 atlas = ExtResource("5_nsrxv")
 region = Rect2(0, 736, 256, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inaet"]
+shader = ExtResource("5_8og4d")
+shader_parameter/mask = ExtResource("6_inaet")
+shader_parameter/value = 0.6800000323
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4qaks"]
 shader = ExtResource("5_8og4d")
@@ -72,6 +124,292 @@ region = Rect2(0, 384, 672, 128)
 shader = ExtResource("5_8og4d")
 shader_parameter/mask = ExtResource("6_inaet")
 shader_parameter/value = 1.0
+
+[sub_resource type="Animation" id="Animation_4d60p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ready:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ready:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fight:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fight:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VictoryCard:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VictoryCard:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Continue:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Continue:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:fight_ended")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4qaks"]
+resource_name = "end"
+length = 1.2500085
+step = 0.08333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VictoryCard:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VictoryCard:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.4166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Continue:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 1.1666667, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Continue:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:fight_ended")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.25),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vpnpn"]
+resource_name = "start"
+length = 2.0000086
+step = 0.08333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.3333334, 1.6666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("8_fohwn"), 0.0],
+"method": &"play_this"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ready:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.25, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(1.05, 1.05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ready:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 1.3333333, 1.4999999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fight:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.3333333, 1.5, 1.5833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fight:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3333334, 1.5, 1.8333334, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fohwn"]
+_data = {
+&"RESET": SubResource("Animation_4d60p"),
+&"end": SubResource("Animation_4qaks"),
+&"start": SubResource("Animation_vpnpn")
+}
 
 [node name="Fight" type="Node3D" unique_id=459350221]
 script = ExtResource("1_34vhe")
@@ -115,86 +453,192 @@ debug_color = Color(0.5760774, 0.8222296, 1, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1563905219]
 environment = SubResource("Environment_nsrxv")
 
-[node name="Special1" type="Sprite2D" parent="." unique_id=441381680]
+[node name="Ready" type="Sprite2D" parent="." unique_id=553843369]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(3, 3)
+texture = SubResource("CompressedTexture2D_i672t")
+
+[node name="Fight" type="Sprite2D" parent="." unique_id=583249764]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_4d60p")
+
+[node name="VictoryCard" type="Sprite2D" parent="." unique_id=1980798513]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1476, 753)
+rotation = -0.24859942
+texture = SubResource("CompressedTexture2D_rscwf")
+
+[node name="Continue" type="Node2D" parent="." unique_id=43884804]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(57.000008, 692)
+rotation = 0.082170635
+scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="Continue" unique_id=1932681021]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "jogar denovo"
+label_settings = SubResource("LabelSettings_wksdn")
+
+[node name="InputI" type="Sprite2D" parent="Continue/Label" unique_id=2037394015]
+material = SubResource("ShaderMaterial_nkawv")
+position = Vector2(399, 32)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_rscwf")
+
+[node name="Label2" type="Label" parent="Continue" unique_id=1132115764]
+offset_top = 89.0
+offset_right = 334.0
+offset_bottom = 240.0
+text = "trocar de
+personagens"
+label_settings = SubResource("LabelSettings_wksdn")
+vertical_alignment = 1
+
+[node name="InputI" type="Sprite2D" parent="Continue/Label2" unique_id=2072186705]
+material = SubResource("ShaderMaterial_nkawv")
+position = Vector2(399, 77)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_25m6f")
+
+[node name="Label3" type="Label" parent="Continue" unique_id=1064173442]
+offset_top = 265.0
+offset_right = 275.0
+offset_bottom = 342.0
+text = "menu incial"
+label_settings = SubResource("LabelSettings_wksdn")
+
+[node name="InputI" type="Sprite2D" parent="Continue/Label3" unique_id=392762468]
+material = SubResource("ShaderMaterial_nkawv")
+position = Vector2(332, 32)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_4ho4n")
+
+[node name="HUD" type="Node2D" parent="." unique_id=668716179]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Special1" type="Sprite2D" parent="HUD" unique_id=441381680]
 position = Vector2(52, 858)
 texture = SubResource("AtlasTexture_8og4d")
 centered = false
 
-[node name="BG" type="Sprite2D" parent="Special1" unique_id=544414470]
+[node name="BG" type="Sprite2D" parent="HUD/Special1" unique_id=544414470]
 z_index = -1
 texture = SubResource("AtlasTexture_inaet")
 centered = false
 
-[node name="Bar" type="Sprite2D" parent="Special1" unique_id=820528844]
+[node name="Text" type="Label" parent="HUD/Special1" unique_id=948376964]
+offset_left = 66.0
+offset_top = 11.0
+offset_right = 151.0
+offset_bottom = 181.0
+rotation = -0.0891
+text = "0"
+label_settings = SubResource("LabelSettings_fohwn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FilledBG" type="Sprite2D" parent="HUD/Special1" unique_id=1625157915]
+visible = false
+modulate = Color(0.27314225, 0.27314225, 0.27314222, 1)
+z_index = -1
+position = Vector2(209, 74)
+texture = SubResource("AtlasTexture_nsrxv")
+centered = false
+
+[node name="Bar" type="Sprite2D" parent="HUD/Special1" unique_id=820528844]
 z_index = -1
 material = SubResource("ShaderMaterial_inaet")
 position = Vector2(209, 74)
 texture = SubResource("AtlasTexture_nsrxv")
 centered = false
-script = ExtResource("7_inaet")
 
-[node name="Special2" type="Sprite2D" parent="." unique_id=959811336]
+[node name="Special2" type="Sprite2D" parent="HUD" unique_id=959811336]
 position = Vector2(1868, 858)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 texture = SubResource("AtlasTexture_8og4d")
 centered = false
 
-[node name="BG" type="Sprite2D" parent="Special2" unique_id=1122346062]
+[node name="BG" type="Sprite2D" parent="HUD/Special2" unique_id=1122346062]
 z_index = -1
 texture = SubResource("AtlasTexture_inaet")
 centered = false
 
-[node name="Bar" type="Sprite2D" parent="Special2" unique_id=1678403273]
+[node name="Text" type="Label" parent="HUD/Special2" unique_id=1645354498]
+offset_left = 162.0
+offset_top = 11.0
+offset_right = 258.0
+offset_bottom = 203.0
+rotation = -0.0891
+scale = Vector2(-1, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_fohwn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FilledBG" type="Sprite2D" parent="HUD/Special2" unique_id=1660318521]
+visible = false
+modulate = Color(0.27314225, 0.27314225, 0.27314222, 1)
+z_index = -1
+position = Vector2(209, 74)
+texture = SubResource("AtlasTexture_nsrxv")
+centered = false
+
+[node name="Bar" type="Sprite2D" parent="HUD/Special2" unique_id=1678403273]
 z_index = -1
 material = SubResource("ShaderMaterial_4qaks")
 position = Vector2(209, 74)
 texture = SubResource("AtlasTexture_nsrxv")
 centered = false
-script = ExtResource("7_inaet")
-type = 1
 
-[node name="Health1" type="Sprite2D" parent="." unique_id=2016536649]
+[node name="Health1" type="Sprite2D" parent="HUD" unique_id=2016536649]
 position = Vector2(31, 28)
 texture = SubResource("AtlasTexture_4qaks")
 centered = false
 
-[node name="BG" type="Sprite2D" parent="Health1" unique_id=1933491742]
+[node name="BG" type="Sprite2D" parent="HUD/Health1" unique_id=1933491742]
 z_index = -1
 position = Vector2(10, 1)
 texture = SubResource("AtlasTexture_vpnpn")
 centered = false
 
-[node name="Bar" type="Sprite2D" parent="Health1" unique_id=1593437733]
+[node name="Bar" type="Sprite2D" parent="HUD/Health1" unique_id=1593437733]
 z_index = -1
 material = SubResource("ShaderMaterial_vpnpn")
 position = Vector2(54, 34)
 texture = SubResource("AtlasTexture_fohwn")
 centered = false
-script = ExtResource("7_inaet")
-type = 2
 
-[node name="Health2" type="Sprite2D" parent="." unique_id=413517496]
+[node name="Health2" type="Sprite2D" parent="HUD" unique_id=413517496]
 position = Vector2(1889, 28)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 texture = SubResource("AtlasTexture_4qaks")
 centered = false
 
-[node name="BG" type="Sprite2D" parent="Health2" unique_id=1918848113]
+[node name="BG" type="Sprite2D" parent="HUD/Health2" unique_id=1918848113]
 z_index = -1
 position = Vector2(10, 1)
 texture = SubResource("AtlasTexture_vpnpn")
 centered = false
 
-[node name="Bar" type="Sprite2D" parent="Health2" unique_id=1159784161]
+[node name="Bar" type="Sprite2D" parent="HUD/Health2" unique_id=1159784161]
 z_index = -1
 material = SubResource("ShaderMaterial_fohwn")
 position = Vector2(54, 34)
 texture = SubResource("AtlasTexture_fohwn")
 centered = false
-script = ExtResource("7_inaet")
-type = 3
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1821755614]
+libraries/ = SubResource("AnimationLibrary_fohwn")
 
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("9_vpnpn")]
 visible = false
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1671804461]
+script = ExtResource("9_fohwn")
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"

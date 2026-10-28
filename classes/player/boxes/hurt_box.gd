@@ -11,14 +11,17 @@ func _on_area(area: Area3D) -> void:
 		var hit_box := area as HitBox
 		got_hurt.emit(hit_box)
 		
-		Autofuck.hit_freeze(float(hit_box.damage)/100)
+		if hit_box.damage >= 30:
+			Autofuck.hit_freeze(0.5)
+		else:
+			Autofuck.hit_freeze(float(hit_box.damage)/100)
 		
 		if player.player_id == 1:
 			Autofuck.combo_count(true)
-		else:
+		elif player.player_id == 2:
 			Autofuck.combo_count(false)
 		
 		player.health -= hit_box.damage
 		
-		player.special_bar += 0.5
+		player.special_bar += float(hit_box.damage) / 100
 		player.other_player.special_bar += 0.1

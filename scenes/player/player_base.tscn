@@ -829,7 +829,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [22]
+"values": [222]
 }
 
 [sub_resource type="Animation" id="Animation_48ms6"]
@@ -1031,7 +1031,7 @@ debug_color = Color(0.9999998, 0.003031034, 0.14555445, 1)
 [node name="StateMachine" type="Node" parent="." unique_id=899047569 node_paths=PackedStringArray("buffer_timer", "all_states")]
 script = ExtResource("1_xb0ah")
 buffer_timer = NodePath("Buffer")
-all_states = [NodePath("Idle"), NodePath("Walk"), NodePath("Jump"), NodePath("Crouch"), NodePath("Attack"), NodePath("Hurt"), NodePath("Enter")]
+all_states = [NodePath("Idle"), NodePath("Walk"), NodePath("Jump"), NodePath("Crouch"), NodePath("Attack"), NodePath("Hurt"), NodePath("Enter"), NodePath("End")]
 starting_state = 6
 metadata/_custom_type_script = "uid://cjb6p0dk8jcn1"
 
@@ -1067,7 +1067,7 @@ can_buffer_to = [NodePath("../Attack"), NodePath("../Crouch"), NodePath("../Jump
 script = ExtResource("12_7w76b")
 player = NodePath("../..")
 
-[node name="Dead" type="Node" parent="StateMachine" unique_id=865609360 node_paths=PackedStringArray("player")]
+[node name="End" type="Node" parent="StateMachine" unique_id=865609360 node_paths=PackedStringArray("player")]
 script = ExtResource("13_f4in7")
 player = NodePath("../..")
 

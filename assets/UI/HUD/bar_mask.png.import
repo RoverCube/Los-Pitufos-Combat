@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0ox28ohyv2d0"
-path="res://.godot/imported/Novo Projeto.png-72361dae5ed227abb9079f11dd96ae57.ctex"
+path="res://.godot/imported/bar_mask.png-0a296423c6015c31e49e9bc92993f41a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/HUD/Novo Projeto.png"
-dest_files=["res://.godot/imported/Novo Projeto.png-72361dae5ed227abb9079f11dd96ae57.ctex"]
+source_file="res://assets/UI/HUD/bar_mask.png"
+dest_files=["res://.godot/imported/bar_mask.png-0a296423c6015c31e49e9bc92993f41a.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
-signal died(id: int)
+signal died(player: Player)
 
 @export_enum("Player 1:1","Player 2:2") var player_id: int = 1 # PN = Player Number 1 or 2
 
@@ -23,6 +23,7 @@ var facing_negative : bool = false:
 @onready var col       : CollisionShape3D = $HurtBox/HurtCol
 @onready var animation : AnimationPlayer  = $Animation
 @onready var hurt      : HurtBox = $HurtBox
+@onready var machine   : StateMachine = $StateMachine
 
 @export var collision_shape    : BoxShape3D
 @export var collision_crouched : BoxShape3D
@@ -34,9 +35,12 @@ var facing_negative : bool = false:
 var health: int  = 150:
 	set(new):
 		if new <= 0:
-			died.emit(player_id)
-			$StateMachine.change_state("dead")
+			health = 0
+			fight.update_hud(player_id)
+			died.emit(self)
+			return
 		health = new
+		fight.update_hud(player_id)
 
 var dir_input: float
 var jump_input: bool
@@ -50,7 +54,13 @@ var lk_input: bool
 
 @export_range(3.0,6.0,1.0,"prefer_slider") var special_bar_max   : float = 2.0
 @export_range(0.0,4.0,0.5,"prefer_slider") var special_bar_start : float = 2.0
-var special_bar : float 
+var special_bar : float:
+	set(new):
+		if new > special_bar_max:
+			special_bar = special_bar_max
+			return
+		special_bar = new
+		fight.update_hud(player_id, true)
 var special_on  : bool # super
 var s_input     : bool # super
 
@@ -102,7 +112,7 @@ func special_depleed(amount: float) -> void:
 	special_bar -= amount
 
 func _on_got_hurt(hit_box: HitBox) -> void:
-	$StateMachine.change_state("Hurt")
+	machine.change_state("Hurt")
 	if hit_box.low_hit:
 		anim("low_hit")
 	else:

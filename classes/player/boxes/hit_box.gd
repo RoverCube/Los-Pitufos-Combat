@@ -6,4 +6,4 @@ extends Area3D
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is HitBox:
-		Autofuck.hit_freeze(0.5)
+		Autofuck.hit_freeze(0.2)
