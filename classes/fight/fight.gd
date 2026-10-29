@@ -51,17 +51,16 @@ func _input(event: InputEvent) -> void:
 		$LoadingScreen.summon()
 		await $LoadingScreen.got_black
 		get_tree().reload_current_scene()
-		
+
 	if event.is_action_pressed("1LP"): 
 		$LoadingScreen.summon()
 		await $LoadingScreen.got_black
 		get_tree().change_scene_to_file("res://scenes/menus/cs_menu/cs_menu.tscn")
+
 	if event.is_action_pressed("1HP"):
 		$LoadingScreen.summon()
 		await $LoadingScreen.got_black 
 		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
-	
-
 
 func update_hud(player_id: int, special: bool = false) -> void:
 	if special == false:

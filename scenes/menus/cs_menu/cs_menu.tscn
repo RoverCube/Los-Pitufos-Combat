@@ -98,13 +98,39 @@ region = Rect2(288, 576, 64, 64)
 atlas = ExtResource("5_wle4u")
 region = Rect2(896, 512, 64, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd0fl"]
+atlas = ExtResource("5_wle4u")
+region = Rect2(160, 576, 64, 64)
+
+[sub_resource type="Gradient" id="Gradient_5qhxg"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.7)
+colors = PackedColorArray(0.180722, 0.180722, 0.180722, 0, 0.21952248, 0.83233196, 0.9236188, 0.49803922, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rwkaw"]
+gradient = SubResource("Gradient_5qhxg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_46me4"]
 atlas = ExtResource("5_wle4u")
 region = Rect2(224, 576, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sd0fl"]
-atlas = ExtResource("5_wle4u")
-region = Rect2(160, 576, 64, 64)
+[sub_resource type="Gradient" id="Gradient_rwkaw"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.7)
+colors = PackedColorArray(0.180722, 0.180722, 0.180722, 0, 0.921336, 0.21663427, 0.31474435, 0.49803922, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e1yj5"]
+gradient = SubResource("Gradient_rwkaw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
 
 [node name="CSMenu" type="Node2D" unique_id=1981336561]
 script = ExtResource("1_2vd3b")
@@ -112,6 +138,7 @@ fight_scene = ExtResource("2_dq3eo")
 metadata/_custom_type_script = "uid://c58vdexq3eogo"
 
 [node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_npo1t")]
+visible = false
 
 [node name="PhMenuBg" type="ColorRect" parent="." unique_id=763053635]
 z_index = -9
@@ -125,6 +152,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Gradient" type="Sprite2D" parent="." unique_id=696763849]
+z_index = -1
 texture = SubResource("GradientTexture2D_7fmv1")
 centered = false
 
@@ -274,16 +302,28 @@ color = Color(0.61960787, 0.61960787, 0.61960787, 1)
 [node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=437213710]
 texture = SubResource("AtlasTexture_74ckb")
 
+[node name="P1Indicator" type="Sprite2D" parent="." unique_id=1227723531]
+material = SubResource("ShaderMaterial_7fmv1")
+texture = SubResource("AtlasTexture_sd0fl")
+script = ExtResource("5_nwg75")
+
+[node name="Effect" type="Sprite2D" parent="P1Indicator" unique_id=880844200]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+position = Vector2(-5, 0)
+texture = SubResource("GradientTexture2D_rwkaw")
+
 [node name="P2Indicator" type="Sprite2D" parent="." unique_id=1938790490]
 material = SubResource("ShaderMaterial_7fmv1")
 texture = SubResource("AtlasTexture_46me4")
 script = ExtResource("5_nwg75")
 player_2 = true
 
-[node name="P1Indicator" type="Sprite2D" parent="." unique_id=1227723531]
-material = SubResource("ShaderMaterial_7fmv1")
-texture = SubResource("AtlasTexture_sd0fl")
-script = ExtResource("5_nwg75")
+[node name="Effect" type="Sprite2D" parent="P2Indicator" unique_id=1656483469]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+position = Vector2(1, -3)
+texture = SubResource("GradientTexture2D_e1yj5")
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=217583148]
 stream = ExtResource("7_e2stv")

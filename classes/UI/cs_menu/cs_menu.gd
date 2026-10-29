@@ -5,8 +5,20 @@ extends Node2D
 
 var p1_seletion: int = 2
 var p2_seletion: int = 5
-var p1_confirmed: bool = false
-var p2_confirmed: bool = false
+var p1_confirmed: bool = false:
+	set(new):
+		if new == true and p1_confirmed == false:
+			$P1Indicator.select()
+		elif new == false and p1_confirmed == true:
+			$P1Indicator.deselect()
+		p1_confirmed = new
+var p2_confirmed: bool = false:
+	set(new):
+		if new == true and p2_confirmed == false:
+			$P2Indicator.select()
+		elif new == false and p2_confirmed == true:
+			$P2Indicator.deselect()
+		p2_confirmed = new
 var entries: Array[CSEntry]
 
 var tree: SceneTree
@@ -51,6 +63,7 @@ func _process(_delta: float) -> void:
 		go_to_map_select()
 
 func go_to_map_select() -> void:
+	await get_tree().create_timer(0.5).timeout
 	$LoadingScreen.summon(false)
 	Autofuck.on_loading_screen = true
 	Autofuck.p1_character_id = entries[p1_seletion].character
