@@ -2,15 +2,44 @@ class_name CSMenu
 extends Node2D
 
 @export var fight_scene : PackedScene
+@onready var p1_sprite  : AnimatedSprite2D = $P1Sprite
+@onready var p1_sname   : Sprite2D = $P1Sprite/Name
+@onready var p2_sprite  : AnimatedSprite2D = $P2Sprite
+@onready var p2_sname   : Sprite2D = $P2Sprite/Name
 
-var p1_seletion: int = 2
-var p2_seletion: int = 5
+var p1_seletion: int = 2:
+	set(new):
+		p1_sprite.play(str(entries[new].character))
+		p1_sname.texture = entries[new].name_texture
+		var tween:Tween = get_tree().create_tween().set_parallel()
+		p1_sprite.modulate = Color.TRANSPARENT
+		p1_sprite.position = Vector2(448.0, 604.0)
+		tween.tween_property(p1_sprite,"modulate",Color.WHITE,0.2)
+		tween.tween_property(p1_sprite,"position",Vector2(448.0, 540.0),0.2)
+		
+		
+		p1_seletion = new
+var p2_seletion: int = 3:
+	set(new):
+		p2_sprite.play(str(entries[new].character))
+		p2_sname.texture = entries[new].name_texture
+		var tween:Tween = get_tree().create_tween().set_parallel()
+		p2_sprite.modulate = Color.TRANSPARENT
+		p2_sprite.position = Vector2(1472.0, 604.0)
+		tween.tween_property(p2_sprite,"modulate",Color.WHITE,0.2)
+		tween.tween_property(p2_sprite,"position",Vector2(1472.0, 540.0),0.2)
+		
+		p2_seletion = new
 var p1_confirmed: bool = false:
 	set(new):
 		if new == true and p1_confirmed == false:
 			$P1Indicator.select()
+			var c: CSEntry = entries[p1_seletion]
+			c.audio_player.play_this(c.voice_lines.pick_random())
 		elif new == false and p1_confirmed == true:
 			$P1Indicator.deselect()
+			var c: CSEntry = entries[p1_seletion]
+			c.audio_player.play_this(c.CANCEL_SFX)
 		p1_confirmed = new
 var p2_confirmed: bool = false:
 	set(new):
@@ -29,6 +58,20 @@ func _enter_tree() -> void:
 		if x is CSEntry:
 			x.id = entries.size()
 			entries.insert(entries.size(),x)
+
+func _ready() -> void:
+	$AudioPlayer.play()
+	print(Autofuck.music_volume)
+
+	p1_sprite.play(str(entries[p1_seletion].character))
+	p1_sname.texture = entries[p1_seletion].name_texture
+	p2_sprite.play(str(entries[p2_seletion].character))
+	p2_sname.texture = entries[p2_seletion].name_texture
+	p1_sprite.play(str(entries[p1_seletion].character))
+	p1_sname.texture = entries[p1_seletion].name_texture
+	p2_sprite.play(str(entries[p2_seletion].character))
+	p2_sname.texture = entries[p2_seletion].name_texture
+
 
 func _process(_delta: float) -> void:
 	if p1_confirmed == false:
@@ -53,10 +96,8 @@ func _process(_delta: float) -> void:
 		entries[p2_seletion].confirm()
 		if entries[p2_seletion].character != -1: p2_confirmed = true
 	if Input.is_action_just_pressed("1HK"):
-		entries[p1_seletion].cancel()
 		p1_confirmed = false
 	if Input.is_action_just_pressed("2HK"):
-		entries[p2_seletion].cancel()
 		p2_confirmed = false
 
 	if p1_confirmed and p2_confirmed:

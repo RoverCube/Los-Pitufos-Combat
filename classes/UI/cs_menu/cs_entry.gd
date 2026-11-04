@@ -2,7 +2,7 @@
 class_name CSEntry
 extends Node2D
 
-const CANCEL_SFX = preload("uid://bcrlweclgpquy")
+const CANCEL_SFX = preload("uid://booh0s1cexnvj")
 
 var id               : int = -1
 @onready var main    : CSMenu = get_parent()
@@ -18,14 +18,11 @@ var id               : int = -1
 @export var p2_indicator_pos : Vector2
 @export var color            : Color = Color("bdc063")
 @export var name_texture     : AtlasTexture
-@export var confirm_voices   : Dictionary[int, AudioStream]
+@export var voice_lines      : Array[AudioStream]
 
 func confirm() -> void:
-	audio_player.play_this(confirm_voices[character])
 	if character == -2:
+		get_tree().create_tween().tween_property($"../AudioPlayer","volume_db",-80.0,1.0)
 		$"../LoadingScreen".summon()
 		await $"../LoadingScreen".got_black
 		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
-
-func cancel() -> void:
-	audio_player.play_this(CANCEL_SFX)

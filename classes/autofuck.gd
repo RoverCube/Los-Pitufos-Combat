@@ -1,11 +1,11 @@
 extends Node
 
-const HEHE = preload("uid://bfb2dqgmai451")
+const HEHE = preload("uid://b6yeku2ajlmt0")
 
 var on_loading_screen : bool = false
 var gay_mode     : bool
 # PREFERENCES
-var music_volume : float = 0.0
+var music_volume : float = 0.2
 var sfx_volume   : float = 1.0
 var voice_volume : float = 1.0
 # INPUT SETTINGS
@@ -21,10 +21,9 @@ var player_2_combo: bool = false
 func turn_gay() -> void:
 	gay_mode = true
 	var audio := AudioPlayer.new()
-	audio.stream = HEHE
 	audio.type = 2
-	audio.autoplay = true
 	add_child(audio)
+	audio.play_this(HEHE)
 	await audio.finished
 	audio.queue_free()
 

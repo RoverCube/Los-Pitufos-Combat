@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://unj30wf6mmsl" path="res://classes/UI/cs_menu/cs_entry.gd" id="1_cgdrk"]
 [ext_resource type="AudioStream" uid="uid://bcrlweclgpquy" path="res://assets/sound/sfx/sound-4.mp3" id="2_7g82a"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="2_a6stq"]
+[ext_resource type="AudioStream" uid="uid://cxn7fp4iq3eaw" path="res://assets/sound/sfx/sound-8.mp3" id="2_p5cuw"]
 
 [node name="CSEntry" type="Node2D" unique_id=231153885]
 script = ExtResource("1_cgdrk")
 confirm_voices = Dictionary[int, AudioStream]({
--2: null,
+-2: ExtResource("2_p5cuw"),
 -1: null,
 0: ExtResource("2_7g82a"),
 1: null,

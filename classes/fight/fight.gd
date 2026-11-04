@@ -48,18 +48,18 @@ func on_player_died(dead_p: Player) -> void:
 func _input(event: InputEvent) -> void:
 	if fight_ended == false: return
 	if event.is_action_pressed("1LK"):
-		$LoadingScreen.summon()
-		await $LoadingScreen.got_black
+		#$LoadingScreen.summon()
+		#await $LoadingScreen.got_black
 		get_tree().reload_current_scene()
 
 	if event.is_action_pressed("1LP"): 
-		$LoadingScreen.summon()
-		await $LoadingScreen.got_black
+		#$LoadingScreen.summon()
+		#await $LoadingScreen.got_black
 		get_tree().change_scene_to_file("res://scenes/menus/cs_menu/cs_menu.tscn")
 
 	if event.is_action_pressed("1HP"):
-		$LoadingScreen.summon()
-		await $LoadingScreen.got_black 
+		#$LoadingScreen.summon()
+		#await $LoadingScreen.got_black 
 		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 func update_hud(player_id: int, special: bool = false) -> void:
@@ -68,7 +68,7 @@ func update_hud(player_id: int, special: bool = false) -> void:
 			$"HUD/Health1/Bar".material.set_shader_parameter("value",float(player_1.health) / float(player_1.max_health))
 			return
 		elif player_id == 2:
-			$"HUD/Health1/Bar".material.set_shader_parameter("value",float(player_2.health) / float(player_2.max_health))
+			$"HUD/Health2/Bar".material.set_shader_parameter("value",float(player_2.health) / float(player_2.max_health))
 			return
 	else:
 		if player_id == 1:

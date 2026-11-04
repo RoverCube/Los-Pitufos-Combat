@@ -90,3 +90,6 @@ position = Vector2(231, 889)
 sprite_frames = SubResource("SpriteFrames_u6do7")
 autoplay = "default"
 frame_progress = 0.11496319
+
+[node name="Timer" type="Timer" parent="." unique_id=1156215493]
+one_shot = true

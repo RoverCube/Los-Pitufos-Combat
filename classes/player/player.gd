@@ -16,7 +16,6 @@ var facing_negative : bool = false:
 		else:   
 			sprite.offset.x = abs(sprite.offset.x) * -1
 			$HitBox.scale.x = -1
-		
 		facing_negative = new
 
 @onready var sprite    : AnimatedSprite3D = $Sprite
@@ -25,6 +24,8 @@ var facing_negative : bool = false:
 @onready var hurt      : HurtBox = $HurtBox
 @onready var machine   : StateMachine = $StateMachine
 
+@export var frame_data : FrameDataManager
+
 @export var collision_shape    : BoxShape3D
 @export var collision_crouched : BoxShape3D
 
@@ -32,6 +33,8 @@ var facing_negative : bool = false:
 @export var speed     : float = 128.0
 @export var air_speed : float = 64.0
 @export var jump      : float = 12.0
+@export var special_depeads : Array[int] = [4,2,4,2] # HP LP HK LK
+
 var health: int  = 150:
 	set(new):
 		if new <= 0:
@@ -52,14 +55,14 @@ var lp_input: bool
 var hk_input: bool
 var lk_input: bool
 
+var blocking   : bool = false
+var block_input: bool
+
 @export_range(3.0,6.0,1.0,"prefer_slider") var special_bar_max   : float = 2.0
 @export_range(0.0,4.0,0.5,"prefer_slider") var special_bar_start : float = 2.0
 var special_bar : float:
 	set(new):
-		if new > special_bar_max:
-			special_bar = special_bar_max
-			return
-		special_bar = new
+		special_bar = clampf(new, 0, special_bar_max)
 		fight.update_hud(player_id, true)
 var special_on  : bool # super
 var s_input     : bool # super
@@ -69,7 +72,6 @@ func _ready() -> void:
 	health = max_health
 	col.shape = collision_shape
 	col.position.y = collision_shape.size.y / 2
-	hurt.got_hurt.connect(_on_got_hurt)
 	special_bar = special_bar_start
 	turn()
 
@@ -82,7 +84,8 @@ func _input(_event: InputEvent) -> void:
 	hk_input = Input.is_action_just_pressed(str(player_id,"HK"))
 	lk_input = Input.is_action_just_pressed(str(player_id,"LK"))
 	attack_input = hp_input or lp_input or hk_input or lk_input
-	if Input.is_action_just_pressed(str(player_id,"#")):
+	block_input = Input.is_action_pressed(str(player_id,"Block"))
+	if Input.is_action_just_pressed(str(player_id,"#")) and special_on == false:
 		special_on = true
 		$Fire.show()
 		await get_tree().create_timer(2.0).timeout
@@ -108,12 +111,26 @@ func anim(animation_name: String, use_animation: bool = false, only_animation: b
 		animation.queue(animation_name)
 	else: push_warning(name," --- AnimationPlayer dosent have animation named ",animation_name)
 
-func special_depleed(amount: float) -> void:
-	special_bar -= amount
-
-func _on_got_hurt(hit_box: HitBox) -> void:
-	machine.change_state("Hurt")
-	if hit_box.low_hit:
-		anim("low_hit")
+func set_velocity_forwards(amount: float) -> void:
+	if facing_negative == true:
+		velocity.x = -amount
 	else:
-		anim("high_hit")
+		velocity.x = amount
+
+func spawn_porjactile(look: Texture, local_pos: Vector3, damage: int, life: float, angle: Vector2 = Vector2.LEFT, p_speed: float = 1) -> void:
+	var body: CharacterBody3D = CharacterBody3D.new()
+	body.velocity = Vector3(angle.x,angle.y,0).normalized() * p_speed
+	body.top_level = true
+	body.global_position = to_global(local_pos)
+	const HIT_SCENE = preload("res://scenes/player/hit_box.tscn")
+	var hit: HitBox = HIT_SCENE.instantiate()
+	body.add_child(hit)
+	hit.damage = damage
+	var sprir: Sprite3D = Sprite3D.new()
+	body.add_child(sprir)
+	sprir.texture = look
+	sprir.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	
+	add_child(body)
+	await get_tree().create_timer(life).timeout
+	body.queue_free()

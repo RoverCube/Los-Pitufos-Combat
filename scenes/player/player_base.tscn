@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bskx223fq3suj" path="res://classes/player/player.gd" id="1_5np8l"]
 [ext_resource type="Script" uid="uid://cjb6p0dk8jcn1" path="res://classes/player/statemachine/state_machine.gd" id="1_xb0ah"]
 [ext_resource type="Texture2D" uid="uid://dg4wnmlrj557d" path="res://assets/characters/cristian/Spritesheet.png" id="2_300uk"]
+[ext_resource type="Script" uid="uid://df67xteesfqfi" path="res://classes/player/f-data/attack_f_data.gd" id="2_eap7y"]
 [ext_resource type="Texture2D" uid="uid://cbfg0d1lciukm" path="res://logo.png" id="3_br5cx"]
+[ext_resource type="Script" uid="uid://dg3jx113jmkg6" path="res://classes/player/f-data/f_data_manager.gd" id="3_ijw1e"]
 [ext_resource type="PackedScene" uid="uid://ckcv2k3id580g" path="res://scenes/player/hurt_box.tscn" id="3_j3kt6"]
 [ext_resource type="Script" uid="uid://drigvsmw78w1u" path="res://classes/player/states/0-idle.gd" id="3_ra71l"]
 [ext_resource type="PackedScene" uid="uid://bvdxexs5acptx" path="res://scenes/player/hit_box.tscn" id="4_300uk"]
@@ -14,12 +16,58 @@
 [ext_resource type="Script" uid="uid://bgxe4ac2qqfpl" path="res://classes/player/states/5-hurt.gd" id="8_f4in7"]
 [ext_resource type="Script" uid="uid://b4d2o5mg8pop2" path="res://classes/player/states/6-enter.gd" id="12_7w76b"]
 [ext_resource type="Script" uid="uid://fo6cf42iyr6m" path="res://classes/player/states/7-dead.gd" id="13_f4in7"]
+[ext_resource type="Script" uid="uid://c7hmuysaoa2wg" path="res://classes/player/states/8-block.gd" id="17_ijw1e"]
+[ext_resource type="Texture2D" uid="uid://o5tbs5gvj1lv" path="res://icon.png" id="18_41jyx"]
+
+[sub_resource type="Resource" id="Resource_eap7y"]
+script = ExtResource("2_eap7y")
+metadata/_custom_type_script = "uid://df67xteesfqfi"
+
+[sub_resource type="Resource" id="Resource_41jyx"]
+script = ExtResource("2_eap7y")
+metadata/_custom_type_script = "uid://df67xteesfqfi"
+
+[sub_resource type="Resource" id="Resource_ijw1e"]
+script = ExtResource("2_eap7y")
+metadata/_custom_type_script = "uid://df67xteesfqfi"
+
+[sub_resource type="Resource" id="Resource_0jc3u"]
+script = ExtResource("2_eap7y")
+metadata/_custom_type_script = "uid://df67xteesfqfi"
+
+[sub_resource type="Resource" id="Resource_oqn3s"]
+script = ExtResource("3_ijw1e")
+heavy_punch = SubResource("Resource_41jyx")
+light_punch = SubResource("Resource_0jc3u")
+heavy_kick = SubResource("Resource_eap7y")
+light_kick = SubResource("Resource_ijw1e")
+metadata/_custom_type_script = "uid://dg3jx113jmkg6"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j3kt6"]
 size = Vector3(0.5, 1.67, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7w76b"]
 size = Vector3(0.5, 1.12, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvw1r"]
+atlas = ExtResource("2_300uk")
+region = Rect2(1024, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cel0i"]
+atlas = ExtResource("2_300uk")
+region = Rect2(2048, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ofpt"]
+atlas = ExtResource("2_300uk")
+region = Rect2(3072, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lt6x"]
+atlas = ExtResource("2_300uk")
+region = Rect2(4096, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cerp"]
+atlas = ExtResource("2_300uk")
+region = Rect2(5120, 5120, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4h74"]
 atlas = ExtResource("2_300uk")
@@ -80,26 +128,6 @@ region = Rect2(0, 1024, 1024, 1024)
 [sub_resource type="AtlasTexture" id="AtlasTexture_a28yf"]
 atlas = ExtResource("2_300uk")
 region = Rect2(1024, 1024, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvw1r"]
-atlas = ExtResource("2_300uk")
-region = Rect2(1024, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cel0i"]
-atlas = ExtResource("2_300uk")
-region = Rect2(2048, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ofpt"]
-atlas = ExtResource("2_300uk")
-region = Rect2(3072, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6lt6x"]
-atlas = ExtResource("2_300uk")
-region = Rect2(4096, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5cerp"]
-atlas = ExtResource("2_300uk")
-region = Rect2(5120, 5120, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2r5g"]
 atlas = ExtResource("2_300uk")
@@ -179,6 +207,26 @@ region = Rect2(3072, 0, 1024, 1024)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rvw1r"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvw1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cel0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ofpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lt6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cerp")
+}],
+"loop": false,
+"name": &"#light kick",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c4h74")
@@ -509,6 +557,24 @@ size = Vector3(0.5, 1.6, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4in7"]
 size = Vector3(0.5, 1, 0.5)
 
+[sub_resource type="Animation" id="Animation_41jyx"]
+resource_name = "#light kick"
+step = 0.08333334
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.41666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("18_41jyx"), Vector2(0, 0), 0, 0.0, Vector2(0, 0), null],
+"method": &"spawn_porjactile"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_ijw1e"]
 length = 0.001
 tracks/0/type = "value"
@@ -571,6 +637,42 @@ tracks/4/keys = {
 "update": 1,
 "values": [25]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:sfx_type")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HitBox:stun_time")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
 
 [sub_resource type="Animation" id="Animation_300uk"]
 resource_name = "air attack"
@@ -583,7 +685,7 @@ tracks/0/path = NodePath("HitBox/HitCol:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.08333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -632,9 +734,50 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.035265),
+"update": 1,
+"values": [5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:sfx_type")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [12]
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:stun_time")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.25]
+}
+
+[sub_resource type="Animation" id="Animation_oqn3s"]
+resource_name = "block start"
+length = 0.16667502
+step = 0.08333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.46618086, 0.4661808, 0.4661808, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7w76b"]
@@ -648,7 +791,7 @@ tracks/0/path = NodePath("HitBox/HitCol:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.08333334, 0.33333334),
+"times": PackedFloat32Array(0.08333334, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -699,7 +842,31 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [13]
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:sfx_type")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:stun_time")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.25]
 }
 
 [sub_resource type="Animation" id="Animation_f4in7"]
@@ -713,7 +880,7 @@ tracks/0/path = NodePath("HitBox/HitCol:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.25, 0.5),
+"times": PackedFloat32Array(0.25, 0.33333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -764,7 +931,31 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [20]
+"values": [10]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:sfx_type")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:stun_time")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.8]
 }
 
 [sub_resource type="Animation" id="Animation_br5cx"]
@@ -778,7 +969,7 @@ tracks/0/path = NodePath("HitBox/HitCol:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.25, 0.5),
+"times": PackedFloat32Array(0.25, 0.33333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -829,7 +1020,31 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [222]
+"values": [12]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:sfx_type")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:stun_time")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
 }
 
 [sub_resource type="Animation" id="Animation_48ms6"]
@@ -843,7 +1058,7 @@ tracks/0/path = NodePath("HitBox/HitCol:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.08333334, 0.33333334),
+"times": PackedFloat32Array(0.08333334, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -894,7 +1109,31 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:sfx_type")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:stun_time")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.35]
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_br5cx"]
@@ -911,7 +1150,7 @@ tracks/0/path = NodePath("HitBox/HitCol:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.08333334, 0.33333334),
+"times": PackedFloat32Array(0.08333334, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -962,13 +1201,39 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [12]
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:sfx_type")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HitBox:stun_time")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.25]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ibn3i"]
 _data = {
+&"#light kick": SubResource("Animation_41jyx"),
 &"RESET": SubResource("Animation_ijw1e"),
 &"air attack": SubResource("Animation_300uk"),
+&"block start": SubResource("Animation_oqn3s"),
 &"crouch attack": SubResource("Animation_7w76b"),
 &"heavy kick": SubResource("Animation_f4in7"),
 &"heavy punch": SubResource("Animation_br5cx"),
@@ -979,10 +1244,10 @@ _data = {
 [node name="PlayerBase" type="CharacterBody3D" unique_id=1355532886]
 collision_layer = 2
 script = ExtResource("1_5np8l")
+frame_data = SubResource("Resource_oqn3s")
 collision_shape = SubResource("BoxShape3D_j3kt6")
 collision_crouched = SubResource("BoxShape3D_7w76b")
-max_health = 200
-special_bar_max = 6.0
+special_bar_max = 4.0
 special_bar_start = 0.5
 metadata/_custom_type_script = "uid://bskx223fq3suj"
 
@@ -990,11 +1255,11 @@ metadata/_custom_type_script = "uid://bskx223fq3suj"
 transform = Transform3D(2.275, 0, 0, 0, 2.275, 0, 0, 0, 2.275, 0, 0, -0.22277433)
 offset = Vector2(90, 420)
 pixel_size = 0.001
-billboard = 2
+billboard = 1
 double_sided = false
 no_depth_test = true
 sprite_frames = SubResource("SpriteFrames_rvw1r")
-animation = &"high hit"
+animation = &"#light kick"
 autoplay = "idle"
 
 [node name="Fire" type="AnimatedSprite3D" parent="." unique_id=813926197]
@@ -1022,6 +1287,8 @@ shape = SubResource("BoxShape3D_300uk")
 debug_color = Color(0, 0.6013788, 0.70120233, 1)
 
 [node name="HitBox" parent="." unique_id=1225930080 instance=ExtResource("4_300uk")]
+block_damage = 1
+knockback = 10.0
 
 [node name="HitCol" type="CollisionShape3D" parent="HitBox" unique_id=2077551877]
 shape = SubResource("BoxShape3D_f4in7")
@@ -1031,7 +1298,7 @@ debug_color = Color(0.9999998, 0.003031034, 0.14555445, 1)
 [node name="StateMachine" type="Node" parent="." unique_id=899047569 node_paths=PackedStringArray("buffer_timer", "all_states")]
 script = ExtResource("1_xb0ah")
 buffer_timer = NodePath("Buffer")
-all_states = [NodePath("Idle"), NodePath("Walk"), NodePath("Jump"), NodePath("Crouch"), NodePath("Attack"), NodePath("Hurt"), NodePath("Enter"), NodePath("End")]
+all_states = [NodePath("Idle"), NodePath("Walk"), NodePath("Jump"), NodePath("Crouch"), NodePath("Attack"), NodePath("Hurt"), NodePath("Enter"), NodePath("End"), NodePath("Block")]
 starting_state = 6
 metadata/_custom_type_script = "uid://cjb6p0dk8jcn1"
 
@@ -1069,6 +1336,10 @@ player = NodePath("../..")
 
 [node name="End" type="Node" parent="StateMachine" unique_id=865609360 node_paths=PackedStringArray("player")]
 script = ExtResource("13_f4in7")
+player = NodePath("../..")
+
+[node name="Block" type="Node" parent="StateMachine" unique_id=443375556 node_paths=PackedStringArray("player")]
+script = ExtResource("17_ijw1e")
 player = NodePath("../..")
 
 [node name="Buffer" type="Timer" parent="StateMachine" unique_id=75076894]

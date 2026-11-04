@@ -1,13 +1,16 @@
 extends PlayerState
 
 var attacking : bool = false
+var no_start  : bool = false
 
 func _on_start_state() -> void:
-	player.anim("crouch")
+	if no_start == false:
+		player.anim("crouch")
+		await player.sprite.animation_finished
 	player.col.shape = player.collision_crouched
 	player.col.position.y = player.collision_crouched.size.y / 2
-	await player.sprite.animation_finished
 	player.anim("crouch idle")
+	no_start = true
 
 func _on_end_state() -> void:
 	player.anim("uncrouch")
@@ -24,3 +27,11 @@ func _check_change() -> void:
 		await player.sprite.animation_finished
 		player.anim("crouch idle")
 		attacking = false
+
+	if player.block_input == true and player.blocking == false:
+		player.anim("crouch block")
+		await player.sprite.animation_finished
+		player.blocking = true
+	if player.block_input == false and player. blocking == true:
+		player.blocking = false
+		player.anim("crouch idle")

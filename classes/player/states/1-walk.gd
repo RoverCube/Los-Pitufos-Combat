@@ -13,3 +13,4 @@ func _check_change() -> void:
 	if player.jump_input:     change_state.emit("jump")
 	if player.crouch_input:   change_state.emit("crouch")
 	generic_to(4) # attack
+	generic_to(8) # block

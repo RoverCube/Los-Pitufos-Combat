@@ -10,30 +10,28 @@
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="6_4ho4n"]
 [ext_resource type="Texture2D" uid="uid://d0ox28ohyv2d0" path="res://assets/UI/HUD/bar_mask.png" id="6_inaet"]
 [ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="7_boutc"]
-[ext_resource type="AudioStream" uid="uid://vhk2r41g6t4a" path="res://assets/sound/voice/announcer/ready_fight.mp3" id="8_fohwn"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="8_rshxe"]
-[ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="9_fohwn"]
-[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="9_vpnpn"]
+[ext_resource type="PackedScene" uid="uid://c5odyx10bnn6i" path="res://assets/map/damn.blend" id="12_yisul"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3si2p"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yisul"]
+panorama = ExtResource("7_boutc")
+
+[sub_resource type="Sky" id="Sky_1sl5h"]
+sky_material = SubResource("PanoramaSkyMaterial_yisul")
+
+[sub_resource type="Environment" id="Environment_nsrxv"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_1sl5h")
+ambient_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1sl5h"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nsrxv"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3si2p"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_1sl5h"]
-sky_material = SubResource("ProceduralSkyMaterial_3si2p")
-
-[sub_resource type="Environment" id="Environment_nsrxv"]
-background_mode = 1
-background_color = Color(0.28729492, 0.28729492, 0.2872949, 1)
-sky = SubResource("Sky_1sl5h")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i672t"]
 load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
@@ -475,63 +473,49 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "method"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioPlayer")
+tracks/1/path = NodePath("Ready:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [ExtResource("8_fohwn"), 0.0],
-"method": &"play_this"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Ready:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.16666667, 0.25, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(1.05, 1.05)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Ready:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ready:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.16666667, 1.3333333, 1.4999999),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Fight:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fight:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(1.3333333, 1.5, 1.5833333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Fight:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fight:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(1.3333334, 1.5, 1.8333334, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -568,24 +552,30 @@ transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.
 shape = SubResource("WorldBoundaryShape3D_3si2p")
 debug_color = Color(1, 1, 1, 0)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=41503782]
+transform = Transform3D(-0.56869864, -0.63354045, 0.52460337, -0.15630007, 0.7093926, 0.6872645, -0.8075595, 0.30885077, -0.5024528, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1563905219]
+environment = SubResource("Environment_nsrxv")
+
 [node name="MapCol" type="StaticBody3D" parent="." unique_id=453330670]
+visible = false
 
 [node name="Floor" type="CollisionShape3D" parent="MapCol" unique_id=1773459583]
 shape = SubResource("WorldBoundaryShape3D_1sl5h")
 debug_color = Color(0.5760774, 0.8222296, 1, 1)
 
 [node name="RightWall" type="CollisionShape3D" parent="MapCol" unique_id=2090345837]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12, 0, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 6, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_nsrxv")
 debug_color = Color(0.5760774, 0.8222296, 1, 1)
 
 [node name="LeftWall" type="CollisionShape3D" parent="MapCol" unique_id=2746421]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12, 0, 0)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_nsrxv")
 debug_color = Color(0.5760774, 0.8222296, 1, 1)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1563905219]
-environment = SubResource("Environment_nsrxv")
 
 [node name="Ready" type="Sprite2D" parent="." unique_id=553843369]
 modulate = Color(1, 1, 1, 0)
@@ -779,9 +769,5 @@ centered = false
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1821755614]
 libraries/ = SubResource("AnimationLibrary_fohwn")
 
-[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("9_vpnpn")]
-visible = false
-
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1671804461]
-script = ExtResource("9_fohwn")
-metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
+[node name="damn" parent="." unique_id=505476279 instance=ExtResource("12_yisul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

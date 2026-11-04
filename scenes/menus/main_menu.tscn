@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="11_vr0hv"]
 [ext_resource type="AudioStream" uid="uid://b6yeku2ajlmt0" path="res://assets/sound/music/main_menu.mp3" id="12_88kup"]
 [ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="12_a3hrp"]
+[ext_resource type="AudioStream" uid="uid://b2sab1pkjlmdw" path="res://assets/sound/sfx/sound-13.mp3" id="13_a3hrp"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="13_bh4e2"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="14_a3hrp"]
 [ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="16_vr0hv"]
@@ -546,6 +547,12 @@ material = SubResource("ShaderMaterial_nkawv")
 position = Vector2(243, 0)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_25m6f")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="PressAny" unique_id=395974797]
+stream = ExtResource("13_a3hrp")
+script = ExtResource("13_bh4e2")
+type = 1
+metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
 
 [node name="Splash" type="Control" parent="." unique_id=197688304]
 visible = false
