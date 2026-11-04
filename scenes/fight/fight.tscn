@@ -33,11 +33,32 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nsrxv"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yisul"]
+shader = ExtResource("6_4ho4n")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.2
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("7_boutc")
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i672t"]
 load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_op15a"]
+shader = ExtResource("6_4ho4n")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.2
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("7_boutc")
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4d60p"]
 load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rscwf"]
+shader = ExtResource("6_4ho4n")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.2
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("7_boutc")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rscwf"]
 load_path = "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
@@ -579,18 +600,21 @@ debug_color = Color(0.5760774, 0.8222296, 1, 1)
 
 [node name="Ready" type="Sprite2D" parent="." unique_id=553843369]
 modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_yisul")
 position = Vector2(960, 540)
 scale = Vector2(3, 3)
 texture = SubResource("CompressedTexture2D_i672t")
 
 [node name="Fight" type="Sprite2D" parent="." unique_id=583249764]
 modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_op15a")
 position = Vector2(960, 540)
 scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_4d60p")
 
 [node name="VictoryCard" type="Sprite2D" parent="." unique_id=1980798513]
 modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_rscwf")
 position = Vector2(1468, 718)
 rotation = -0.24859942
 texture = SubResource("CompressedTexture2D_rscwf")

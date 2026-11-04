@@ -12,7 +12,7 @@ var facing_negative : bool = false:
 		sprite.flip_h = !new
 		if new: 
 			sprite.offset.x = abs(sprite.offset.x)
-			$HitBox.scale.x =  1
+			$HitBox.scale.x = +1
 		else:   
 			sprite.offset.x = abs(sprite.offset.x) * -1
 			$HitBox.scale.x = -1
@@ -22,75 +22,85 @@ var facing_negative : bool = false:
 @onready var col       : CollisionShape3D = $HurtBox/HurtCol
 @onready var animation : AnimationPlayer  = $Animation
 @onready var hurt      : HurtBox = $HurtBox
-@onready var machine   : StateMachine = $StateMachine
 
-@export var frame_data : FrameDataManager
+@export var slp : FrameData
+@export var shp : FrameData
+@export var slk : FrameData
+@export var shk : FrameData
+@export var lp  : FrameData
+@export var hp  : FrameData
+@export var lk  : FrameData
+@export var hk  : FrameData
+@export var aa  : FrameData
+@export var ca  : FrameData
 
-@export var collision_shape    : BoxShape3D
-@export var collision_crouched : BoxShape3D
+
+@export var col_stand  : BoxShape3D
+@export var col_crouch : BoxShape3D
+@export var col_jump   : BoxShape3D
 
 @export_range(100,225,25,"prefer_slider") var max_health: int  = 150
-@export var speed     : float = 128.0
-@export var air_speed : float = 64.0
-@export var jump      : float = 12.0
-@export var special_depeads : Array[int] = [4,2,4,2] # HP LP HK LK
-
-var health: int  = 150:
+@onready var health   : int = max_health:
 	set(new):
-		if new <= 0:
-			health = 0
-			fight.update_hud(player_id)
-			died.emit(self)
-			return
-		health = new
+		health = clamp(new, 0, max_health)
 		fight.update_hud(player_id)
+		if health == 0:
+			died.emit(self)
 
-var dir_input: float
-var jump_input: bool
-var crouch_input: bool
+const WALK_SPEED: float = 128.0
+const JUMP_FORCE: float =  12.0
+const GRAVITY   : float =  32.0
+const FALL      : float =  32.0
+const AIR_SPEED : float =  12.0
 
-var attack_input: bool
-var hp_input: bool
-var lp_input: bool
-var hk_input: bool
-var lk_input: bool
+var dir_input    : float = 0.0
+var jump_input   : bool  = false
+var crouch_input : bool  = false
+var attack_input : bool  = false
+var hp_input     : bool  = false
+var lp_input     : bool  = false
+var hk_input     : bool  = false
+var lk_input     : bool  = false
+var blocking     : bool  = false
+var block_input  : bool  = false
 
-var blocking   : bool = false
-var block_input: bool
 
 @export_range(3.0,6.0,1.0,"prefer_slider") var special_bar_max   : float = 2.0
 @export_range(0.0,4.0,0.5,"prefer_slider") var special_bar_start : float = 2.0
-var special_bar : float:
+var special_bar   : float:
 	set(new):
 		special_bar = clampf(new, 0, special_bar_max)
 		fight.update_hud(player_id, true)
-var special_on  : bool # super
-var s_input     : bool # super
-
+var special_onoff : bool 
+var s_input       : bool:
+	set(new):
+		if special_onoff == false:
+			special_onoff = true
+			#$Fire.show() 
+			await get_tree().create_timer(2.0).timeout
+			special_onoff = false
+			#$Fire.hide()	
+		s_input = new
 
 func _ready() -> void:
-	health = max_health
-	col.shape = collision_shape
-	col.position.y = collision_shape.size.y / 2
+	col.shape = col_stand
+	col.position.y = col_stand.size.y / 2
 	special_bar = special_bar_start
 	turn()
 
 func _input(_event: InputEvent) -> void:
-	dir_input = Input.get_axis(str(player_id,"Left"),str(player_id,"Right"))
-	jump_input = Input.is_action_just_pressed(str(player_id,"Jump"))
+	dir_input    = Input.get_axis(str(player_id,"Left"),str(player_id,"Right"))
+	jump_input   = Input.is_action_just_pressed(str(player_id,"Jump"))
 	crouch_input = Input.is_action_pressed(str(player_id,"Crouch"))
-	hp_input = Input.is_action_just_pressed(str(player_id,"HP"))
-	lp_input = Input.is_action_just_pressed(str(player_id,"LP"))
-	hk_input = Input.is_action_just_pressed(str(player_id,"HK"))
-	lk_input = Input.is_action_just_pressed(str(player_id,"LK"))
+	hp_input     = Input.is_action_just_pressed(str(player_id,"HP"))
+	lp_input     = Input.is_action_just_pressed(str(player_id,"LP"))
+	hk_input     = Input.is_action_just_pressed(str(player_id,"HK"))
+	lk_input     = Input.is_action_just_pressed(str(player_id,"LK"))
 	attack_input = hp_input or lp_input or hk_input or lk_input
-	block_input = Input.is_action_pressed(str(player_id,"Block"))
-	if Input.is_action_just_pressed(str(player_id,"#")) and special_on == false:
-		special_on = true
-		$Fire.show()
-		await get_tree().create_timer(2.0).timeout
-		special_on = false
-		$Fire.hide()
+	block_input  = Input.is_action_pressed(str(player_id,"Block"))
+	s_input      = Input.is_action_just_pressed(str(player_id,"#"))
+
+func _physics_process(_delta: float) -> void: move_and_slide()		
 
 func turn() -> void:
 	if position.x - other_player.position.x < 0:
@@ -98,24 +108,10 @@ func turn() -> void:
 	else:
 		facing_negative = false
 
-func anim(animation_name: String, use_animation: bool = false, only_animation: bool = false) -> void:
-	if self.animation == null or self.sprite == null: return
-
-	if only_animation == false:
-		if sprite.sprite_frames.has_animation(animation_name): sprite.play(animation_name)
-		else: push_warning(name," --- Sprite dosent have animation named ",animation_name)
-
-	if use_animation == false: return
-	if animation.has_animation(animation_name): 
-		animation.play("RESET")
-		animation.queue(animation_name)
-	else: push_warning(name," --- AnimationPlayer dosent have animation named ",animation_name)
-
-func set_velocity_forwards(amount: float) -> void:
-	if facing_negative == true:
-		velocity.x = -amount
-	else:
-		velocity.x = amount
+func anim(animation_name: String) -> void:
+	if sprite == null: return
+	if sprite.sprite_frames.has_animation(animation_name): sprite.play(animation_name)
+	else: push_warning("Sprite dosent have animation named "+animation_name)
 
 func spawn_porjactile(look: Texture, local_pos: Vector3, damage: int, life: float, angle: Vector2 = Vector2.LEFT, p_speed: float = 1) -> void:
 	var body: CharacterBody3D = CharacterBody3D.new()

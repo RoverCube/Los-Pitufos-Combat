@@ -4,6 +4,6 @@ extends MenuAction
 @export var scene: PackedScene
 
 func action() -> void:
-	loads.summon()
-	await loads.got_black
+	# loads.summon()
+	# await loads.got_black
 	get_tree().change_scene_to_packed(scene)

@@ -16,7 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://b2sab1pkjlmdw" path="res://assets/sound/sfx/sound-13.mp3" id="13_a3hrp"]
 [ext_resource type="Script" uid="uid://b6wbpp7yjqsej" path="res://classes/audio/general_audio.gd" id="13_bh4e2"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="14_a3hrp"]
-[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="16_vr0hv"]
 
 [sub_resource type="Gradient" id="Gradient_a3hrp"]
 interpolation_mode = 1
@@ -493,9 +492,8 @@ main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_uxao6")
 confirmed_action = NodePath("CharcterSelect2")
 
-[node name="CharcterSelect2" type="Node" parent="MainMenu/Brigar" unique_id=515614484 node_paths=PackedStringArray("loads")]
+[node name="CharcterSelect2" type="Node" parent="MainMenu/Brigar" unique_id=515614484]
 script = ExtResource("8_vr0hv")
-loads = NodePath("../../../LoadingScreen")
 scene = ExtResource("7_vr0hv")
 
 [node name="Opições" parent="MainMenu" unique_id=786973914 node_paths=PackedStringArray("main_anim", "confirmed_action") instance=ExtResource("3_1hnlc")]
@@ -506,9 +504,8 @@ main_anim = NodePath("../../Animation")
 texture = SubResource("AtlasTexture_3w8rc")
 confirmed_action = NodePath("ControllerSetup")
 
-[node name="ControllerSetup" type="Node" parent="MainMenu/Opições" unique_id=1886946477 node_paths=PackedStringArray("loads")]
+[node name="ControllerSetup" type="Node" parent="MainMenu/Opições" unique_id=1886946477]
 script = ExtResource("8_vr0hv")
-loads = NodePath("../../../LoadingScreen")
 scene = ExtResource("9_a3hrp")
 
 [node name="Sair" parent="MainMenu" unique_id=1831880725 node_paths=PackedStringArray("main_anim", "confirmed_action") instance=ExtResource("3_1hnlc")]
@@ -599,9 +596,6 @@ volume_db = -15.0
 autoplay = true
 script = ExtResource("13_bh4e2")
 metadata/_custom_type_script = "uid://b6wbpp7yjqsej"
-
-[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("16_vr0hv")]
-visible = false
 
 [node name="SideDeco" type="ColorRect" parent="." unique_id=1759761433]
 material = SubResource("ShaderMaterial_w32d4")

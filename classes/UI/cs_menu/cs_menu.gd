@@ -36,9 +36,8 @@ var p1_confirmed: bool = false:
 			$P1Indicator.select()
 			var c: CSEntry = entries[p1_seletion]
 			c.audio_player.play_this(c.voice_lines.pick_random())
-		elif new == false and p1_confirmed == true:
+		#elif                   new == false and p1_confirmed == true:
 			$P1Indicator.deselect()
-			var c: CSEntry = entries[p1_seletion]
 			c.audio_player.play_this(c.CANCEL_SFX)
 		p1_confirmed = new
 var p2_confirmed: bool = false:
