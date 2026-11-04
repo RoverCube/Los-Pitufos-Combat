@@ -77,6 +77,14 @@ func update_hud(player_id: int, special: bool = false) -> void:
 				$"HUD/Special1/FilledBG".show()
 			elif player_1.special_bar < 1:
 				$"HUD/Special1/FilledBG".hide()
+			if player_1.special_bar == player_1.special_bar_max:
+				$HUD/Special1/FilledBG2.show()
+				$HUD/Special1/Effect.emitting = true
+				$HUD/Special1/Effect2.show()
+			else:
+				$HUD/Special1/FilledBG2.hide()
+				$HUD/Special1/Effect.emitting = false
+				$HUD/Special1/Effect2.hide()
 			$"HUD/Special1/Text".text = str(floori(player_1.special_bar))
 		elif player_id == 2:
 			$"HUD/Special2/Bar".material.set_shader_parameter("value",float(player_2.special_bar - floorf(player_2.special_bar)) / float(1.0))
@@ -84,4 +92,12 @@ func update_hud(player_id: int, special: bool = false) -> void:
 				$"HUD/Special2/FilledBG".show()
 			elif player_2.special_bar < 1:
 				$"HUD/Special2/FilledBG".hide()
+			if player_2.special_bar == player_2.special_bar_max:
+				$HUD/Special2/FilledBG2.show()
+				$HUD/Special2/Effect.emitting = true
+				$HUD/Special2/Effect2.show()
+			else:
+				$HUD/Special2/FilledBG2.hide()
+				$HUD/Special2/Effect.emitting = false
+				$HUD/Special2/Effect2.hide()
 			$"HUD/Special2/Text".text = str(floori(player_2.special_bar))

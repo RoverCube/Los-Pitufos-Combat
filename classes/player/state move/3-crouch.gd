@@ -1,15 +1,21 @@
 extends PlayerState
 
+var do_end : bool = true
+
 func _start() -> void:
+	do_end = true
 	player.velocity = Vector3.ZERO
-	if not (fsm.previous is PSAnim):
-		player.anim("crouch")
-		await player.sprite.animation_finished
+	if fsm.previous is PSAnim:
+		player.anim("crouch idle")
+		return
+	player.anim("crouch")
+	await player.sprite.animation_finished
 	player.anim("crouch idle")
 	player.col.shape = player.col_crouch
 	player.col.position.y = player.col_crouch.size.y / 2
 
 func _end() -> void:
+	if do_end == false: return
 	player.anim("uncrouch")
 	player.col.shape = player.col_stand
 	player.col.position.y = player.col_stand.size.y / 2

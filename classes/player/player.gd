@@ -21,7 +21,10 @@ var facing_negative : bool = false:
 @onready var sprite    : AnimatedSprite3D = $Sprite
 @onready var col       : CollisionShape3D = $HurtBox/HurtCol
 @onready var animation : AnimationPlayer  = $Animation
-@onready var hurt      : HurtBox = $HurtBox
+@onready var hurt_box  : HurtBox = $HurtBox
+@onready var hit_box   : HitBox = $HitBox
+@onready var hit_col   : CollisionShape3D = $HitBox/HitCol
+@onready var move_fsm  : FiniteStateMachine = $MovementFSM
 
 @export var slp : FrameData
 @export var shp : FrameData
@@ -33,7 +36,6 @@ var facing_negative : bool = false:
 @export var hk  : FrameData
 @export var aa  : FrameData
 @export var ca  : FrameData
-
 
 @export var col_stand  : BoxShape3D
 @export var col_crouch : BoxShape3D
@@ -47,11 +49,11 @@ var facing_negative : bool = false:
 		if health == 0:
 			died.emit(self)
 
-const WALK_SPEED: float = 128.0
-const JUMP_FORCE: float =  12.0
-const GRAVITY   : float =  32.0
-const FALL      : float =  32.0
-const AIR_SPEED : float =  12.0
+const WALK_SPEED : float = 128.0
+const JUMP_FORCE : float =  12.0
+const GRAVITY    : float =  32.0
+const FALL       : float =  32.0
+const AIR_SPEED  : float =  12.0
 
 var dir_input    : float = 0.0
 var jump_input   : bool  = false
@@ -72,15 +74,7 @@ var special_bar   : float:
 		special_bar = clampf(new, 0, special_bar_max)
 		fight.update_hud(player_id, true)
 var special_onoff : bool 
-var s_input       : bool:
-	set(new):
-		if special_onoff == false:
-			special_onoff = true
-			#$Fire.show() 
-			await get_tree().create_timer(2.0).timeout
-			special_onoff = false
-			#$Fire.hide()	
-		s_input = new
+var s_input       : bool
 
 func _ready() -> void:
 	col.shape = col_stand
@@ -88,7 +82,7 @@ func _ready() -> void:
 	special_bar = special_bar_start
 	turn()
 
-func _input(_event: InputEvent) -> void:
+func _process(_delta: float) -> void:
 	dir_input    = Input.get_axis(str(player_id,"Left"),str(player_id,"Right"))
 	jump_input   = Input.is_action_just_pressed(str(player_id,"Jump"))
 	crouch_input = Input.is_action_pressed(str(player_id,"Crouch"))
@@ -98,7 +92,12 @@ func _input(_event: InputEvent) -> void:
 	lk_input     = Input.is_action_just_pressed(str(player_id,"LK"))
 	attack_input = hp_input or lp_input or hk_input or lk_input
 	block_input  = Input.is_action_pressed(str(player_id,"Block"))
-	s_input      = Input.is_action_just_pressed(str(player_id,"#"))
+	if Input.is_action_just_pressed(str(player_id,"#")):
+		special_onoff = true
+		$Fire.show() 
+		await get_tree().create_timer(2.0).timeout
+		special_onoff = false
+		$Fire.hide()
 
 func _physics_process(_delta: float) -> void: move_and_slide()		
 
@@ -113,20 +112,27 @@ func anim(animation_name: String) -> void:
 	if sprite.sprite_frames.has_animation(animation_name): sprite.play(animation_name)
 	else: push_warning("Sprite dosent have animation named "+animation_name)
 
-func spawn_porjactile(look: Texture, local_pos: Vector3, damage: int, life: float, angle: Vector2 = Vector2.LEFT, p_speed: float = 1) -> void:
-	var body: CharacterBody3D = CharacterBody3D.new()
-	body.velocity = Vector3(angle.x,angle.y,0).normalized() * p_speed
-	body.top_level = true
-	body.global_position = to_global(local_pos)
-	const HIT_SCENE = preload("res://scenes/player/hit_box.tscn")
-	var hit: HitBox = HIT_SCENE.instantiate()
-	body.add_child(hit)
-	hit.damage = damage
-	var sprir: Sprite3D = Sprite3D.new()
-	body.add_child(sprir)
-	sprir.texture = look
-	sprir.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	
-	add_child(body)
-	await get_tree().create_timer(life).timeout
-	body.queue_free()
+func activate_fdata(fdata: FrameData) -> void:
+	var anima: String = sprite.animation
+	hit_col.shape = fdata.col
+	hit_col.position = fdata.col_position
+	hit_col.rotation_degrees = fdata.col_rotation
+
+	hit_box.damage       = fdata.damage
+	hit_box.block_damage = fdata.block_damage
+	hit_box.stun_time    = fdata.stun_time
+	hit_box.knockback    = fdata.knockback
+	hit_box.low_hit      = fdata.low_hit
+	hit_box.sfx_type     = fdata.sfx_type
+
+	while sprite.animation == anima:
+		await sprite.frame_changed
+		
+		velocity.x = fdata.impulses[sprite.frame] * (float(facing_negative) * 2 - 1)
+
+		if sprite.frame == fdata.active_start:
+			hit_col.disabled = false
+		if sprite.frame == fdata.active_end:
+			hit_col.disabled = true
+		
+		

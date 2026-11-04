@@ -25,10 +25,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_state_change(id: int) -> void:
 	var state: State = states[id]
-	current._end()
-	state._start()
 	previous = current
 	current = state
+	previous._end()
+	current._start()
 	if print_change: print(previous.name+" -> "+current.name)
 	changed_state.emit(current,previous)
 

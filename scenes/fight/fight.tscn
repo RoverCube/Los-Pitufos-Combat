@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0ox28ohyv2d0" path="res://assets/UI/HUD/bar_mask.png" id="6_inaet"]
 [ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="7_boutc"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="8_rshxe"]
+[ext_resource type="Shader" uid="uid://dnv8426o62o4g" path="res://assets/shaders/repeat.gdshader" id="10_op15a"]
 [ext_resource type="PackedScene" uid="uid://c5odyx10bnn6i" path="res://assets/map/damn.blend" id="12_yisul"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3si2p"]
@@ -229,6 +230,30 @@ region = Rect2(0, 832, 512, 192)
 atlas = ExtResource("5_nsrxv")
 region = Rect2(512, 832, 512, 192)
 
+[sub_resource type="Gradient" id="Gradient_rshxe"]
+offsets = PackedFloat32Array(0.24242425, 0.4181818, 0.6484848)
+colors = PackedColorArray(0.64531654, 0.8426287, 0.96837586, 1, 0.18431373, 0.50980395, 0.6862745, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wksdn"]
+gradient = SubResource("Gradient_rshxe")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="Gradient" id="Gradient_op15a"]
+offsets = PackedFloat32Array(0.24242425, 0.4181818, 0.6484848)
+colors = PackedColorArray(0.64531654, 0.8426287, 0.96837586, 1, 0.18431373, 0.50980395, 0.6862745, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i672t"]
+gradient = SubResource("Gradient_op15a")
+width = 192
+height = 277
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
 [sub_resource type="LabelSettings" id="LabelSettings_fohwn"]
 line_spacing = 0.0
 font = ExtResource("5_vpnpn")
@@ -243,6 +268,18 @@ stacked_outline_0/size = 16
 stacked_outline_0/color = Color(0.18431373, 0.50980395, 0.6862745, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsrxv"]
+atlas = ExtResource("5_nsrxv")
+region = Rect2(0, 736, 256, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ho4n"]
+shader = ExtResource("10_op15a")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/full_white = true
+shader_parameter/alt_base_color = Color(0.89845616, 0.95375913, 0.9909796, 1)
+shader_parameter/first_color = Color(0, 0, 0, 1)
+shader_parameter/second_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boutc"]
 atlas = ExtResource("5_nsrxv")
 region = Rect2(0, 736, 256, 96)
 
@@ -687,6 +724,22 @@ z_index = -1
 texture = SubResource("AtlasTexture_inaet")
 centered = false
 
+[node name="Effect" type="CPUParticles2D" parent="HUD/Special1" unique_id=2142770178]
+position = Vector2(92, 95)
+emitting = false
+texture = SubResource("GradientTexture2D_wksdn")
+lifetime = 0.7
+emission_shape = 2
+emission_sphere_radius = 64.0
+gravity = Vector2(250, -900)
+
+[node name="Effect2" type="Sprite2D" parent="HUD/Special1" unique_id=1042442662]
+visible = false
+self_modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(114, 82)
+rotation = -0.12573071
+texture = SubResource("GradientTexture2D_i672t")
+
 [node name="Text" type="Label" parent="HUD/Special1" unique_id=948376964]
 offset_left = 66.0
 offset_top = 11.0
@@ -704,6 +757,15 @@ modulate = Color(0.27314225, 0.27314225, 0.27314222, 1)
 z_index = -1
 position = Vector2(209, 74)
 texture = SubResource("AtlasTexture_nsrxv")
+centered = false
+
+[node name="FilledBG2" type="Sprite2D" parent="HUD/Special1" unique_id=1741608366]
+visible = false
+modulate = Color(0.27314225, 0.27314225, 0.27314222, 1)
+z_index = -1
+material = SubResource("ShaderMaterial_4ho4n")
+position = Vector2(210, 74)
+texture = SubResource("AtlasTexture_boutc")
 centered = false
 
 [node name="Bar" type="Sprite2D" parent="HUD/Special1" unique_id=820528844]
@@ -725,6 +787,22 @@ z_index = -1
 texture = SubResource("AtlasTexture_inaet")
 centered = false
 
+[node name="Effect" type="CPUParticles2D" parent="HUD/Special2" unique_id=2033430271]
+position = Vector2(92, 95)
+emitting = false
+texture = SubResource("GradientTexture2D_wksdn")
+lifetime = 0.7
+emission_shape = 2
+emission_sphere_radius = 64.0
+gravity = Vector2(250, -900)
+
+[node name="Effect2" type="Sprite2D" parent="HUD/Special2" unique_id=478092011]
+visible = false
+self_modulate = Color(1, 1, 1, 0.54901963)
+position = Vector2(114, 82)
+rotation = -0.12573071
+texture = SubResource("GradientTexture2D_i672t")
+
 [node name="Text" type="Label" parent="HUD/Special2" unique_id=1645354498]
 offset_left = 162.0
 offset_top = 11.0
@@ -743,6 +821,15 @@ modulate = Color(0.27314225, 0.27314225, 0.27314222, 1)
 z_index = -1
 position = Vector2(209, 74)
 texture = SubResource("AtlasTexture_nsrxv")
+centered = false
+
+[node name="FilledBG2" type="Sprite2D" parent="HUD/Special2" unique_id=1856244953]
+visible = false
+modulate = Color(0.27314225, 0.27314225, 0.27314222, 1)
+z_index = -1
+material = SubResource("ShaderMaterial_4ho4n")
+position = Vector2(210, 74.00006)
+texture = SubResource("AtlasTexture_boutc")
 centered = false
 
 [node name="Bar" type="Sprite2D" parent="HUD/Special2" unique_id=1678403273]
