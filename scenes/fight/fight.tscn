@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="5_rscwf"]
 [ext_resource type="FontFile" uid="uid://b00aeum2sxp7a" path="res://assets/fonts/NumberFont.otf" id="5_vpnpn"]
 [ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="6_4ho4n"]
+[ext_resource type="Texture2D" uid="uid://bxc4ld5e0chue" path="res://assets/UI/HUD/walkie_talkie.png" id="6_i672t"]
 [ext_resource type="Texture2D" uid="uid://d0ox28ohyv2d0" path="res://assets/UI/HUD/bar_mask.png" id="6_inaet"]
 [ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="7_boutc"]
 [ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="8_rshxe"]
@@ -201,7 +202,10 @@ line_spacing = -3.0
 font = ExtResource("5_rscwf")
 font_size = 64
 outline_size = 16
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0.5137255, 1, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 16
+stacked_outline_0/color = Color(0, 0.10334764, 0.23571411, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nkawv"]
 shader = ExtResource("6_4ho4n")
@@ -212,15 +216,21 @@ shader_parameter/noise = ExtResource("7_boutc")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rscwf"]
 atlas = ExtResource("8_rshxe")
-region = Rect2(768, 0, 256, 256)
+region = Rect2(512, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_25m6f"]
-atlas = ExtResource("8_rshxe")
-region = Rect2(0, 0, 256, 256)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ho4n"]
+load_path = "res://.godot/imported/buttons_atlas.png-762bdf87fbdf5b3110052dea06e78f5f.s3tc.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ho4n"]
-atlas = ExtResource("8_rshxe")
-region = Rect2(256, 0, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rshxe"]
+atlas = SubResource("CompressedTexture2D_4ho4n")
+region = Rect2(160, 576, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_boutc"]
+load_path = "res://.godot/imported/buttons_atlas.png-762bdf87fbdf5b3110052dea06e78f5f.s3tc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4khdg"]
+atlas = SubResource("CompressedTexture2D_boutc")
+region = Rect2(224, 576, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8og4d"]
 atlas = ExtResource("5_nsrxv")
@@ -231,8 +241,8 @@ atlas = ExtResource("5_nsrxv")
 region = Rect2(512, 832, 512, 192)
 
 [sub_resource type="Gradient" id="Gradient_rshxe"]
-offsets = PackedFloat32Array(0.24242425, 0.4181818, 0.6484848)
-colors = PackedColorArray(0.64531654, 0.8426287, 0.96837586, 1, 0.18431373, 0.50980395, 0.6862745, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.11244019, 0.56698567, 0.6484848)
+colors = PackedColorArray(0.8173073, 0.8967592, 1, 1, 0, 0.5137255, 0.99607843, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wksdn"]
 gradient = SubResource("Gradient_rshxe")
@@ -241,12 +251,16 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
-[sub_resource type="Gradient" id="Gradient_op15a"]
-offsets = PackedFloat32Array(0.24242425, 0.4181818, 0.6484848)
-colors = PackedColorArray(0.64531654, 0.8426287, 0.96837586, 1, 0.18431373, 0.50980395, 0.6862745, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_i672t"]
+offsets = PackedFloat32Array(0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_i672t"]
-gradient = SubResource("Gradient_op15a")
+[sub_resource type="Gradient" id="Gradient_4ho4n"]
+offsets = PackedFloat32Array(0.36124402, 0.6484848)
+colors = PackedColorArray(0, 0.5137255, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boutc"]
+gradient = SubResource("Gradient_4ho4n")
 width = 192
 height = 277
 fill = 1
@@ -288,6 +302,64 @@ shader = ExtResource("5_8og4d")
 shader_parameter/mask = ExtResource("6_inaet")
 shader_parameter/value = 0.6800000323
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wksdn"]
+shader = ExtResource("10_op15a")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/full_white = true
+shader_parameter/alt_base_color = Color(0, 0.5137255, 1, 1)
+shader_parameter/first_color = Color(0, 0, 0, 1)
+shader_parameter/second_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rshxe"]
+shader = ExtResource("10_op15a")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/full_white = true
+shader_parameter/alt_base_color = Color(0.9843587, 0, 0.07463863, 1)
+shader_parameter/first_color = Color(0, 0, 0, 1)
+shader_parameter/second_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_rscwf"]
+offsets = PackedFloat32Array(0.11244019, 0.56698567, 0.6484848)
+colors = PackedColorArray(1, 0.84817886, 0.8254196, 1, 1, 0.30588236, 0.2627451, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ho4n"]
+gradient = SubResource("Gradient_rscwf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="Gradient" id="Gradient_boutc"]
+offsets = PackedFloat32Array(0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_op15a"]
+offsets = PackedFloat32Array(0.36124402, 0.6484848)
+colors = PackedColorArray(0.9843137, 0, 0.07450981, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i672t"]
+gradient = SubResource("Gradient_op15a")
+width = 192
+height = 277
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_rshxe"]
+line_spacing = 0.0
+font = ExtResource("5_vpnpn")
+font_size = 192
+outline_size = 16
+outline_color = Color(0.003921569, 0.02745098, 0.047058824, 1)
+shadow_size = 16
+shadow_color = Color(0.7628686, 0.3103031, 0.26804608, 1)
+shadow_offset = Vector2(-8, 8)
+stacked_outline_count = 1
+stacked_outline_0/size = 16
+stacked_outline_0/color = Color(0.7628686, 0.3103031, 0.26804608, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4qaks"]
 shader = ExtResource("5_8og4d")
 shader_parameter/mask = ExtResource("6_inaet")
@@ -301,19 +373,99 @@ region = Rect2(0, 0, 768, 192)
 atlas = ExtResource("5_nsrxv")
 region = Rect2(0, 192, 768, 192)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpnpn"]
-shader = ExtResource("5_8og4d")
-shader_parameter/mask = ExtResource("6_inaet")
-shader_parameter/value = 1.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_boutc"]
+shader = ExtResource("10_op15a")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/full_white = true
+shader_parameter/alt_base_color = Color(0, 0.5137255, 1, 1)
+shader_parameter/first_color = Color(0, 0, 0, 1)
+shader_parameter/second_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fohwn"]
 atlas = ExtResource("5_nsrxv")
 region = Rect2(0, 384, 672, 128)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpnpn"]
+shader = ExtResource("5_8og4d")
+shader_parameter/mask = ExtResource("6_inaet")
+shader_parameter/value = 0.5150000244625
+
+[sub_resource type="Gradient" id="Gradient_wksdn"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5151515, 0.6969697)
+colors = PackedColorArray(0.9843137, 0, 0.07450981, 1, 0.53148484, 0, 0.021359801, 1, 0, 0.5137255, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4khdg"]
+gradient = SubResource("Gradient_wksdn")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nhjpb"]
+gradient = SubResource("Gradient_wksdn")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4khdg"]
+shader = SubResource("Shader_uxao6")
+shader_parameter/lines = 16
+shader_parameter/amplitude = 1.0
+shader_parameter/frequency = 0.1
+shader_parameter/intensity = 0.75
+shader_parameter/line_sharpness = 1.0
+shader_parameter/line_size = 1.0
+shader_parameter/fade = 0.0
+shader_parameter/rest_size = 9.49999998667295e-08
+shader_parameter/edge = 0.170000008075
+shader_parameter/speed = 0.5
+shader_parameter/color = Color(0, 0.5137255, 1, 1)
+shader_parameter/dot_matrix = false
+shader_parameter/dot_matriz_size = 80
+shader_parameter/speech_sim = false
+shader_parameter/speech_intensity = 0.8
+shader_parameter/progress = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fohwn"]
 shader = ExtResource("5_8og4d")
 shader_parameter/mask = ExtResource("6_inaet")
-shader_parameter/value = 1.0
+shader_parameter/value = 0.6950000330125
+
+[sub_resource type="Gradient" id="Gradient_667pu"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5151515, 0.6969697)
+colors = PackedColorArray(0, 0.5137255, 1, 1, 0, 0.26686537, 0.5359202, 1, 0, 0.5137255, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_badmx"]
+gradient = SubResource("Gradient_667pu")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhjpb"]
+shader = SubResource("Shader_uxao6")
+shader_parameter/lines = 16
+shader_parameter/amplitude = 1.0
+shader_parameter/frequency = 0.1
+shader_parameter/intensity = 0.75
+shader_parameter/line_sharpness = 1.0
+shader_parameter/line_size = 1.0
+shader_parameter/fade = 0.0
+shader_parameter/rest_size = 9.49999998667295e-08
+shader_parameter/edge = 0.170000008075
+shader_parameter/speed = 0.5
+shader_parameter/color = Color(0.9843137, 0, 0.07450981, 1)
+shader_parameter/dot_matrix = false
+shader_parameter/dot_matriz_size = 80
+shader_parameter/speech_sim = false
+shader_parameter/speech_intensity = 0.8
+shader_parameter/progress = 1.0
 
 [sub_resource type="Animation" id="Animation_4d60p"]
 length = 0.001
@@ -356,7 +508,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Fight:scale")
+tracks/3/path = NodePath("Round:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -368,7 +520,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Fight:modulate")
+tracks/4/path = NodePath("Round:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -432,6 +584,126 @@ tracks/9/path = NodePath(".:fight_ended")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ColorRect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Walkie:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(874, 1374)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Walkie:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0471976]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Walkie:frame")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Ready:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("HUD:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Round:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Continue:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("VictoryCard:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -514,10 +786,42 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VictoryCard:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Continue:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4ho4n"]
+resource_name = "final round"
+step = 0.08333334
+
+[sub_resource type="Animation" id="Animation_boutc"]
+resource_name = "round 2"
+step = 0.08333334
 
 [sub_resource type="Animation" id="Animation_vpnpn"]
 resource_name = "start"
-length = 2.0000086
+length = 1.8333418
 step = 0.08333334
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -526,7 +830,7 @@ tracks/0/path = NodePath("HUD:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.3333334, 1.6666666),
+"times": PackedFloat32Array(1.1666663, 1.4999998),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -538,7 +842,7 @@ tracks/1/path = NodePath("Ready:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.25, 1),
+"times": PackedFloat32Array(0, 0.16666675, 0.25, 0.5833333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(1.05, 1.05)]
@@ -550,7 +854,7 @@ tracks/2/path = NodePath("Ready:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 1.3333333, 1.4999999),
+"times": PackedFloat32Array(0, 0.16666675, 1.1666663, 1.3333328),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -558,11 +862,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Fight:scale")
+tracks/3/path = NodePath("Round:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.3333333, 1.5, 1.5833333),
+"times": PackedFloat32Array(1.1666663, 1.3333328, 1.4166663),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(3, 3), Vector2(0.8, 0.8), Vector2(1, 1)]
@@ -570,21 +874,222 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Fight:modulate")
+tracks/4/path = NodePath("Round:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.3333334, 1.5, 1.8333334, 2),
+"times": PackedFloat32Array(1.1666663, 1.3333328, 1.6666663, 1.8333328),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ready:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.1666665),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Round:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.1666665),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rshxe"]
+resource_name = "walkie down"
+length = 0.33334172
+step = 0.08333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walkie:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-7.4505806e-08, 0.33333313),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(874, 693), Vector2(874, 1374)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Walkie:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-7.4505806e-08, 0.33333313),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [0.0, 1.0471975511965976]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Walkie:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.083333336),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i672t"]
+resource_name = "walkie idle"
+length = 0.6667
+loop_mode = 1
+step = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walkie:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_rscwf"]
+resource_name = "walkie up"
+length = 0.8333418
+step = 0.08333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Walkie:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.49999994, 0.74999994, 0.8333333),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(874, 1374), Vector2(874, 740.00006), Vector2(874, 693)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Walkie:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.49999994, 0.74999994, 0.8333333),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [-1.0471976, 0.2617994, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Walkie:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.41666666, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ready:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(-1.1920929e-07),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Round:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fohwn"]
 _data = {
 &"RESET": SubResource("Animation_4d60p"),
 &"end": SubResource("Animation_4qaks"),
-&"start": SubResource("Animation_vpnpn")
+&"final round": SubResource("Animation_4ho4n"),
+&"round 2": SubResource("Animation_boutc"),
+&"start": SubResource("Animation_vpnpn"),
+&"walkie down": SubResource("Animation_rshxe"),
+&"walkie idle": SubResource("Animation_i672t"),
+&"walkie up": SubResource("Animation_rscwf")
 }
 
 [node name="Fight" type="Node3D" unique_id=459350221]
@@ -593,7 +1098,7 @@ char_scenes = Array[PackedScene]([ExtResource("2_3si2p"), ExtResource("2_3si2p")
 player_distance = 1.0
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1689402613]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1999999, 5)
 keep_aspect = 0
 fov = 70.0
 script = ExtResource("2_3a20j")
@@ -609,6 +1114,14 @@ debug_color = Color(1, 1, 1, 0)
 transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 3.5, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_3si2p")
 debug_color = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=930188716]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=41503782]
 transform = Transform3D(-0.56869864, -0.63354045, 0.52460337, -0.15630007, 0.7093926, 0.6872645, -0.8075595, 0.30885077, -0.5024528, 0, 0, 0)
@@ -635,14 +1148,26 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -6, 
 shape = SubResource("WorldBoundaryShape3D_nsrxv")
 debug_color = Color(0.5760774, 0.8222296, 1, 1)
 
+[node name="Walkie" type="Sprite2D" parent="." unique_id=1153554190]
+material = SubResource("ShaderMaterial_yisul")
+position = Vector2(874, 1374)
+rotation = -1.0471976
+scale = Vector2(1.6056823, 1.6056823)
+texture = ExtResource("6_i672t")
+offset = Vector2(48, -96)
+hframes = 2
+vframes = 2
+
 [node name="Ready" type="Sprite2D" parent="." unique_id=553843369]
+visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_yisul")
 position = Vector2(960, 540)
 scale = Vector2(3, 3)
 texture = SubResource("CompressedTexture2D_i672t")
 
-[node name="Fight" type="Sprite2D" parent="." unique_id=583249764]
+[node name="Round" type="Sprite2D" parent="." unique_id=583249764]
+visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_op15a")
 position = Vector2(960, 540)
@@ -650,6 +1175,7 @@ scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_4d60p")
 
 [node name="VictoryCard" type="Sprite2D" parent="." unique_id=1980798513]
+visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_rscwf")
 position = Vector2(1468, 718)
@@ -666,52 +1192,60 @@ offset_bottom = 569.42285
 rotation = -0.3195035
 pivot_offset = Vector2(0, 256)
 
+[node name="P1" type="Sprite2D" parent="VictoryCard" unique_id=2004774397]
+
+[node name="P2" type="Sprite2D" parent="VictoryCard" unique_id=771822955]
+
 [node name="Continue" type="Node2D" parent="." unique_id=43884804]
+visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(76, 659)
+position = Vector2(487, 909.00006)
 scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="Continue" unique_id=1932681021]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "jogar denovo"
+offset_left = -341.0
+offset_top = -72.0
+offset_right = -1.0
+offset_bottom = 5.0
+text = "Jogar denovo"
 label_settings = SubResource("LabelSettings_wksdn")
 
 [node name="InputI" type="Sprite2D" parent="Continue/Label" unique_id=2037394015]
 material = SubResource("ShaderMaterial_nkawv")
-position = Vector2(399, 32)
+position = Vector2(424.00003, 36.999943)
 scale = Vector2(0.4, 0.4)
 texture = SubResource("AtlasTexture_rscwf")
 
-[node name="Label2" type="Label" parent="Continue" unique_id=1132115764]
-offset_top = 89.0
-offset_right = 334.0
-offset_bottom = 240.0
-text = "trocar de
-personagens"
-label_settings = SubResource("LabelSettings_wksdn")
-vertical_alignment = 1
+[node name="ColorRect2" type="ColorRect" parent="Continue/Label/InputI" unique_id=1808449472]
+show_behind_parent = true
+offset_left = -164.0
+offset_right = 70.0
+offset_bottom = 234.0
+rotation = -0.7853982
+color = Color(0, 0.101960786, 0.23529412, 1)
 
-[node name="InputI" type="Sprite2D" parent="Continue/Label2" unique_id=2072186705]
-material = SubResource("ShaderMaterial_nkawv")
-position = Vector2(399, 77)
-scale = Vector2(0.4, 0.4)
-texture = SubResource("AtlasTexture_25m6f")
+[node name="ColorRect" type="ColorRect" parent="Continue/Label/InputI" unique_id=975375846]
+show_behind_parent = true
+offset_left = -143.0
+offset_right = 59.0
+offset_bottom = 202.0
+rotation = -0.7853982
+color = Color(0, 0.5137255, 1, 1)
 
-[node name="Label3" type="Label" parent="Continue" unique_id=1064173442]
-offset_top = 265.0
-offset_right = 275.0
-offset_bottom = 342.0
-text = "menu incial"
-label_settings = SubResource("LabelSettings_wksdn")
+[node name="Confirm1" type="Sprite2D" parent="Continue/Label" unique_id=1896015087]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(127.88028, -48.00006)
+rotation = -0.34208453
+texture = SubResource("AtlasTexture_rshxe")
 
-[node name="InputI" type="Sprite2D" parent="Continue/Label3" unique_id=392762468]
-material = SubResource("ShaderMaterial_nkawv")
-position = Vector2(332, 32)
-scale = Vector2(0.4, 0.4)
-texture = SubResource("AtlasTexture_4ho4n")
+[node name="Confirm2" type="Sprite2D" parent="Continue/Label" unique_id=1174315755]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(216.88031, -42.00006)
+rotation = -0.45727625
+texture = SubResource("AtlasTexture_4khdg")
 
 [node name="HUD" type="Node2D" parent="." unique_id=668716179]
+visible = false
 modulate = Color(1, 1, 1, 0)
 
 [node name="Special1" type="Sprite2D" parent="HUD" unique_id=441381680]
@@ -725,20 +1259,20 @@ texture = SubResource("AtlasTexture_inaet")
 centered = false
 
 [node name="Effect" type="CPUParticles2D" parent="HUD/Special1" unique_id=2142770178]
-position = Vector2(92, 95)
-emitting = false
+position = Vector2(133, 98)
 texture = SubResource("GradientTexture2D_wksdn")
 lifetime = 0.7
 emission_shape = 2
 emission_sphere_radius = 64.0
 gravity = Vector2(250, -900)
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_i672t")
 
 [node name="Effect2" type="Sprite2D" parent="HUD/Special1" unique_id=1042442662]
-visible = false
 self_modulate = Color(1, 1, 1, 0.54901963)
 position = Vector2(114, 82)
 rotation = -0.12573071
-texture = SubResource("GradientTexture2D_i672t")
+texture = SubResource("GradientTexture2D_boutc")
 
 [node name="Text" type="Label" parent="HUD/Special1" unique_id=948376964]
 offset_left = 66.0
@@ -775,6 +1309,14 @@ position = Vector2(209, 74)
 texture = SubResource("AtlasTexture_nsrxv")
 centered = false
 
+[node name="BG2" type="Sprite2D" parent="HUD/Special1" unique_id=313879171]
+show_behind_parent = true
+z_index = -1
+material = SubResource("ShaderMaterial_wksdn")
+position = Vector2(6.000002, -15.999999)
+texture = SubResource("AtlasTexture_inaet")
+centered = false
+
 [node name="Special2" type="Sprite2D" parent="HUD" unique_id=959811336]
 position = Vector2(1868, 858)
 rotation = 3.1415927
@@ -787,19 +1329,27 @@ z_index = -1
 texture = SubResource("AtlasTexture_inaet")
 centered = false
 
+[node name="BG2" type="Sprite2D" parent="HUD/Special2" unique_id=1467378770]
+show_behind_parent = true
+z_index = -1
+material = SubResource("ShaderMaterial_rshxe")
+position = Vector2(6.000002, -15.999999)
+texture = SubResource("AtlasTexture_inaet")
+centered = false
+
 [node name="Effect" type="CPUParticles2D" parent="HUD/Special2" unique_id=2033430271]
-position = Vector2(92, 95)
-emitting = false
-texture = SubResource("GradientTexture2D_wksdn")
+position = Vector2(133, 98)
+texture = SubResource("GradientTexture2D_4ho4n")
 lifetime = 0.7
 emission_shape = 2
 emission_sphere_radius = 64.0
 gravity = Vector2(250, -900)
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_boutc")
 
 [node name="Effect2" type="Sprite2D" parent="HUD/Special2" unique_id=478092011]
-visible = false
 self_modulate = Color(1, 1, 1, 0.54901963)
-position = Vector2(114, 82)
+position = Vector2(126, 88)
 rotation = -0.12573071
 texture = SubResource("GradientTexture2D_i672t")
 
@@ -811,7 +1361,7 @@ offset_bottom = 203.0
 rotation = -0.0891
 scale = Vector2(-1, 1)
 text = "0"
-label_settings = SubResource("LabelSettings_fohwn")
+label_settings = SubResource("LabelSettings_rshxe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -850,12 +1400,56 @@ position = Vector2(10, 1)
 texture = SubResource("AtlasTexture_vpnpn")
 centered = false
 
+[node name="BG2" type="Sprite2D" parent="HUD/Health1" unique_id=764118075]
+show_behind_parent = true
+z_index = -1
+material = SubResource("ShaderMaterial_boutc")
+position = Vector2(14, 22)
+texture = SubResource("AtlasTexture_vpnpn")
+centered = false
+
+[node name="Bar2" type="Sprite2D" parent="HUD/Health1" unique_id=589665327]
+modulate = Color(0.29038858, 0.20109472, 0.1912643, 1)
+z_index = -1
+position = Vector2(54, 34)
+texture = SubResource("AtlasTexture_fohwn")
+centered = false
+
 [node name="Bar" type="Sprite2D" parent="HUD/Health1" unique_id=1593437733]
 z_index = -1
 material = SubResource("ShaderMaterial_vpnpn")
 position = Vector2(54, 34)
 texture = SubResource("AtlasTexture_fohwn")
 centered = false
+
+[node name="Won2" type="Sprite2D" parent="HUD/Health1" unique_id=1710843016]
+visible = false
+position = Vector2(521, 176)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = SubResource("GradientTexture2D_4khdg")
+
+[node name="Won1" type="Sprite2D" parent="HUD/Health1" unique_id=1460127297]
+visible = false
+position = Vector2(424, 176)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = SubResource("GradientTexture2D_nhjpb")
+
+[node name="SideDeco" type="ColorRect" parent="HUD/Health1" unique_id=133487729]
+clip_children = 2
+z_index = -1
+material = SubResource("ShaderMaterial_4khdg")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 144.0
+offset_right = 295.0
+offset_bottom = 208.0
+grow_horizontal = 2
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(160, 95)
 
 [node name="Health2" type="Sprite2D" parent="HUD" unique_id=413517496]
 position = Vector2(1889, 28)
@@ -870,12 +1464,56 @@ position = Vector2(10, 1)
 texture = SubResource("AtlasTexture_vpnpn")
 centered = false
 
+[node name="BG2" type="Sprite2D" parent="HUD/Health2" unique_id=1630041041]
+show_behind_parent = true
+z_index = -1
+material = SubResource("ShaderMaterial_rshxe")
+position = Vector2(14, 22.000002)
+texture = SubResource("AtlasTexture_vpnpn")
+centered = false
+
+[node name="Bar3" type="Sprite2D" parent="HUD/Health2" unique_id=1149060421]
+modulate = Color(0.29038858, 0.20109472, 0.1912643, 1)
+z_index = -1
+position = Vector2(54, 34)
+texture = SubResource("AtlasTexture_fohwn")
+centered = false
+
 [node name="Bar" type="Sprite2D" parent="HUD/Health2" unique_id=1159784161]
 z_index = -1
 material = SubResource("ShaderMaterial_fohwn")
 position = Vector2(54, 34)
 texture = SubResource("AtlasTexture_fohwn")
 centered = false
+
+[node name="Won2" type="Sprite2D" parent="HUD/Health2" unique_id=1728197258]
+visible = false
+position = Vector2(521, 176)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = SubResource("GradientTexture2D_badmx")
+
+[node name="Won1" type="Sprite2D" parent="HUD/Health2" unique_id=2074547088]
+visible = false
+position = Vector2(424, 176)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = SubResource("GradientTexture2D_badmx")
+
+[node name="SideDeco" type="ColorRect" parent="HUD/Health2" unique_id=343410948]
+clip_children = 2
+z_index = -1
+material = SubResource("ShaderMaterial_nhjpb")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 144.0
+offset_right = 295.0
+offset_bottom = 208.0
+grow_horizontal = 2
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(160, 95)
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1821755614]
 libraries/ = SubResource("AnimationLibrary_fohwn")

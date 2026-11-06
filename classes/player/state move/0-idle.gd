@@ -1,6 +1,10 @@
 extends PlayerState
 
 func _start() -> void:
+	if fsm.previous == null:
+		hold_state = true
+		await player.ready
+		hold_state = false
 	player.anim("idle")
 	player.velocity = Vector3.ZERO
 

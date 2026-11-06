@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://bdsy86p5vf12w"]
+
+[ext_resource type="Script" uid="uid://hs0f47udsxyx" path="res://classes/demo_start.gd" id="1_6x165"]
+[ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="1_uueja"]
+[ext_resource type="Shader" uid="uid://dgosx4eq6h4nm" path="res://assets/shaders/squiggle.gdshader" id="2_6x165"]
+[ext_resource type="Texture2D" uid="uid://6vfx0t3jcknk" path="res://assets/UI/squiggle_noise.tres" id="3_ukjk1"]
+[ext_resource type="Texture2D" uid="uid://djmhj2nhl1cvu" path="res://assets/UI/buttons_atlas.png" id="4_eqa2d"]
+[ext_resource type="Shader" uid="uid://cjkj2gf3aqeyq" path="res://assets/shaders/grid_scrol.gdshader" id="6_ukjk1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ra665"]
+line_spacing = -3.0
+font = ExtResource("1_uueja")
+font_size = 128
+outline_size = 32
+outline_color = Color(0, 0.5137255, 1, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 32
+stacked_outline_0/color = Color(0, 0.10334764, 0.23571411, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jd7wg"]
+shader = ExtResource("2_6x165")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.4
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_ukjk1")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0faw8"]
+atlas = ExtResource("4_eqa2d")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="Gradient" id="Gradient_25m6f"]
+colors = PackedColorArray(0, 0.5154046, 0.99221903, 0.4509804, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jd7wg"]
+gradient = SubResource("Gradient_25m6f")
+width = 1920
+height = 1080
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_eqa2d"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9)
+colors = PackedColorArray(0.028545806, 0.032648917, 0.046838433, 1, 0.08826355, 0.12830928, 0.17980275, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vr0hv"]
+gradient = SubResource("Gradient_eqa2d")
+fill = 2
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ra665"]
+shader = ExtResource("6_ukjk1")
+shader_parameter/scroll_speed = 0.150000007125
+shader_parameter/angle_degrees = 315.0000149625
+shader_parameter/repeat_x = 16.0000007125
+shader_parameter/repeat_y = 9.00000038
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = SubResource("GradientTexture2D_vr0hv")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ho4n"]
+load_path = "res://.godot/imported/buttons_atlas.png-762bdf87fbdf5b3110052dea06e78f5f.s3tc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13awr"]
+atlas = SubResource("CompressedTexture2D_4ho4n")
+region = Rect2(160, 576, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wksdn"]
+load_path = "res://.godot/imported/buttons_atlas.png-762bdf87fbdf5b3110052dea06e78f5f.s3tc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fg05"]
+atlas = SubResource("CompressedTexture2D_wksdn")
+region = Rect2(224, 576, 64, 64)
+
+[node name="DemoStart" type="Node2D" unique_id=955281586]
+script = ExtResource("1_6x165")
+
+[node name="Label" type="Label" parent="." unique_id=1803797421]
+offset_right = 1920.0
+offset_bottom = 1080.0
+text = "pronto para jogar?
+2"
+label_settings = SubResource("LabelSettings_ra665")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputI" type="Sprite2D" parent="Label" unique_id=713114689]
+material = SubResource("ShaderMaterial_jd7wg")
+position = Vector2(960, 667)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_0faw8")
+
+[node name="ColorRect2" type="ColorRect" parent="Label/InputI" unique_id=939757569]
+show_behind_parent = true
+offset_left = -164.0
+offset_right = 70.0
+offset_bottom = 234.0
+rotation = -0.7853982
+color = Color(0, 0.101960786, 0.23529412, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Label/InputI" unique_id=1641386343]
+show_behind_parent = true
+offset_left = -143.0
+offset_right = 59.0
+offset_bottom = 202.0
+rotation = -0.7853982
+color = Color(0, 0.5137255, 1, 1)
+
+[node name="Gradient" type="Sprite2D" parent="Label" unique_id=1451963147]
+texture = SubResource("GradientTexture2D_jd7wg")
+centered = false
+
+[node name="Black" type="ColorRect" parent="Label" unique_id=1824330434]
+modulate = Color(1, 1, 1, 0)
+z_index = 205
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PhMenuBg" type="ColorRect" parent="Label" unique_id=2128685168]
+z_index = -9
+material = SubResource("ShaderMaterial_ra665")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Confirm1" type="Sprite2D" parent="Label" unique_id=1333838785]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(660.99994, 788.76056)
+rotation = -0.34208456
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_13awr")
+
+[node name="Button" type="Button" parent="Label" unique_id=1495854676]
+layout_mode = 0
+offset_left = 0.00012207031
+offset_right = 150.00012
+offset_bottom = 107.0
+
+[node name="Confirm2" type="Sprite2D" parent="Label" unique_id=851617341]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1251, 794.7605)
+rotation = -0.45727625
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_5fg05")
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]

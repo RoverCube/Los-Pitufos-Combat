@@ -16,7 +16,7 @@ func _checks() -> void:
 			change_state(1)
 		if move_fsm.current == move_jump_state:
 			attack_type = 9
-			move_anim_state.stop_on_ground = true
+			#move_anim_state.stop_on_ground = true
 			move_anim_state.go_to_state = -1
 			change_state(1)
 		
@@ -26,7 +26,7 @@ func _checks() -> void:
 			if player.hp_input == true: attack_type = 1
 			if player.lk_input == true: attack_type = 2
 			if player.hk_input == true: attack_type = 3
-#			if player.special_onoff == true: 
-#				attack_type += 4
+			if player.special_onoff == true: 
+				attack_type += 4
 			change_state(1)
 		

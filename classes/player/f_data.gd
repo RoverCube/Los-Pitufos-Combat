@@ -15,3 +15,7 @@ extends Resource
 @export var col          : BoxShape3D
 @export var col_position : Vector3
 @export var col_rotation : Vector3
+@export_category("Collision")
+@export_group("Extras")
+@export var projectile    : FrameDataProjectile
+@export var ultimate_data : FrameDataUlt

@@ -12,9 +12,9 @@ func _enter_tree() -> void:
 
 func on_pressed() -> void:
 	if id == -1:
-		loads.summon()
-		await loads.got_black
-		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+		#loads.summon()
+		#await loads.got_black
+		get_tree().change_scene_to_file("res://scenes/demo_start.tscn")
 	text = "binding "+actions[id]
 	binding = true
 

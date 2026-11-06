@@ -1,10 +1,9 @@
 class_name PSAnim
 extends PlayerState
 
-@export var go_to_state      : int = -1
-@export var stop_on_ground   : bool = false
-@export var stop_on_start    : bool = false
-
+@export var go_to_state    : int = -1
+@export var stop_on_ground : bool = false
+@export var stop_on_start  : bool = false
 
 func _start() -> void:
 	if stop_on_start == true:
@@ -31,9 +30,10 @@ func _checks() -> void:
 	if hold_state == true: return
 
 	if player.crouch_input == true:
-		change_state(3) # WALK
+		change_state(3) # CROUCH
 	if player.jump_input == true:
-		change_state(2) # WALK
+		change_state(2) # JUMP
 	if player.dir_input != 0.0:
 		change_state(1) # WALK
-	change_state(0) # IDLE	
+	if player.is_on_floor() == true:
+		change_state(0) # IDLE

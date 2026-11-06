@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cssxhsm7bol7t"]
 
 [ext_resource type="FontFile" uid="uid://coakyvaeekija" path="res://assets/fonts/chinese rocks.otf" id="1_sl1rt"]
-[ext_resource type="PackedScene" uid="uid://deqtdwfup8pur" path="res://scenes/menus/loading_screen.tscn" id="2_53tfa"]
 [ext_resource type="Script" uid="uid://c4lsfmh5hfytl" path="res://classes/UI/menu/controller_mapper.gd" id="2_a3kdu"]
 [ext_resource type="Shader" uid="uid://cjkj2gf3aqeyq" path="res://assets/shaders/grid_scrol.gdshader" id="3_mi40u"]
 
@@ -271,7 +270,7 @@ autowrap_mode = 2
 script = ExtResource("2_a3kdu")
 id = -1
 player = 2
-loads = NodePath("../LoadingScreen")
+loads = NodePath("")
 
 [node name="P22" type="VBoxContainer" parent="." unique_id=1826730428]
 layout_mode = 0
@@ -323,6 +322,3 @@ autowrap_mode = 2
 script = ExtResource("2_a3kdu")
 id = 12
 player = 2
-
-[node name="LoadingScreen" parent="." unique_id=339945927 instance=ExtResource("2_53tfa")]
-layout_mode = 0
